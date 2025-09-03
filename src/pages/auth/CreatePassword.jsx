@@ -1,93 +1,149 @@
-import { Link } from 'react-router-dom';
-import { useEffect,useState } from 'react';
+import React, { useState } from "react";
+import {
+  Box,
+  Typography,
+  Button,
+  OutlinedInput,
+  InputAdornment,
+  IconButton,
+  Checkbox,
+  FormControlLabel,
+} from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { Link, useNavigate } from "react-router-dom";
 
-// material-ui
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+const CreatePassword = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
 
-// project imports
-import AuthWrapper from 'sections/auth/AuthWrapper';
-import CreatePasswordWrapper from 'sections/auth/CreatePasswordWrapper';
-import FirebaseRegister from 'sections/auth/AuthRegister';
-import AuthLogin from 'sections/auth/AuthLogin';
-import AuthCreatePassword from 'sections/auth/AuthCreatePassword';
-import Login from './Login';
-import Button from '@mui/material/Button';
-
-import image from "./background.png"
-
-
-
-export default function CreatePassword() {
-
-  const [option, setOption] = useState('signUp')
-  const [bgColor, setBgColor] = useState('#2B04DB')
-
-
-  const SignIn =()=>{
-    setOption('signUp')
-   
-  
-
-  }
-
-  const Login =()=>{
-    setOption('login')
-    
- 
-
-  }
-
-  
-          useEffect(() => {
-        
-          document.body.style.zoom = '85%'; 
-  
-        }, [])
-
-
-
-
+  const navigate = useNavigate()
 
   return (
+    <Box
+      sx={{
+        minHeight: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        mt:5,
+      //  alignItems: "center",
+      //  backgroundColor: "#0A0047", // dark background
+        p: 2,
+      }}
+    >
+      {/* Centered Form */}
+      <Box sx={{ width: "100%", maxWidth: 420 }}>
+        {/* Title */}
+        <Typography
+          variant="h5"
+          sx={{ fontWeight: "bold", textAlign: "center", mb: 1, color: "#111" }}
+        >
+          Create your Password
+        </Typography>
+        <Typography
+          variant="body2"
+          sx={{ textAlign: "center", color: "#666", mb: 4 }}
+        >
+          Create a Password for your account
+        </Typography>
 
+        {/* Password Input */}
+        <Typography sx={{ fontSize: 14, fontWeight: 500, mb: 1, color: "#111" }}>
+          Create Password
+        </Typography>
+        <OutlinedInput
+          type={showPassword ? "text" : "password"}
+          placeholder="Enter password"
+          fullWidth
+          sx={{
+               height:45, 
+            mb: 3,
+            borderRadius: 2,
+            backgroundColor: "#F9FAFB",
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#E0E0E0",
+            },
+            "&:hover .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#C0C0C0",
+            },
+            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#5B2EFF",
+            },
+          }}
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          }
+        />
 
+        {/* Confirm Password */}
+        <Typography sx={{ fontSize: 14, fontWeight: 500, mb: 1, color: "#111" }}>
+          Confirm Password
+        </Typography>
+        <OutlinedInput
+          type={showConfirm ? "text" : "password"}
+          placeholder="Confirm password"
+          fullWidth
+          sx={{
+               height:45, 
+            mb: 2,
+            borderRadius: 2,
+            backgroundColor: "#F9FAFB",
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#E0E0E0",
+            },
+            "&:hover .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#C0C0C0",
+            },
+            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#5B2EFF",
+            },
+          }}
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton onClick={() => setShowConfirm(!showConfirm)}>
+                {showConfirm ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          }
+        />
 
+        {/* Checkbox */}
+        <FormControlLabel
+          control={<Checkbox size="small" sx={{ color: "#5B2EFF" }} />}
+          label={
+            <Typography sx={{ fontSize: 12, color: "#333" }}>
+              Log into your account anytime with this password
+            </Typography>
+          }
+          sx={{ mb: 3 }}
+        />
 
+        {/* Button */}
 
-       <CreatePasswordWrapper >
         
-      <Grid container spacing={2}>
-    
-
-     
-        <Grid size={12}>
-          <Stack sx={{  alignItems:'center', justifyContent: 'center', mb: { xs: -0.5, sm: 0.5 } }}>
-            <Typography variant="h4" color='black' fontWeight={900}>Create your Password</Typography>
-            <Typography variant="h6" color='#747583' fontSize={12} fontWeight={100} >Create a Password for your account.</Typography>
-          </Stack>
-        </Grid>
-
-       
-        <Grid size={12}>
-        
-          <AuthCreatePassword />
-
-     
-        </Grid>
-      </Grid>
-
-  
-    </CreatePasswordWrapper>
-
-
-  
-
- 
-
-
-
-   
+        <Button
+        onClick={()=>navigate('/Authentication/SelectChannel')}
+          fullWidth
+          sx={{
+            bgcolor: "#2B04DB",
+            color: "#fff",
+            textTransform: "none",
+            py: 1,
+            borderRadius: 30,
+            fontWeight: "bold",
+            fontSize: 16,
+            "&:hover": { bgcolor: "#3a0efdff", color:'white' },
+          }}
+        >
+          Create Password
+        </Button>
+      
+      </Box>
+    </Box>
   );
-}
+};
+
+export default CreatePassword;

@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
 // material-ui
 import Avatar from '@mui/material/Avatar';
@@ -98,6 +98,14 @@ const status = [
 ];
 
 
+
+
+
+
+
+
+
+
 // ==============================|| DASHBOARD - DEFAULT ||============================== //
 
 export default function DashboardDefault() {
@@ -107,20 +115,95 @@ export default function DashboardDefault() {
 
 
 
+  //  const [width, setWidth] = useState(
+  //   typeof window !== "undefined" ? window.innerWidth : 1024
+  // );
 
+  // // ✅ Track window size (responsive)
+  // useEffect(() => {
+  //   const handleResize = () => setWidth(window.innerWidth);
+  //   window.addEventListener("resize", handleResize);
+
+  //   // Run once on mount
+  //   handleResize();
+
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
+
+  // // ✅ Decide zoom level based on width
+  // const zoom = useMemo(() => {
+  //   return width <= 768 ? 0.55 : 0.44; // same values you used
+  // }, [width]);
+
+  // // ✅ Apply the zoom to the body
+  // useEffect(() => {
+  //   document.body.style.zoom = zoom;
+  // }, [zoom]);
+
+
+
+
+  // useEffect(() => {
+
+
+
+  //   if (window.innerWidth <= 768) {
+  //     document.body.style.zoom = '55%';
+  //   } else {
+  //     document.body.style.zoom = '44%';
+
+  //   }
+
+  // }, [window])
+
+
+  
+
+
+
+
+
+  const [width, setWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  );
+
+  // ✅ Track window size (responsive)
   useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
 
+    // Run once on mount
+    handleResize();
 
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-    if (window.innerWidth <= 768) {
-      document.body.style.zoom = '55%';
+  // ✅ Decide zoom level based on width
+  const zoom = useMemo(() => {
+    return width <= 768 ? 0.55 : 0.44; // same values you used
+  }, [width]);
+
+  // ✅ Apply zoom (with cross-browser fallback)
+  useEffect(() => {
+    const body = document.body;
+
+    // Clear old styles
+    body.style.zoom = "";
+    body.style.transform = "";
+    body.style.transformOrigin = "";
+    body.style.width = "";
+
+    if ("zoom" in body.style) {
+      // ✅ Chrome / Edge (native zoom support)
+      body.style.zoom = zoom;
     } else {
-      document.body.style.zoom = '44%';
-
+      // ✅ Firefox / Safari fallback
+      body.style.transform = `scale(${zoom})`;
+      body.style.transformOrigin = "top center";
+      body.style.width = `${(100 / zoom).toFixed(2)}%`; // prevent layout shrink to left
+      body.style.margin = "0 auto";
     }
-
-  }, [window])
-
+  }, [zoom]);
 
 
 
@@ -130,8 +213,9 @@ export default function DashboardDefault() {
 
 
   return (
-    <Grid container rowSpacing={4.5} columnSpacing={2.75}>
-      {/* row 1 */}
+    
+    <Grid container rowSpacing={4.5} columnSpacing={2}  >
+     
       <Grid sx={{ mb: -2.25 }} size={12}>
         <Typography variant="h4">Hi, Pastor Grace</Typography>
       </Grid>

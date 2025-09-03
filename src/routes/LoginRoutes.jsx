@@ -4,16 +4,19 @@ import { lazy } from 'react';
 import Loadable from 'components/Loadable';
 
 // jwt auth
-const LoginPage = Loadable(lazy(() => import('pages/auth/Login')));
 const RegisterPage = Loadable(lazy(() => import('pages/auth/Register')));
 const OnBoarding = Loadable(lazy(() => import('pages/auth/OnBoard')));
 const CreatePassword = Loadable(lazy(() => import('pages/auth/CreatePassword')));
-const VerifyAccount = Loadable(lazy(() => import('pages/auth/VerifyAccount')));
-const OTP = Loadable(lazy(() => import('pages/auth/OTP')));
-const Personalization = Loadable(lazy(() => import('pages/auth/Step1')));
-const PersonalizationStep2 = Loadable(lazy(() => import('pages/auth/Step2')));
-const PersonalizationStep3 = Loadable(lazy(() => import('pages/auth/Step3')));
-const PersonalizationStep4 = Loadable(lazy(() => import('pages/auth/Step4')));
+const VerifyCode = Loadable(lazy(() => import('pages/auth/VerifyCode')));
+const SelectChannel = Loadable(lazy(() => import('pages/auth/SelectChannel')));
+const ProfileStep1 = Loadable(lazy(() => import('pages/auth/ProfileStep1')));
+const ProfileStep2 = Loadable(lazy(() => import('pages/auth/ProfileStep2')));
+const ProfileStep3 = Loadable(lazy(() => import('pages/auth/ProfileStep3')));
+const ProfileStep4 = Loadable(lazy(() => import('pages/auth/ProfileStep4')));
+const ResetPassword = Loadable(lazy(() => import('pages/auth/resetPassword/resetPassword')));
+const VerifyPassCode = Loadable(lazy(() => import('pages/auth/resetPassword/verifyPassCode')));
+const CreateNewPassword = Loadable(lazy(() => import('pages/auth/resetPassword/createNewPassword')));
+
 
 
 
@@ -48,41 +51,68 @@ const LoginRoutes = {
           element: <CreatePassword />
         },
 
-             {
-          path: 'VerifyAccount',
-          element: <VerifyAccount />
+     
+
+        
+              {
+          path: 'SelectChannel',
+          element: <SelectChannel />
         },
 
 
+
               {
-          path: 'OTP',
-          element: <OTP />
+          path: 'VerifyCode',
+          element: <VerifyCode />
         },
 
 
+
+
+
               {
-          path: 'Personalization',
-          element: <Personalization />
+          path: 'ProfileStep1',
+          element: <ProfileStep1 />
         },
 
 
             {
-          path: 'Personalization/step2',
-          element: <PersonalizationStep2 />
+          path: 'ProfileStep2',
+          element: <ProfileStep2 />
         },
 
         
             {
-          path: 'Personalization/step3',
-          element: <PersonalizationStep3 />
+          path: 'ProfileStep3',
+          element: <ProfileStep3 />
         },
 
 
 
           {
-          path: 'Personalization/step4',
-          element: <PersonalizationStep4 />
+          path: 'ProfileStep4',
+          element: <ProfileStep4 />
         },
+
+
+            {
+          path: 'ResetPassword',
+          element: <ResetPassword />
+        },
+
+
+            {
+          path: 'VerifyPassCode',
+          element: <VerifyPassCode />
+        },
+
+
+             {
+          path: 'CreateNewPassword',
+          element: <CreateNewPassword />
+        },
+
+
 
 
 
