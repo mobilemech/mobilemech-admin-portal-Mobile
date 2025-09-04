@@ -258,9 +258,9 @@ export default function DashboardDefault() {
         </Grid>
 
 
-        <MainCard sx={{ mt: 2, pd: 20, margin: '0px auto' }}>
+        <MainCard sx={{ mt: 2, pd: 20, margin: '0px auto',  maxWidth:{xs:800, md:1150},  }}>
 
-          <Box sx={{ p: 3, pb: 0, }}>
+          <Box sx={{ pr:0, pb: 0, }}>
             <Stack sx={{ gap: 2, display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
               <Typography variant="h3" color="#2C2C31">
                 Quick Actions
@@ -274,7 +274,7 @@ export default function DashboardDefault() {
 
 
 
-            <MainCard contentSX={{ pl: 4.25, pt: 3, pr: 2.25 }} sx={{ background: 'linear-gradient(to  bottom, #FF6773, #FE8B6E)', width: '600px', borderRadius: '30px', height: '160px', cursor: 'pointer', boxShadow: "1px 1px 1px rgba(0, 0, 0, 0.1)" }}>
+            <MainCard contentSX={{ pl: 4.25, pt: 3, pr: 2.25 }} sx={{ background: 'linear-gradient(to  bottom, #FF6773, #FE8B6E)', width:{xs:'600px', md:'820px'}, borderRadius: '30px', height: '160px', cursor: 'pointer', boxShadow: "1px 1px 1px rgba(0, 0, 0, 0.1)" }}>
 
               <Stack style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', padding: '0px 20px' }}>
 
@@ -310,7 +310,7 @@ export default function DashboardDefault() {
 
 
 
-            <MainCard contentSX={{ pl: 4.25, pt: 3, pr: 2.25 }} sx={{ background: 'linear-gradient(to  bottom, #7838F4, #2B04DB)', width: '600px', borderRadius: '30px', height: '160px', cursor: 'pointer', boxShadow: "1px 1px 1px rgba(0, 0, 0, 0.1)" }}>
+            <MainCard contentSX={{ pl: 4.25, pt: 3, pr: 2.25 }} sx={{ background: 'linear-gradient(to  bottom, #7838F4, #2B04DB)',  width:{xs:'600px', md:'820px'}, borderRadius: '30px', height: '160px', cursor: 'pointer', boxShadow: "1px 1px 1px rgba(0, 0, 0, 0.1)" }}>
 
               <Stack style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', padding: '0px 20px' }}>
 
@@ -346,7 +346,7 @@ export default function DashboardDefault() {
 
 
 
-            <MainCard contentSX={{ pl: 4.25, pt: 3, pr: 2.25 }} sx={{ background: 'linear-gradient(to  bottom, #CC6002, #FFB532)', width: '600px', borderRadius: '30px', height: '160px', cursor: 'pointer', boxShadow: "1px 1px 1px rgba(0, 0, 0, 0.1)" }}>
+            <MainCard contentSX={{ pl: 4.25, pt: 3, pr: 2.25 }} sx={{ background: 'linear-gradient(to  bottom, #CC6002, #FFB532)',  width:{xs:'600px', md:'820px'}, borderRadius: '30px', height: '160px', cursor: 'pointer', boxShadow: "1px 1px 1px rgba(0, 0, 0, 0.1)" }}>
 
               <Stack style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', padding: '0px 20px' }}>
 
@@ -626,7 +626,7 @@ export default function DashboardDefault() {
 
 
 
-            <Stack >
+            <Stack style={{flexDirection:'column', justifyContent:'center', alignItems:'center', alignItems:'center'}} >
 
 
               <Stack  style={{marginTop:20}}>
@@ -670,7 +670,7 @@ export default function DashboardDefault() {
 
 
             <Stack >
-              <img src={group} style={{ width: 330, height: 330 }} />
+              <img src={group} style={{ width: 250, height: 250 }} />
             </Stack>
 
           </Stack>
