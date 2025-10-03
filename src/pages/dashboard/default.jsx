@@ -1,5 +1,7 @@
 
 import { useMemo, useState } from 'react'
+import StreamModal from './modals/StreamModal';
+import StartStreamModal from './modals/StartStreamModal';
 
 // material-ui
 import Avatar from '@mui/material/Avatar';
@@ -112,54 +114,13 @@ export default function DashboardDefault() {
 
 
   const [value, setValue] = useState('This Month');
+    const [openModal, setOpenModal] = useState(false);
+  const [startStreamOpen, setStartStreamOpen] = useState(false);
 
 
-
-  //  const [width, setWidth] = useState(
-  //   typeof window !== "undefined" ? window.innerWidth : 1024
-  // );
-
-  // // ✅ Track window size (responsive)
-  // useEffect(() => {
-  //   const handleResize = () => setWidth(window.innerWidth);
-  //   window.addEventListener("resize", handleResize);
-
-  //   // Run once on mount
-  //   handleResize();
-
-  //   return () => window.removeEventListener("resize", handleResize);
-  // }, []);
-
-  // // ✅ Decide zoom level based on width
-  // const zoom = useMemo(() => {
-  //   return width <= 768 ? 0.55 : 0.44; // same values you used
-  // }, [width]);
-
-  // // ✅ Apply the zoom to the body
-  // useEffect(() => {
-  //   document.body.style.zoom = zoom;
-  // }, [zoom]);
-
-
-
-
-  // useEffect(() => {
-
-
-
-  //   if (window.innerWidth <= 768) {
-  //     document.body.style.zoom = '55%';
-  //   } else {
-  //     document.body.style.zoom = '44%';
-
-  //   }
-
-  // }, [window])
 
 
   
-
-
 
 
 
@@ -180,7 +141,7 @@ export default function DashboardDefault() {
 
   // ✅ Decide zoom level based on width
   const zoom = useMemo(() => {
-    return width <= 768 ? 0.55 : 0.44; // same values you used
+    return width <= 768 ? 0.55 : 0.50; 
   }, [width]);
 
   // ✅ Apply zoom (with cross-browser fallback)
@@ -274,7 +235,7 @@ export default function DashboardDefault() {
 
 
 
-            <MainCard contentSX={{ pl: 4.25, pt: 3, pr: 2.25 }} sx={{ background: 'linear-gradient(to  bottom, #FF6773, #FE8B6E)', width:{xs:'600px', md:'820px'}, borderRadius: '30px', height: '160px', cursor: 'pointer', boxShadow: "1px 1px 1px rgba(0, 0, 0, 0.1)" }}>
+            <MainCard   onClick={() => setOpenModal(true)} contentSX={{ pl: 4.25, pt: 3, pr: 2.25 }} sx={{ background: 'linear-gradient(to  bottom, #FF6773, #FE8B6E)', width:{xs:'600px', md:'700px'}, borderRadius: '30px', height: '160px', cursor: 'pointer', boxShadow: "1px 1px 1px rgba(0, 0, 0, 0.1)" }}>
 
               <Stack style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', padding: '0px 20px' }}>
 
@@ -310,7 +271,38 @@ export default function DashboardDefault() {
 
 
 
-            <MainCard contentSX={{ pl: 4.25, pt: 3, pr: 2.25 }} sx={{ background: 'linear-gradient(to  bottom, #7838F4, #2B04DB)',  width:{xs:'600px', md:'820px'}, borderRadius: '30px', height: '160px', cursor: 'pointer', boxShadow: "1px 1px 1px rgba(0, 0, 0, 0.1)" }}>
+              <div>
+      {/* Example trigger */}
+      {/* <Button 
+        variant="contained" 
+        onClick={() => setOpenModal(true)}
+        sx={{ bgcolor: "#2B04DB" }}
+      >
+        Open Stream Modal
+      </Button> */}
+
+      {/* Modal */}
+      <StreamModal 
+        open={openModal} 
+        onClose={() => setOpenModal(false)} 
+           onNext={() => {
+          setOpenModal(false);
+          setTimeout(() => setStartStreamOpen(true), 200);
+        }}
+      />
+
+
+         <StartStreamModal
+        open={startStreamOpen}
+        onClose={() => setStartStreamOpen(false)}
+      />
+    </div>
+
+
+
+
+
+            <MainCard contentSX={{ pl: 4.25, pt: 3, pr: 2.25 }} sx={{ background: 'linear-gradient(to  bottom, #7838F4, #2B04DB)',  width:{xs:'600px', md:'700px'}, borderRadius: '30px', height: '160px', cursor: 'pointer', boxShadow: "1px 1px 1px rgba(0, 0, 0, 0.1)" }}>
 
               <Stack style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', padding: '0px 20px' }}>
 
@@ -346,7 +338,7 @@ export default function DashboardDefault() {
 
 
 
-            <MainCard contentSX={{ pl: 4.25, pt: 3, pr: 2.25 }} sx={{ background: 'linear-gradient(to  bottom, #CC6002, #FFB532)',  width:{xs:'600px', md:'820px'}, borderRadius: '30px', height: '160px', cursor: 'pointer', boxShadow: "1px 1px 1px rgba(0, 0, 0, 0.1)" }}>
+            <MainCard contentSX={{ pl: 4.25, pt: 3, pr: 2.25 }} sx={{ background: 'linear-gradient(to  bottom, #CC6002, #FFB532)',  width:{xs:'600px', md:'700px'}, borderRadius: '30px', height: '160px', cursor: 'pointer', boxShadow: "1px 1px 1px rgba(0, 0, 0, 0.1)" }}>
 
               <Stack style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', padding: '0px 20px' }}>
 

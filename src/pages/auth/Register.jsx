@@ -23,7 +23,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 
 const AuthScreen = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
     const [checked, setChecked] = useState(false);
 
     const navigate = useNavigate()
@@ -130,7 +130,7 @@ const AuthScreen = () => {
           <Typography
             sx={{
               fontWeight: "bold",
-              mb: 1,
+              mb: 0.5,
               textAlign: "center",
               fontSize: 17,
               color: "#111",
@@ -144,7 +144,7 @@ const AuthScreen = () => {
               color: "#666",
               fontSize: 12,
               textAlign: "center",
-              mb: 3,
+              mb: 1,
               lineHeight: 1.5,
             }}
           >
@@ -342,7 +342,7 @@ const AuthScreen = () => {
                     Create Account
                   </Button>
                
-                     <Divider sx={{ my: 4, color: "#aaa", fontSize: 13 }}>Or</Divider> 
+                     <Divider sx={{ my: 2, color: "#aaa", fontSize: 13 }}>Or</Divider> 
 
                     <Stack style={{flexDirection:'row', marginTop:-15, justifyContent:'center', alignItems:'center', gap:15}}>
                     <Button  size="small" variant="outlined"  style={{borderRadius:'30px', gap:10, fontSize:7, borderColor:'gray', color:'gray'}} >

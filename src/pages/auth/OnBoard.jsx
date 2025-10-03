@@ -238,25 +238,37 @@ const OnBoard = () => {
               );
             })}
 
-    {selectedKey &&
-               <Button
-          fullWidth
-           onClick={()=>navigate("/Authentication")}
-          sx={{
-            bgcolor: "#2B04DB",
-            color: "#fff",
-            textTransform: "none",
-            py: 1,
-            mt: 8,
-            
-            borderRadius: 30,
-            fontWeight: "bold",
-            fontSize: 14,
-            "&:hover": { bgcolor: "#4a25d6", color:'white' },
-          }}
-        >
-          Proceed  <ArrowForwardIcon style={{marginLeft:'20px', fontSize:20}}/>
-        </Button>}
+
+
+        {selectedKey && 
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 1 }}>
+
+      
+  <Button
+    onClick={() => navigate("/Authentication")}
+    sx={{
+      bgcolor: "#2B04DB",
+      color: "#fff",
+      textTransform: "none",
+      py: 1,
+      mt: 1,
+      borderRadius: 30,
+      fontWeight: "bold",
+      fontSize: 14,
+      px: 5, 
+      maxWidth: { xs: "200px", sm: "250px" }, 
+      width: "100%",
+      "&:hover": { bgcolor: "#4a25d6", color: "white" },
+    }}
+  >
+    Proceed <ArrowForwardIcon style={{ marginLeft: "12px", fontSize: 20 }} />
+  </Button>
+      </Box>
+  }
+
+
+
+
           </Stack>
         </Box>
       </Box>

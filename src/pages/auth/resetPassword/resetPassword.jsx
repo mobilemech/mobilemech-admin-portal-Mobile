@@ -58,7 +58,7 @@ const ResetPassword = () => {
         mt:8,
        // alignItems: "center",
       //  backgroundColor: "#0A0047", // Dark background
-        p: 2,
+        p: 3,
       }}
     >
       <Box sx={{ width: "100%", maxWidth: 420, textAlign: "center" }}>
@@ -69,7 +69,7 @@ const ResetPassword = () => {
         >
           Password Reset
         </Typography>
-        <Typography sx={{ color: "#454545", mb: 4, fontSize:14 }}>
+        <Typography sx={{ color: "#454545", mb: 4, fontSize:12 }}>
          You need to verify your account to reset password. Select Your Preferred Verification Channel
         </Typography>
 
@@ -177,7 +177,7 @@ const ResetPassword = () => {
             bgcolor: "#2B04DB",
             color: "#fff",
             textTransform: "none",
-            py: 1.5,
+            py: 1,
             borderRadius: 10,
             fontWeight: "bold",
             fontSize: 16,

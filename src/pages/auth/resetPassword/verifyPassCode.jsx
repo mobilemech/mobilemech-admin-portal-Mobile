@@ -41,7 +41,7 @@ const VerifyPassCode = () => {
         justifyContent: "center",
       //  alignItems: "center",
       mt:8,
-        p: 2,
+        p: 3,
       }}
     >
       <Box sx={{ width: "100%", maxWidth: 420, textAlign: "center" }}>
@@ -110,7 +110,7 @@ const VerifyPassCode = () => {
             bgcolor: "#2B04DB",
             color: "#fff",
             textTransform: "none",
-            py: 1.5,
+            py: 1,
             mt: 5,
             borderRadius: 30,
             fontWeight: "bold",

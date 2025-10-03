@@ -48,7 +48,7 @@ const VerifyCode = () => {
         justifyContent: "center",
        // alignItems: "center",
        mt:8,
-        p: 2,
+        p: 3,
       }}
     >
       <Box sx={{ width: "100%", maxWidth: 420, textAlign: "center" }}>

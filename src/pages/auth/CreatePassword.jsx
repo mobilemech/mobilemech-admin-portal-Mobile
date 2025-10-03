@@ -27,7 +27,7 @@ const CreatePassword = () => {
         mt:5,
       //  alignItems: "center",
       //  backgroundColor: "#0A0047", // dark background
-        p: 2,
+        p: 3,
       }}
     >
       {/* Centered Form */}

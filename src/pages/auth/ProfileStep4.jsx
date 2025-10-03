@@ -324,7 +324,7 @@ const ProfileStep4 = () => {
                               bgcolor: "#2B04DB",
                               color: "#fff",
                               textTransform: "none",
-                              py: 1,
+                              py: 1.2,
                               
                               borderRadius: 30,
                               fontWeight: "bold",

@@ -32,7 +32,7 @@ const SelectChannel = () => {
         justifyContent: "center",
       //  alignItems: "center",
       //  backgroundColor: "#0A0047", // Dark background
-        p: 2,
+        p: 3,
       }}
     >
       <Box sx={{ width: "100%", maxWidth: 420, textAlign: "center" }}>
