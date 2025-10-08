@@ -153,47 +153,47 @@ export default function AllStreams() {
     setRequests((rs) => rs.map((r) => (r.id === id ? { ...r, status: "reviewed" } : r)));
   };
 
-  // // ---- Zoom / scale logic (applied to inner content container) ----
+ 
   const [scale, setScale] = useState(1);
 
   const [width, setWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
   );
 
-  // ✅ Track window size (responsive)
+ 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
 
-    // Run once on mount
+ 
     handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // ✅ Decide zoom level based on width
+
   const zoom = useMemo(() => {
     return width <= 768 ? 0.55 : 0.50;
   }, [width]);
 
-  // ✅ Apply zoom (with cross-browser fallback)
+  
   useEffect(() => {
     const body = document.body;
 
-    // Clear old styles
+   
     body.style.zoom = "";
     body.style.transform = "";
     body.style.transformOrigin = "";
     body.style.width = "";
 
     if ("zoom" in body.style) {
-      // ✅ Chrome / Edge (native zoom support)
+      
       body.style.zoom = zoom;
     } else {
-      // ✅ Firefox / Safari fallback
+      
       body.style.transform = `scale(${zoom})`;
       body.style.transformOrigin = "top center";
-      body.style.width = `${(100 / zoom).toFixed(2)}%`; // prevent layout shrink to left
+      body.style.width = `${(100 / zoom).toFixed(2)}%`; 
       body.style.margin = "0 auto";
     }
   }, [zoom]);
@@ -204,10 +204,6 @@ export default function AllStreams() {
 
 
 
-
-
-
-  // small helper for bubble tails
   const leftBubbleSx = (bg = "#F3F4F6") => ({
     position: "relative",
     p: 1.25,
@@ -255,13 +251,11 @@ export default function AllStreams() {
 
         <Box
           sx={{
-            // width: `${Math.round(1400 / scale)}px`,
             transform: `scale(${scale})`,
             transformOrigin: "top center",
           }}
         >
 
-          {/* Top header area (rounded inner item with timer + end + health) */}
           <Box
             sx={{
               display: "flex",
@@ -315,7 +309,7 @@ export default function AllStreams() {
 
 
 
-          {/* Main white container replicating the rounded big card in screenshot */}
+        
           <Box
             // elevation={6}
             sx={{
@@ -326,9 +320,6 @@ export default function AllStreams() {
           >
          
 
-
-
-            {/* Body grid: Left large area (video + bottom cards) and right chat/requests column */}
             <Grid container spacing={1} sx={{ display: 'flex', justifyContent: 'space-between', gap: 2 }}>
 
               <Grid item xs={12} md={8} sx={{ width: { xs: 600, md: 1040 }, }} >
@@ -341,7 +332,6 @@ export default function AllStreams() {
                     mb: 3,
                   }}
                 >
-                  {/* the actual video area — use img placeholder, but set to cover to replicate screenshot */}
                   <Box sx={{ width: { xs: 600, md: 1040 }, height: { xs: 260, md: 440 }, position: "relative", bgcolor: "#111" }}>
                       <video ref={videoRef} style={{ width: "100%", height: "100%", objectFit: "cover" }} src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
                     {/* speaker badge bottom-right */}

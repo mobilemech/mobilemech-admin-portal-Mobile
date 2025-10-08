@@ -26,15 +26,6 @@ import UniqueVisitorCard from 'sections/dashboard/default/UniqueVisitorCard';
 import SaleReportCard from 'sections/dashboard/default/SaleReportCard';
 import OrdersTable from 'sections/dashboard/default/OrdersTable';
 
-// assets
-import GiftOutlined from '@ant-design/icons/GiftOutlined';
-import MessageOutlined from '@ant-design/icons/MessageOutlined';
-import SettingOutlined from '@ant-design/icons/SettingOutlined';
-
-import avatar1 from 'assets/images/users/avatar-1.png';
-import avatar2 from 'assets/images/users/avatar-2.png';
-import avatar3 from 'assets/images/users/avatar-3.png';
-import avatar4 from 'assets/images/users/avatar-4.png';
 
 
 import GroupIcon from '@mui/icons-material/Group';
@@ -128,40 +119,40 @@ export default function DashboardDefault() {
     typeof window !== "undefined" ? window.innerWidth : 1024
   );
 
-  // ✅ Track window size (responsive)
+
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
 
-    // Run once on mount
+  
     handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // ✅ Decide zoom level based on width
+
   const zoom = useMemo(() => {
     return width <= 768 ? 0.55 : 0.50; 
   }, [width]);
 
-  // ✅ Apply zoom (with cross-browser fallback)
+ 
   useEffect(() => {
     const body = document.body;
 
-    // Clear old styles
+
     body.style.zoom = "";
     body.style.transform = "";
     body.style.transformOrigin = "";
     body.style.width = "";
 
     if ("zoom" in body.style) {
-      // ✅ Chrome / Edge (native zoom support)
+    
       body.style.zoom = zoom;
     } else {
       // ✅ Firefox / Safari fallback
       body.style.transform = `scale(${zoom})`;
       body.style.transformOrigin = "top center";
-      body.style.width = `${(100 / zoom).toFixed(2)}%`; // prevent layout shrink to left
+      body.style.width = `${(100 / zoom).toFixed(2)}%`; 
       body.style.margin = "0 auto";
     }
   }, [zoom]);
@@ -272,16 +263,6 @@ export default function DashboardDefault() {
 
 
               <div>
-      {/* Example trigger */}
-      {/* <Button 
-        variant="contained" 
-        onClick={() => setOpenModal(true)}
-        sx={{ bgcolor: "#2B04DB" }}
-      >
-        Open Stream Modal
-      </Button> */}
-
-      {/* Modal */}
       <StreamModal 
         open={openModal} 
         onClose={() => setOpenModal(false)} 
