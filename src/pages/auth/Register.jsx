@@ -1,138 +1,136 @@
-import React, { useState, useEffect } from "react";
+
+import React, { useState } from "react";
 import {
   Box,
   Typography,
   Button,
-
   Stack,
   Divider,
   Checkbox,
   FormControlLabel,
-  
+  Grid,
+  InputLabel,
+  OutlinedInput,
+  useMediaQuery,
 } from "@mui/material";
-import Grid from '@mui/material/Grid';
-
-import InputLabel from '@mui/material/InputLabel';
-import OutlinedInput from '@mui/material/OutlinedInput';
-
-import AppleIcon from "@mui/icons-material/Apple";   
+import AppleIcon from "@mui/icons-material/Apple";
 import background from "./images/background.png";
 import logo from "./images/logo1.png";
-import vector from "./images/Vector.png"
-import { Link, useNavigate } from "react-router-dom";
-
+import vector from "./images/Vector.png";
+import { useNavigate } from "react-router-dom";
 
 const AuthScreen = () => {
   const [isLogin, setIsLogin] = useState(true);
-    const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(false);
+  const isMobile = useMediaQuery("(max-width:900px)");
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
-
-
-    
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  const uniformWidth = 450; 
 
   return (
     <Box
       sx={{
-        width: "100%",
-        minHeight: "100vh",
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
+        width: "100vw",
+        height: "100vh",
+        overflow: "hidden",
         fontFamily: "'Inter', sans-serif",
       }}
     >
-      {/* Left Panel */}
+      {/* LEFT SIDE */}
       <Box
         sx={{
-          width: { xs: "100%", md: "50%" },
+           flex: { xs: "0 0 auto", md: 1 },
+          position: "relative",
           backgroundImage: `url(${background})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          px: 4,
-          py: 5,
-          position: "relative",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
+          justifyContent: isMobile ? "center" : "space-between",
+          alignItems: isMobile ? "center" : "flex-start",
+          px: { xs: 3, md: 5 },
+          py: { xs: 3, md: 5 },
+           height: isMobile ? "5vh" : "100vh", 
+              flexShrink: 0,
         }}
       >
+        {/* Overlay */}
         <Box
           sx={{
             position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(20, 0, 80, 0.65)",
+            inset: 0,
+            backgroundColor: "rgba(45, 0, 150, 0.65)",
             zIndex: 0,
           }}
         />
-        <Box sx={{ position: "relative", zIndex: 1 }}>
-          <Typography
-            variant="h6"
-            sx={{ color: "#fff", display: "flex", alignItems: "center", gap: 1 }}
-          >
-            <img src={logo} alt="logo" height={26}  /> Worsship
+
+        {/* Logo */}
+        <Box
+          sx={{
+            position: "relative",
+            zIndex: 1,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: isMobile ? "center" : "flex-start",
+            width: "100%",
+          }}
+        >
+          <img
+            src={logo}
+            alt="Logo"
+            style={{ height: isMobile ? 22 : 28, marginRight: 8 }}
+          />
+          <Typography sx={{ fontWeight: 600, fontSize: { xs: 16, md: 18 }, color: "#fff" }}>
+            Worsship
           </Typography>
         </Box>
 
-        <Box sx={{ position: "relative", zIndex: 1 }}>
-          <Typography sx={{ color: "#fff", fontWeight: 700, fontSize:14 }}>
-            Experience Worship, Anytime, Anywhere
-          </Typography>
-          <Typography variant="body2" sx={{ color: "#fff", mt: 1 }}>
-            Join the conversation, and grow in faith.
-          </Typography>
-        </Box>
+        {/* Text (desktop only) */}
+        {!isMobile && (
+          <Box
+            sx={{
+              position: "relative",
+              zIndex: 1,
+              color: "white",
+             // mt: "auto",
+            }}
+          >
+            
+            <Typography sx={{ fontWeight: 700, fontSize: 18, mb: 1 }}>
+              Experience Worship, Anytime, Anywhere
+            </Typography>
+            <Typography sx={{ fontSize: 14, opacity: 0.9, mb: 10 }}>
+              Join the conversation, and grow in faith.
+            </Typography>
+          </Box>
+        )}
       </Box>
 
-      {/* Right Panel */}
+      {/* RIGHT SIDE */}
       <Box
         sx={{
-          width: { xs: "100%", md: "50%" },
-          p: { xs: 3, md: 6 },
+          flex: 1,
+          backgroundColor: "#fff",
           display: "flex",
-          flexDirection: "column",
           justifyContent: "center",
-        // backgroundColor: "#fff",
-        //  maxWidth:{xs:330}
+          alignItems: "center",
+          p: { xs: 3, md: 6 },
         }}
       >
-        <Box sx={{ maxWidth: 400, mx: "auto", width: "100%" }}>
+        <Box   sx={{
+    width: "100%",
+    maxWidth: { xs: "100%", md: uniformWidth, sm:uniformWidth }, 
+    mx: "auto", 
+  }}>
           {/* Title */}
           <Typography
             sx={{
-              fontWeight: "bold",
+              fontWeight: 700,
               mb: 0.5,
               textAlign: "center",
-              fontSize: 17,
+              fontSize: 18,
               color: "#111",
             }}
           >
@@ -144,7 +142,7 @@ const AuthScreen = () => {
               color: "#666",
               fontSize: 12,
               textAlign: "center",
-              mb: 1,
+              mb: 3,
               lineHeight: 1.5,
             }}
           >
@@ -162,6 +160,7 @@ const AuthScreen = () => {
               borderRadius: "10px",
               p: "2px",
               mb: 3,
+              width: "100%", 
             }}
           >
             <Button
@@ -198,287 +197,237 @@ const AuthScreen = () => {
             </Button>
           </Stack>
 
-          {/* Form Fields */}
-          <Stack spacing={2} >
-            {!isLogin && (
-      
-                 <form >
-            <Grid container spacing={2.2}>
-             
-          
-              <Grid size={12}>
-                <Stack sx={{ gap: 1 }}>
-                  <InputLabel htmlFor="company-signup" style={{fontSize:10}}>Your Church Name</InputLabel>
-                  <OutlinedInput
-                    id="company-signup"
-                    name="company"
-                    placeholder="Enter your Church name"
-                       sx={{
-                        height:35, 
-
-                          "& input::placeholder": {
-                              color: "#9e9e9e",  
-                              fontSize: "10px",   
-                              fontWeight: 400,
-                              opacity: 1,        
-                          },
-
-                           borderRadius: "10px",
-                           backgroundColor: "#F9FAFB",   
-                           "& .MuiOutlinedInput-notchedOutline": {
-                               borderColor: "#E0E0E0",     
-                           },
-
-
-
-                      }}
-                  />
-                </Stack>
-             
-              </Grid>
-
-
-
-              <Grid size={12}>
-                <Stack sx={{ gap: 1 }}>
-                  <InputLabel htmlFor="email-signup" style={{fontSize:10}}>Official Email Address</InputLabel>
-                  <OutlinedInput
-                    fullWidth
-                    id="email-login"
-                    type="email"
-                    name="email"
-                    placeholder="Enter your church’s email address"
-                        sx={{
-                        height:35, 
-
-                          "& input::placeholder": {
-                              color: "#9e9e9e",   
-                              fontSize: "10px",   
-                              fontWeight: 400,
-                              opacity: 1,       
-                          },
-
-                           borderRadius: "10px",
-                           backgroundColor: "#F9FAFB",     
-                           "& .MuiOutlinedInput-notchedOutline": {
-                               borderColor: "#E0E0E0",   
-                           },
-
-
-
-                      }}
-                  />
-                </Stack>
-             
-              </Grid>
-
-
-
-                 
-              <Grid size={12}>
-                <Stack sx={{ gap: 1 }}>
-                  <InputLabel htmlFor="email-signup" style={{fontSize:10}}>Official Phone number</InputLabel>
-                  <OutlinedInput
-                    fullWidth
-                    id="email-login"
-                    type="email"
-                    name="email"
-                    placeholder="Enter your official number"
-                       sx={{
-                        height:35, 
-
-                          "& input::placeholder": {
-                              color: "#9e9e9e",   
-                              fontSize: "10px",   
-                              fontWeight: 400,
-                              opacity: 1,        
-                          },
-
-                           borderRadius: "10px",
-                           backgroundColor: "#F9FAFB",     
-                           "& .MuiOutlinedInput-notchedOutline": {
-                               borderColor: "#E0E0E0",       
-                           },
-
-
-
-                      }}
-                  />
-                </Stack>
-             
-              </Grid>
-
-
-
-             
-
-
-
-              <Grid size={12}>
-               <Grid sx={{ mt: -1 }} size={12}>
-                
-                <Stack direction="row" sx={{ gap: 2, alignItems: 'baseline', justifyContent: 'space-between' }}>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={checked}
-                        onChange={(event) => setChecked(event.target.checked)}
-                        name="checked"
-                        color={checked ? "#2B04DB" : "#2C2C31"}
-                        size="small"
+          {/* Forms */}
+          <Stack spacing={2} sx={{ width: "100%" }}>
+            {!isLogin ? (
+              <form>
+                <Grid  spacing={2.5} sx={{mt:1}}  >
+                  {/* Church Name */}
+                  <Grid item xs={12}>
+                    <Stack sx={{ gap: 1 }}>
+                      <InputLabel sx={{ fontSize: 10 }}>Your Church Name</InputLabel>
+                      <OutlinedInput
+                        placeholder="Enter your Church name"
+                        sx={inputStyle}
+                        fullWidth
                       />
-                    }
-                    label={<Typography   color={checked ? "#2B04DB" : "#2C2C31"} sx={{fontSize:10}}>I agree to terms & conditions</Typography>}
-                  />
-               
-                </Stack>
-
-              </Grid>
-              </Grid>
-           
-              <Grid size={12}>
-                  
-                  <Button fullWidth size="large" variant="contained"  style={{backgroundColor:'#2B04DB', borderRadius:'30px',}} onClick={()=>navigate('/Authentication/CreatePassword')} >
-                    Create Account
-                  </Button>
-               
-                     <Divider sx={{ my: 2, color: "#aaa", fontSize: 13 }}>Or</Divider> 
-
-                    <Stack style={{flexDirection:'row', marginTop:-15, justifyContent:'center', alignItems:'center', gap:15}}>
-                    <Button  size="small" variant="outlined"  style={{borderRadius:'30px', gap:10, fontSize:7, borderColor:'gray', color:'gray'}} >
-                  <img src={vector} style={{width:12, height:12}} alt="google"/>  Continue with Google   
-                  </Button>
-
-                        <Button  size="small" variant="outlined"  style={{borderRadius:'30px', gap:10, fontSize:7, borderColor:'gray', color:'gray'}} >
-                          <AppleIcon  style={{width:15, height:15}}/>  Continue with Apple
-                  </Button>
-
                     </Stack>
-                
-              </Grid>
+                  </Grid>
 
+                  {/* Email */}
+                  <Grid item xs={12} sx={{mt:1}}>
+                    <Stack sx={{ gap: 1 }}>
+                      <InputLabel sx={{ fontSize: 10 }}>Official Email Address</InputLabel>
+                      <OutlinedInput
+                        placeholder="Enter your church’s email address"
+                        sx={inputStyle}
+                        fullWidth
+                      />
+                    </Stack>
+                  </Grid>
 
-             
+                  {/* Phone */}
+                  <Grid item xs={12} sx={{mt:1}} >
+                    <Stack sx={{ gap: 1 }}>
+                      <InputLabel sx={{ fontSize: 10 }}>Official Phone number</InputLabel>
+                      <OutlinedInput
+                        placeholder="Enter your official number"
+                        sx={inputStyle}
+                        fullWidth
+                      />
+                    </Stack>
+                  </Grid>
 
+                  {/* Terms */}
+                  <Grid item xs={12} >
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          size="small"
+                          checked={checked}
+                          onChange={(e) => setChecked(e.target.checked)}
+                        />
+                      }
+                      label={
+                        <Typography sx={{ fontSize: 10, color:'black' }}>
+                          I agree to terms & conditions
+                        </Typography>
+                      }
+                    />
+                  </Grid>
 
+               
+                </Grid>
 
+                   {/* Create Account */}
+                <Grid item xs={12} sx={{mt:isMobile ? 2 : 5}}>
+                    <Button
+                      fullWidth
+                      size="large"
+                      variant="contained"
+                      sx={buttonStyle}
+                    onClick={()=>navigate('/Authentication/CreatePassword')} 
+                    >
+                      Create Account
+                    </Button>
 
+                    <Divider sx={{ my: 1, color: "#aaa", fontSize: 13 }}>Or</Divider>
 
+                    {/* Social Buttons */}
+                    <Stack
+                      direction="row"
+                      spacing={2}
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      <Button size="small" variant="outlined" sx={socialBtnStyle}>
+                        <img src={vector} style={{ width: 12, height: 12 }} alt="google" />{" "}
+                        Continue with Google
+                      </Button>
 
-
-
-
-            </Grid>
-          </form>
-
-
-
-
-
-
-            )}
-
-            {isLogin && (
+                      <Button size="small" variant="outlined" sx={socialBtnStyle}>
+                        <AppleIcon sx={{ width: 15, height: 15 }} /> Continue with Apple
+                      </Button>
+                    </Stack>
+                  </Grid>
+              </form>
+            ) : (
               <>
+                <Grid  spacing={2.5}>
+                  <Grid item xs={12} >
+                    <Stack sx={{ gap: 1 }}>
+                      <InputLabel sx={{ fontSize: 10 }}>Email Address</InputLabel>
+                      <OutlinedInput
+                        placeholder="Enter your email address"
+                        sx={inputStyle}
+                        fullWidth
+                      />
+                    </Stack>
+                  </Grid>
+
+                  <Grid item xs={12} sx={{mt:1}} >
+                    <Stack sx={{ gap: 1 }}>
+                      <InputLabel sx={{ fontSize: 10 }}>Password</InputLabel>
+                      <OutlinedInput
+                        placeholder="Enter your password"
+                        sx={inputStyle}
+                        fullWidth
+                      />
+                    </Stack>
+                  </Grid>
+
+          
+
+               
+                </Grid>
+                        <Grid item xs={12}>
+                    <Box display="flex" justifyContent="space-between" alignItems="center">
+                          <Grid item xs={12} >
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          size="small"
+                          checked={checked}
+                          onChange={(e) => setChecked(e.target.checked)}
+                        />
+                      }
+                      label={
+                        <Typography sx={{ fontSize: 10, color:'black' }}>
+                          Remember Me
+                        </Typography>
+                      }
+                    />
+                  </Grid>
+
+
+
+
+
+
+
+
+                      <Typography
+                        sx={{
+                          fontSize: 10,
+                          color: "#2D00F7",
+                          cursor: "pointer",
+                        }}
+                       onClick={()=>navigate('/Authentication/ResetPassword')}
+                      >
+                        Forgot Password?
+                      </Typography>
+                    </Box>
+                  </Grid>
                   
-              <Grid size={12}>
-                <Stack sx={{ gap: 1 }}>
-                  <InputLabel htmlFor="email-signup" style={{fontSize:10}}>Email Address</InputLabel>
-                  <OutlinedInput
-                    fullWidth
-                    id="email-login"
-                    type="email"
-                    name="email"
-                    placeholder="Enter your email Address"
-                       sx={{
-                        height:35, 
 
-                          "& input::placeholder": {
-                              color: "#9e9e9e",   
-                              fontSize: "10px",   
-                              fontWeight: 400,
-                              opacity: 1,        
-                          },
-
-                           borderRadius: "10px",
-                           backgroundColor: "#F9FAFB",     
-                           "& .MuiOutlinedInput-notchedOutline": {
-                               borderColor: "#E0E0E0",       
-                           },
-
-
-
-                      }}
-                  />
-                </Stack>
-             
-              </Grid>
-
-
-    <Grid size={12}>
-                <Stack sx={{ gap: 1 }}>
-                  <InputLabel htmlFor="email-signup" style={{fontSize:10}}>Password</InputLabel>
-                  <OutlinedInput
-                    fullWidth
-                    id="email-login"
-                    type="email"
-                    name="email"
-                    placeholder="Enter your Password"
-                       sx={{
-                        height:35, 
-
-                          "& input::placeholder": {
-                              color: "#9e9e9e",   
-                              fontSize: "10px",   
-                              fontWeight: 400,
-                              opacity: 1,        
-                          },
-
-                           borderRadius: "10px",
-                           backgroundColor: "#F9FAFB",     
-                           "& .MuiOutlinedInput-notchedOutline": {
-                               borderColor: "#E0E0E0",       
-                           },
-
-
-
-                      }}
-                  />
-                </Stack>
-             
-              </Grid>
-
-
-                <Box
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="center"
-                >
-                  <FormControlLabel
-                    control={<Checkbox size="small" />}
-                    label={<Typography sx={{ fontSize: 10 }}>Remember me</Typography>}
-                  />
-                  <Typography
-                    sx={{ fontSize: 10, color: "#2D00F7", cursor: "pointer" }} onClick={()=>navigate('/Authentication/ResetPassword')}
-                  >
-                    Forgot Password?
-                  </Typography>
-                </Box>
-
-
-
-                
-                  <Button fullWidth size="large" variant="contained"  style={{backgroundColor:'#2B04DB', borderRadius:'30px'}} >
-                    Log in
-                  </Button>
+                   <Grid item xs={12}>
+                    <Button
+                       onClick={()=>navigate('/Dashboard/Home')}
+                      fullWidth
+                      size="large"
+                      variant="contained"
+                      sx={buttonStyle}
+                    >
+                      Log In
+                    </Button>
+                  </Grid>
               </>
             )}
           </Stack>
-
         </Box>
       </Box>
     </Box>
   );
 };
 
+// ✅ Styles
+
+
+
+
+const inputStyle = {
+  height: 42,
+  width: { xs: "100%", sm: 430, md: 450 }, 
+  boxSizing: "border-box",                 
+  borderRadius: "10px",
+  backgroundColor: "#F9FAFB",
+  "& input::placeholder": {
+    color: "#9e9e9e",
+    fontSize: "10px",
+    fontWeight: 400,
+  },
+  "& .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#E0E0E0",
+  },
+};
+
+const buttonStyle = {
+  bgcolor: "#2B04DB",
+  color: "#fff",
+  textTransform: "none",
+  py: 1.2,
+  borderRadius: 3,
+  fontWeight: 600,
+  fontSize: 15,
+  "&:hover": { bgcolor: "#4a25d6" },
+};
+
+const socialBtnStyle = {
+  borderRadius: "30px",
+  gap: 1,
+  fontSize: 8,
+  borderColor: "gray",
+  color: "gray",
+  px: 2,
+};
+
 export default AuthScreen;
+
+
+
+
+
+
+
+
+
