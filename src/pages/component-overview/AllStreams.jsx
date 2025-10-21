@@ -61,13 +61,46 @@ export default function AllStreams() {
   const [micOn, setMicOn] = useState(true);
   const [camOn, setCamOn] = useState(true);
   const [recording, setRecording] = useState(false);
+  const [timer, setTimer] = useState(0);
 
+   
+  const [scale, setScale] = useState(1);
 
-  
+  const [width, setWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  );
 
   const videoRef = useRef(null);
 
-  useEffect(() => {
+  // chat & messages
+  const [messages, setMessages] = useState([
+    { id: 1, author: "Janet", text: "I'm glad to be here! hey! hallelujah", time: "1:35 PM", img:source1 },
+    { id: 2, author: "Aubrey", text: "I'm so glad you are connected to the livestream chat ✨", time: "11:31 AM", img:source2 },
+    { id: 3, author: "Prayer", text: "Prayer Focus: Healing and restoration for all families.", time: "11:31 AM", img:source  },
+  ]);
+  const [chatInput, setChatInput] = useState("");
+  const chatEndRef = useRef(null);
+
+  // other panels
+  const [donation] = useState(230);
+  const [requests, setRequests] = useState([
+    { id: 1, title: "Live Testimony Request", name: "Blessing Ola", status: "new" },
+    { id: 2, title: "Live Testimony Request", name: "Blessing Ola", status: "new" },
+    { id: 3, title: "Offering Request", name: "Mary", status: "reviewed" },
+  ]);
+  const [itinerary] = useState([
+    { id: 1, title: "Word Session", time: "02:00 PM", duration: "30 mins", image: Rect1 },
+    { id: 2, title: "Testimony", time: "02:30 PM", duration: "15 mins", image: Rect2 },
+    { id: 3, title: "Offering/Donations", time: "02:45 PM", duration: "15 mins", image: Rect1 },
+    { id: 4, title: "Testimony", time: "02:30 PM", duration: "15 mins", image: Rect2 }
+  ]);
+
+
+
+
+
+
+   useEffect(() => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.play();
@@ -95,36 +128,6 @@ export default function AllStreams() {
 
 
 
-
-
-
-
-
-  // chat & messages
-  const [messages, setMessages] = useState([
-    { id: 1, author: "Janet", text: "I'm glad to be here! hey! hallelujah", time: "1:35 PM", img:source1 },
-    { id: 2, author: "Aubrey", text: "I'm so glad you are connected to the livestream chat ✨", time: "11:31 AM", img:source2 },
-    { id: 3, author: "Prayer", text: "Prayer Focus: Healing and restoration for all families.", time: "11:31 AM", img:source  },
-  ]);
-  const [chatInput, setChatInput] = useState("");
-  const chatEndRef = useRef(null);
-
-  // other panels
-  const [donation] = useState(230);
-  const [requests, setRequests] = useState([
-    { id: 1, title: "Live Testimony Request", name: "Blessing Ola", status: "new" },
-    { id: 2, title: "Live Testimony Request", name: "Blessing Ola", status: "new" },
-    { id: 3, title: "Offering Request", name: "Mary", status: "reviewed" },
-  ]);
-  const [itinerary] = useState([
-    { id: 1, title: "Word Session", time: "02:00 PM", duration: "30 mins", image: Rect1 },
-    { id: 2, title: "Testimony", time: "02:30 PM", duration: "15 mins", image: Rect2 },
-    { id: 3, title: "Offering/Donations", time: "02:45 PM", duration: "15 mins", image: Rect1 },
-    { id: 4, title: "Testimony", time: "02:30 PM", duration: "15 mins", image: Rect2 }
-  ]);
-
-  // timer
-  const [timer, setTimer] = useState(0);
   useEffect(() => {
     const t = setInterval(() => setTimer((s) => s + 1), 1000);
     return () => clearInterval(t);
@@ -153,12 +156,6 @@ export default function AllStreams() {
     setRequests((rs) => rs.map((r) => (r.id === id ? { ...r, status: "reviewed" } : r)));
   };
 
- 
-  const [scale, setScale] = useState(1);
-
-  const [width, setWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1024
-  );
 
  
   useEffect(() => {
@@ -361,22 +358,23 @@ export default function AllStreams() {
 
                      {/* Controls */}
                  <Box sx={{ display: "flex", gap: 1, alignItems: "center", p: 2, justifyContent: "space-around", bgcolor: CARD_BG }}>
-                   <IconButton sx={{ width: 50, height: 50, borderRadius: 2, color: micOn ? '#7F75FF' : "", bgcolor: "#CECEFF" }} onClick={() => {
-                    setMicOn((m) => !m);
-                    if (videoRef.current) videoRef.current.muted = !micOn;
-                  }}>
-                    {micOn ? <Mic /> : <MicOff color="error" />}
-                  </IconButton>
-                  <IconButton sx={{ width: 50, height: 50, borderRadius: 2, color: camOn ? '#7F75FF' : "", bgcolor: "#CECEFF" }} onClick={() => {
+                    <IconButton sx={{
+                      width: 50, height: 50, borderRadius: 2, color: micOn ? '#7F75FF' : "", bgcolor: "#CECEFF",}} onClick={() => {
+                      setMicOn((m) => !m);
+                      if (videoRef.current) videoRef.current.muted = !micOn;
+                    }}>
+                      {micOn ? <Mic /> : <MicOff color="error" />}
+                    </IconButton>
+                  <IconButton   sx={{ width: 50, height: 50, borderRadius: 2, color: camOn ? '#7F75FF' : "", bgcolor: "#CECEFF" }} onClick={() => {
                     setCamOn((c) => !c);
                     if (videoRef.current) videoRef.current.style.display = camOn ? "none" : "block";
                   }}>
                     {camOn ? <Videocam /> : <VideocamOff color="error" />}
                   </IconButton>
-                  <IconButton onClick={() => setIsPlaying((p) => !p)} sx={{ width: 180, height: 58, borderRadius: 3, bgcolor: PRIMARY, color: "white" }}>
+                  <IconButton  disableRipple onClick={() => setIsPlaying((p) => !p)} sx={{ width: 180, height: 58, borderRadius: 3, bgcolor: PRIMARY, color: "white",   }}>
                     {isPlaying ? <Pause fontSize="large" /> : <PlayArrow fontSize="large" />}
                   </IconButton>
-                  <IconButton sx={{ bgcolor:'#CECEFF', color:'#7F75FF' }} onClick={handleFullscreen}><Fullscreen /></IconButton>
+                  <IconButton  sx={{ bgcolor:'#CECEFF', color:'#7F75FF' }} onClick={handleFullscreen}><Fullscreen /></IconButton>
                   <IconButton sx={{bgcolor:'#CECEFF', color:'#7F75FF'}}><BorderColorIcon /></IconButton>
                   <IconButton sx={{bgcolor:'#CECEFF', color:'#7F75FF'}}><Chat /></IconButton>
                   <IconButton sx={{ width: 50, height: 50, borderRadius: 2, bgcolor:'#CECEFF' }} onClick={() => setRecording((r) => !r)}>
@@ -598,7 +596,7 @@ export default function AllStreams() {
                         sx: { borderRadius: 2, },
                         endAdornment: (
                           <InputAdornment position="end">
-                            <IconButton onClick={sendMessage} sx={{ bgcolor: PRIMARY, color: "#fff", width: 44, height: 34, borderRadius: 2 }}>
+                            <IconButton disableRipple  onClick={sendMessage} sx={{ bgcolor: PRIMARY, color: "#fff", width: 44, height: 34, borderRadius: 2 }}>
                               <Send />
                             </IconButton>
                           </InputAdornment>

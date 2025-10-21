@@ -660,7 +660,7 @@ const ProfileStep4 = () => {
                 borderRadius: 30,
                 fontWeight: "bold",
                 fontSize: 12,
-                "&:hover": { backgroundColor: "#4a25d6" },
+                   "&:hover": { bgcolor: "#4a25d6", color:'white' },
               }}
             >
               Submit & Finish Setup

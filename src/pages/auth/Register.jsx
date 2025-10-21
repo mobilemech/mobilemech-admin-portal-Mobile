@@ -101,7 +101,7 @@ const AuthScreen = () => {
             <Typography sx={{ fontWeight: 700, fontSize: 18, mb: 1 }}>
               Experience Worship, Anytime, Anywhere
             </Typography>
-            <Typography sx={{ fontSize: 14, opacity: 0.9, mb: 10 }}>
+            <Typography sx={{ fontSize: 14, opacity: 0.9, mb: 3 }}>
               Join the conversation, and grow in faith.
             </Typography>
           </Box>
@@ -174,7 +174,7 @@ const AuthScreen = () => {
                 fontWeight: 600,
                 fontSize: 14,
                 boxShadow: !isLogin ? "0 2px 6px rgba(0,0,0,0.15)" : "none",
-                "&:hover": { bgcolor: !isLogin ? "#2100b3" : "transparent" },
+             //   "&:hover": { bgcolor: !isLogin ? "#2100b3" :  "#e9e6f9ff",color:'white'  },
               }}
             >
               Sign Up
@@ -190,7 +190,7 @@ const AuthScreen = () => {
                 fontWeight: 600,
                 fontSize: 14,
                 boxShadow: isLogin ? "0 2px 6px rgba(0,0,0,0.15)" : "none",
-                "&:hover": { bgcolor: isLogin ? "#2100b3" : "transparent" },
+              //  "&:hover": { bgcolor: isLogin ? "#2100b3" : "#e9e6f9ff", color:'white' },
               }}
             >
               Log In
@@ -406,7 +406,7 @@ const buttonStyle = {
   color: "#fff",
   textTransform: "none",
   py: 1.2,
-  borderRadius: 3,
+  borderRadius: 20,
   fontWeight: 600,
   fontSize: 15,
   "&:hover": { bgcolor: "#4a25d6" },

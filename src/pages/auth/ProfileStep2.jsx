@@ -245,6 +245,7 @@ const ProfileStep2 = () => {
                     py: 1.2,
                     textTransform: "none",
                     color: "#fff",
+                       "&:hover": { bgcolor: "#4a25d6", color:'white' },
                   }}
                 >
                   Next

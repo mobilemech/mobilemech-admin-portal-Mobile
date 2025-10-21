@@ -419,6 +419,7 @@ const ProfileStep3 = () => {
                     py: 1.2,
                     textTransform: "none",
                     color: "#fff",
+                       "&:hover": { bgcolor: "#4a25d6", color:'white' },
                   }}
                 >
                   Submit for Verification

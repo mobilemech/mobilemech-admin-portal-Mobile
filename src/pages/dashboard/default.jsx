@@ -106,14 +106,7 @@ export default function DashboardDefault() {
 
   const [value, setValue] = useState('This Month');
     const [openModal, setOpenModal] = useState(false);
-  const [startStreamOpen, setStartStreamOpen] = useState(false);
-
-
-
-
-  
-
-
+  const [startStreamOpen, setStartStreamOpen] = useState(false)
 
   const [width, setWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
@@ -599,7 +592,7 @@ export default function DashboardDefault() {
 
 
 
-            <Stack style={{flexDirection:'column', justifyContent:'center', alignItems:'center', alignItems:'center'}} >
+            <Stack style={{flexDirection:'column', justifyContent:'center', alignItems:'center'}} >
 
 
               <Stack  style={{marginTop:20}}>

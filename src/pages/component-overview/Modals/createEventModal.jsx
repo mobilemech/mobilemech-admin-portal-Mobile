@@ -33,7 +33,7 @@ const tagColors = [
   { bg: "#FCE4EC", color: "#AD1457" }, // Pink
 ];
 
-const StreamModal = ({ open, onClose,onNext  }) => {
+const CreateEventModal = ({ open, onClose, onNext }) => {
   const [streamTitle, setStreamTitle] = useState("Faith that moves mountains");
   const [speakerName, setSpeakerName] = useState("Pastor Grace Ajayi");
   const [category, setCategory] = useState("Faith");
@@ -59,7 +59,7 @@ const StreamModal = ({ open, onClose,onNext  }) => {
           padding: 4,
           backgroundColor: "#fff",
           width: "100%",
-          maxWidth: "1100px", // make modal much bigger
+          maxWidth: "1000px",
         },
       }}
     >
@@ -88,10 +88,10 @@ const StreamModal = ({ open, onClose,onNext  }) => {
           </Box>
           <Box>
             <Typography fontWeight="bold" fontSize={22}>
-              Stream Information
+              New Event
             </Typography>
             <Typography fontSize={15} color="text.secondary">
-              Enter these information to Start a live stream
+              Create New Event
             </Typography>
           </Box>
         </Box>
@@ -105,7 +105,7 @@ const StreamModal = ({ open, onClose,onNext  }) => {
         {/* Stream Title / Speaker Name */}
         <Box display="flex" gap={3} flexWrap="wrap" mb={4}>
           <TextField
-            label="Stream Title"
+            label="EventTitle"
             fullWidth
             size="medium"
             InputProps={{ sx: { fontSize: 16, height: 56 } }}
@@ -141,7 +141,7 @@ const StreamModal = ({ open, onClose,onNext  }) => {
             type="datetime-local"
             fullWidth
             size="medium"
-            label="Stream Date & Time"
+            label="Event Date & Time"
             InputLabelProps={{ shrink: true }}
             InputProps={{ sx: { fontSize: 16, height: 56 } }}
             value={dateTime}
@@ -149,35 +149,8 @@ const StreamModal = ({ open, onClose,onNext  }) => {
           />
         </Box>
 
-        {/* Sliders */}
-        <Box display="flex" gap={6} flexWrap="wrap" mb={4}>
-          <Box flex={1}>
-            <Box display="flex" alignItems="center" gap={1}>
-              <VolumeUp sx={{ color: "#2B04DB" }} />
-              <Typography fontSize={15} fontWeight="500">
-                Stream Volume
-              </Typography>
-            </Box>
-            <Slider
-              value={streamVolume}
-              onChange={(e, val) => setStreamVolume(val)}
-              sx={{ color: "#2B04DB", mt: 1 }}
-            />
-          </Box>
-          <Box flex={1}>
-            <Box display="flex" alignItems="center" gap={1}>
-              <Mic sx={{ color: "#2B04DB" }} />
-              <Typography fontSize={15} fontWeight="500">
-                Mic Volume
-              </Typography>
-            </Box>
-            <Slider
-              value={micVolume}
-              onChange={(e, val) => setMicVolume(val)}
-              sx={{ color: "#2B04DB", mt: 1 }}
-            />
-          </Box>
-        </Box>
+
+
 
         {/* Tags */}
         <Box mb={4}>
@@ -236,7 +209,7 @@ const StreamModal = ({ open, onClose,onNext  }) => {
             Upload
             <input type="file" hidden accept="image/png, image/jpeg" />
           </Button>
-          <Typography variant="caption" display="block" mt={1}>
+          <Typography variant="caption" display="block" mt={1} sx={{ fontSize: 17 }}>
             We only support JPEG, JPG, or PNG files. 1 mb max.
           </Typography>
         </Box>
@@ -263,39 +236,45 @@ const StreamModal = ({ open, onClose,onNext  }) => {
         }}
       >
         <Button
-              variant="outlined"
-              sx={{
-                borderRadius: "30px",
-                textTransform: "none",
-                px: 5,
-                py: 1.5,
-                fontSize: 16,
-                backgroundColor: "#9088eeff",
-                border: 'none',
-                color: "white",
-                "&:hover": { backgroundColor: "#9d95f0ff", color: 'white' },
-              }}
-            >
-              Save as Draft
-            </Button>
-        <Button
-       onClick={onNext} 
-          variant="contained"
+          variant="outlined"
           sx={{
-            bgcolor: "#2B04DB",
             borderRadius: "30px",
             textTransform: "none",
-            px: 6,
+            px: 5,
             py: 1.5,
             fontSize: 16,
-            "&:hover": { bgcolor: "#4a25d6" },
+            backgroundColor: "#9088eeff",
+            border: 'none',
+            color: "white",
+            "&:hover": { backgroundColor: "#9d95f0ff", color: 'white' },
           }}
         >
-          Next
+          Save as Draft
         </Button>
+
+
+
+
+        <Button
+          variant="contained"
+          sx={{
+            backgroundColor: "#4F46E5",
+            fontWeight: 600,
+            textTransform: "none",
+            px: 3,
+            py: 1.2,
+            borderRadius: "30px",
+            fontSize: "1rem",
+            "&:hover": { backgroundColor: "#4338CA" },
+          }}
+        >
+          + Create Event
+        </Button>
+
+
       </DialogActions>
     </Dialog>
   );
 };
 
-export default StreamModal;
+export default CreateEventModal;
