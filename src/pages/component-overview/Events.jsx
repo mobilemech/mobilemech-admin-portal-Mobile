@@ -438,6 +438,7 @@ export default function Events() {
               <Box
                 key={event.id}
                 sx={{
+                  cursor: 'pointer',
                   flex: {
                     xs: "1 1 100%",
                     sm: "1 1 48%",
@@ -481,13 +482,13 @@ export default function Events() {
                 >
                   {event.category}
                 </Box>
-                <Typography variant="h6" sx={{ fontWeight: 700, mb: 0.5 }}>
+                <Typography variant="h4" sx={{ fontWeight: 700, mb: 0.5 }}>
                   {event.title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                <Typography variant="h5" color="text.secondary" sx={{ mb: 1 }}>
                   With {event.host}
                 </Typography>
-                <Typography variant="caption" color="text.secondary">
+                <Typography variant="h5" color="text.secondary">
                   {event.date}
                 </Typography>
               </Box>
@@ -498,13 +499,7 @@ export default function Events() {
         {/* Right Side - 30% */}
         <Box sx={{ flex: { xs: "1 1 100%", md: "0 0 30%" } }}>
           <Paper elevation={0} sx={{ p: 3, borderRadius: 3, bgcolor: "#F9FAFB" }}>
-            <Typography variant="body1" color="text.secondary" mb={2}>
-              Quick summary of your upcoming events, participants, and total views.
-            </Typography>
-            <Divider sx={{ my: 2 }} />
             <Stack spacing={2}>
-
-
 
               {/* Overview Section */}
               <Grid item xs={12} md={6}>
@@ -546,10 +541,10 @@ export default function Events() {
                         }}
                       />
                       <Box>
-                        <Typography variant="subtitle2" color="text.secondary">
+                        <Typography variant="h4" color="text.secondary">
                           Total Events
                         </Typography>
-                        <Typography sx={{ fontWeight: 800, fontSize: 20 }}>
+                        <Typography sx={{ fontWeight: 500, fontSize: 20 }}>
                           {donation}
                         </Typography>
                       </Box>
@@ -577,10 +572,10 @@ export default function Events() {
                         }}
                       />
                       <Box>
-                        <Typography variant="subtitle2" color="text.secondary">
+                        <Typography variant="h4" color="text.secondary">
                           Most RSVP
                         </Typography>
-                        <Typography sx={{ fontWeight: 800, fontSize: 20 }}>Grace over Guilt</Typography>
+                        <Typography sx={{ fontWeight: 500, fontSize: 20 }}>Grace over Guilt</Typography>
                       </Box>
                     </Paper>
 
@@ -606,10 +601,10 @@ export default function Events() {
                         }}
                       />
                       <Box>
-                        <Typography variant="subtitle2" color="text.secondary">
+                        <Typography variant="h4" color="text.secondary">
                           Weekly Engagement
                         </Typography>
-                        <Typography sx={{ fontWeight: 800, fontSize: 20 }}>+22%</Typography>
+                        <Typography sx={{ fontWeight: 500, fontSize: 20 }}>+22%</Typography>
                       </Box>
                     </Paper>
                   </Box>
@@ -619,7 +614,7 @@ export default function Events() {
 
 
 
-              {/* Itinerary Section */}
+              {/* OverView Section */}
               <Grid item xs={12} md={6}>
                 <Paper sx={{ p: 3, borderRadius: 2, height: "100%", width: "100%" }}>
                   <Box
@@ -655,10 +650,10 @@ export default function Events() {
                         />
                         <ListItemText
                           primary={
-                            <Typography sx={{ fontWeight: 700 }}>{it.title}</Typography>
+                            <Typography sx={{ fontWeight: 800, fontSize: 18 }}>{it.title}</Typography>
                           }
                           secondary={
-                            <Typography variant="body2" color="text.secondary">
+                            <Typography variant="h4" color="text.secondary">
                               {`${it.time} • ${it.duration}`}
                             </Typography>
                           }

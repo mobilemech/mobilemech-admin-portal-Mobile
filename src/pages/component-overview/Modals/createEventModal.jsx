@@ -23,7 +23,9 @@ import {
   VolumeUp,
   Mic,
   Label,
+  
 } from "@mui/icons-material";
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 const tagColors = [
   { bg: "#E6E4FA", color: "#2B04DB" }, // Purple
@@ -84,7 +86,7 @@ const CreateEventModal = ({ open, onClose, onNext }) => {
               justifyContent: "center",
             }}
           >
-            <CloudUpload fontSize="medium" />
+            <CalendarMonthIcon fontSize="medium" />
           </Box>
           <Box>
             <Typography fontWeight="bold" fontSize={22}>
