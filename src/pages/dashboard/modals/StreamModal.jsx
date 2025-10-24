@@ -214,7 +214,7 @@ const StreamModal = ({ open, onClose,onNext  }) => {
         <Box mb={4}>
           <Box display="flex" alignItems="center" gap={1} mb={1}>
             <CloudUpload sx={{ color: "#2B04DB" }} />
-            <Typography fontSize={15} fontWeight="500">
+            <Typography fontSize={18} fontWeight="800">
               Stream Thumbnail
             </Typography>
           </Box>
@@ -236,7 +236,7 @@ const StreamModal = ({ open, onClose,onNext  }) => {
             Upload
             <input type="file" hidden accept="image/png, image/jpeg" />
           </Button>
-          <Typography variant="caption" display="block" mt={1}>
+          <Typography variant="h4" display="block" mt={1}>
             We only support JPEG, JPG, or PNG files. 1 mb max.
           </Typography>
         </Box>
