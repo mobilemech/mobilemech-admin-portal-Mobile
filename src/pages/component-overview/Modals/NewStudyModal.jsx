@@ -733,9 +733,26 @@ const NewStudyModal = ({ open, onClose }) => {
                                     <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
                                         MP3, MP4 - Up to 2gb
                                     </Typography>
-                                    <Button variant="outlined" startIcon={<CloudUpload />}>
+
+                                       <Button
+                                        variant="outlined"
+                                        sx={{
+                                            borderRadius: "30px",
+                                            textTransform: "none",
+                                            px: 5,
+                                            py: 1.5,
+                                            fontSize: 16,
+                                            backgroundColor: "#9088eeff",
+                                            border: 'none',
+                                            color: "white",
+                                            "&:hover": { backgroundColor: "#9d95f0ff", color: 'white' },
+                                        }}
+                                        startIcon={<CloudUpload />}
+                                    >
                                         Browse File
                                     </Button>
+
+
                                 </Paper>
                             </Box>
 
