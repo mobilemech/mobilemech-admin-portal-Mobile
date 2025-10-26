@@ -384,7 +384,7 @@ export default function DashboardDefault() {
         >
 
 
-              {/* Member activity */}
+          {/* Member activity */}
 
           <Grid sx={{ width: '100%' }}>
 
@@ -590,7 +590,7 @@ export default function DashboardDefault() {
 
 
 
-      
+
         </Grid>
 
 
@@ -607,7 +607,7 @@ export default function DashboardDefault() {
 
 
 
-    {/* Right hand side */}
+      {/* Right hand side */}
 
       <Grid size={{ xs: 12, md: 5, lg: 4 }}>
 

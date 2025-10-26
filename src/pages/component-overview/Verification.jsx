@@ -96,7 +96,7 @@ export default function Verification() {
 
 
 
-  
+
   return (
     <Box sx={{ px: 3, py: 2, width: "100%" }}>
       {/* Header */}
@@ -182,7 +182,7 @@ export default function Verification() {
           <Box
             key={item.id}
             sx={{
-              cursor:'pointer',
+              cursor: 'pointer',
               width: { xs: "100%", md: "60%" },
               bgcolor: "#fff",
               borderRadius: 3,
@@ -228,7 +228,7 @@ export default function Verification() {
                     width: `${item.progress}%`,
                     height: "100%",
                     bgcolor: "#4F46E5",
-              
+
                   }}
                 />
               </Box>

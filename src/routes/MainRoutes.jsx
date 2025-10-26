@@ -14,7 +14,7 @@ const Verification = Loadable(lazy(() => import('pages/component-overview/Verifi
 const AllStreams = Loadable(lazy(() => import('pages/component-overview/AllStreams')));
 const Events = Loadable(lazy(() => import('pages/component-overview/Events')));
 const Donations = Loadable(lazy(() => import('pages/component-overview/Donations')));
-const Settings = Loadable(lazy(() => import('pages/component-overview/Settings')));
+const Merchandise = Loadable(lazy(() => import('pages/component-overview/Merchandise')));
 
 const BibleStudy = Loadable(lazy(() => import('pages/component-overview/BibleStudy')));
 const Community = Loadable(lazy(() => import('pages/component-overview/Community')));
@@ -63,13 +63,10 @@ const MainRoutes = {
 
 
      {
-      path: 'Settings',
-      element: <Settings />
+      path: 'Merchandise',
+      element: <Merchandise />
     },
-    // {
-    //   path: 'sample-page',
-    //   element: <SamplePage />
-    // },
+ 
 
     {
       path: 'AllStreams',

@@ -20,6 +20,12 @@ export default function DashboardLayout() {
   const { menuMasterLoading } = useGetMenuMaster();
   const downXL = useMediaQuery((theme) => theme.breakpoints.down('xl'));
 
+
+
+
+
+  
+
   // set media wise responsive drawer
   useEffect(() => {
     handlerDrawerOpen(!downXL);
@@ -43,7 +49,7 @@ export default function DashboardLayout() {
             flexDirection: 'column'
           }}
         >
-          <Breadcrumbs />
+          {/* <Breadcrumbs /> */}
           <Outlet />
           <Footer />
         </Box>

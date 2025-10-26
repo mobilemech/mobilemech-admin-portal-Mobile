@@ -7,79 +7,53 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import AttractionsIcon from '@mui/icons-material/Attractions';
 import CommentIcon from '@mui/icons-material/Comment';
 
-
-
 const support = {
-  id: '',
-  title: '',
+ // id: 'support',
+//  title: 'Support',
   type: 'group',
   children: [
-
-      
-    
     {
       id: 'All-Streams',
       title: 'All Streams',
       type: 'item',
-      url: 'AllStreams',
-      icon: LocalPharmacyIcon,
-    // target: true
+      url: '/dashboard/AllStreams',
+      icon: LocalPharmacyIcon
     },
     {
       id: 'Events',
       title: 'Events',
       type: 'item',
-      url: 'Events',
-      icon: CalendarMonthIcon,
-    //  target: true
+      url: '/dashboard/Events',
+      icon: CalendarMonthIcon
     },
-
-
-     {
+    {
       id: 'Donations',
       title: 'Donations',
       type: 'item',
-      url: 'Donations',
+      url: '/dashboard/Donations',
       icon: VolunteerActivismIcon
-    //  target: true
     },
-
-
-
-      {
+    {
       id: 'Bible Study',
       title: 'Bible Study',
       type: 'item',
-      url: 'BibleStudy',
+      url: '/dashboard/BibleStudy',
       icon: MenuBookIcon
-     // target: true
     },
-
-
-
-        {
+    {
       id: 'Community',
       title: 'Community',
       type: 'item',
-      url: 'Community',
+      url: '/dashboard/Community',
       icon: AttractionsIcon
-    //  target: true
     },
-
-
-
-        {
+    {
       id: 'Requests',
       title: 'Requests',
       type: 'item',
-      url: 'Requests',
-      icon: CommentIcon,
-     // target: true
-    },
-
-       
-    
-   
+      url: '/dashboard/Requests',
+      icon: CommentIcon
+    }
   ]
 };
 

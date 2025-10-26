@@ -79,14 +79,14 @@ export default function Donations() {
   const [width, setWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
   );
- 
 
-    const [itinerary] = useState([
-      { id: 1, title: "Chinedu Ogwu", time: "20 - building project", duration: "30 mins", image: Rect2 },
-      { id: 2, title: "Kelvin Amadi", time: "20 - building project", duration: "15 mins", image: Rect2 },
-      { id: 3, title: "Amaka Nwosu", time: "20 - building project", duration: "15 mins", image: Rect2 },
-      { id: 4, title: "James bond", time: "20 - building project", duration: "15 mins", image: Rect2 },
-    ]);
+
+  const [itinerary] = useState([
+    { id: 1, title: "Chinedu Ogwu", time: "20 - building project", duration: "30 mins", image: Rect2 },
+    { id: 2, title: "Kelvin Amadi", time: "20 - building project", duration: "15 mins", image: Rect2 },
+    { id: 3, title: "Amaka Nwosu", time: "20 - building project", duration: "15 mins", image: Rect2 },
+    { id: 4, title: "James bond", time: "20 - building project", duration: "15 mins", image: Rect2 },
+  ]);
 
   const [openModal, setOpenModal] = useState(false)
   const [openModal2, setOpenModal2] = useState(false)
@@ -124,7 +124,7 @@ export default function Donations() {
     }
   }, [zoom]);
 
-  
+
 
   // Mock Data
   const totalDonation = "$50,000";
@@ -168,7 +168,7 @@ export default function Donations() {
       {/* Subtitle */}
       <Typography
         variant="h4"
-        sx={{ color: "black", mb: 1.5, fontSize: 17 }}
+        sx={{ color: "black", mb: 1.5, fontSize: 20 }}
       >
         Manage Offerings, view support for the church and set up giving options
         for your members
@@ -187,16 +187,16 @@ export default function Donations() {
           Donations and Giving
         </Typography>
 
-   
+
       </Stack>
 
-  
 
 
 
 
 
-   {/* Stats Cards */}
+
+      {/* Stats Cards */}
       <Grid
         container
         spacing={2.5}
@@ -207,7 +207,7 @@ export default function Donations() {
         }}
       >
         {/* Card 1 */}
-        <Grid item xs={12} sm={6} md={3} sx={{ flexGrow: 1, cursor:'pointer' }}>
+        <Grid item xs={12} sm={6} md={3} sx={{ flexGrow: 1, cursor: 'pointer' }}>
           <Paper
             elevation={0}
             sx={{
@@ -246,7 +246,7 @@ export default function Donations() {
         </Grid>
 
         {/* Card 2 */}
-        <Grid item xs={12} sm={6} md={3} sx={{ flexGrow: 1, cursor:'pointer' }}>
+        <Grid item xs={12} sm={6} md={3} sx={{ flexGrow: 1, cursor: 'pointer' }}>
           <Paper
             elevation={0}
             sx={{
@@ -285,7 +285,7 @@ export default function Donations() {
         </Grid>
 
         {/* Card 3 */}
-        <Grid item xs={12} sm={6} md={3} sx={{ flexGrow: 1, cursor:'pointer' }}>
+        <Grid item xs={12} sm={6} md={3} sx={{ flexGrow: 1, cursor: 'pointer' }}>
           <Paper
             elevation={0}
             sx={{
@@ -324,7 +324,7 @@ export default function Donations() {
         </Grid>
 
         {/* Card 4 (Blue gradient) */}
-        <Grid item xs={12} sm={6} md={3} sx={{ flexGrow: 1, cursor:'pointer' }}>
+        <Grid item xs={12} sm={6} md={3} sx={{ flexGrow: 1, cursor: 'pointer' }}>
           <Paper
             elevation={3}
             sx={{
@@ -368,13 +368,13 @@ export default function Donations() {
 
 
 
-  <div>
-       <NewDonation open={openModal} onClose={() => setOpenModal(false)} />
+      <div>
+        <NewDonation open={openModal} onClose={() => setOpenModal(false)} />
 
-       <DonationTypeModal open={openModal2} onClose={() => setOpenModal2(false)} />
+        <DonationTypeModal open={openModal2} onClose={() => setOpenModal2(false)} />
 
-  </div>
- 
+      </div>
+
 
 
 
@@ -425,71 +425,75 @@ export default function Donations() {
               </Box>
             </Paper>
 
-      
 
 
 
 
-                {/* Bottom Cards (Overview + Itinerary) */}
-                        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 2 }}>
-                          {/* Overview */}
-                       
 
-
-      <Stack style={{ flexDirection: 'row', justifyContent: 'space-around',  alignItems: 'center', backgroundColor:'white' }}>
+            {/* Bottom Cards (Overview + Itinerary) */}
+            <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 2 }}>
+              {/* Overview */}
 
 
 
-            
-
-            <Stack style={{flexDirection:'column', justifyContent:'center', alignItems:'center'}} >
+              <Stack style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', backgroundColor: 'white' }}>
 
 
-              <Stack  style={{marginTop:20}}>
-                <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
-                  <FiberManualRecordIcon style={{ color: '#2B04DB' }} />
-                  <Typography variant='h4'>Building Projects</Typography>
+
+
+
+                <Stack style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
+
+
+                  <Stack style={{ marginTop: 20 }}>
+                    <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
+                      <FiberManualRecordIcon style={{ color: '#2B04DB' }} />
+                      <Typography variant='h4'>Building Projects</Typography>
+                    </Stack>
+                    <Typography variant='h4' sx={{ mt: 1 }}>3000</Typography>
+
+                  </Stack>
+
+
+
+
+                  <Stack style={{ marginTop: 60 }}>
+                    <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
+                      <FiberManualRecordIcon style={{ color: '#FF6B6B' }} />
+                      <Typography variant='h4'>Missions</Typography>
+                    </Stack>
+                    <Typography variant='h4' sx={{ mt: 1, }}>254</Typography>
+
+                  </Stack>
+
+
+
+
+
+                  <Stack style={{ marginTop: 90 }}>
+                    <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
+                      <FiberManualRecordIcon style={{ color: '#FFAC20' }} />
+                      <Typography variant='h4'>General offering</Typography>
+                    </Stack>
+                    <Typography variant='h4' sx={{ mt: 1 }}>3254</Typography>
+
+                  </Stack>
+
+
+
                 </Stack>
-                <Typography variant='h4' sx={{ mt: 1 }}>3000</Typography>
+
+
+
+                <Stack >
+                  <img src={donationImg} style={{ width: 250, height: 250 }} />
+                </Stack>
 
               </Stack>
 
 
 
 
-              <Stack style={{ marginTop: 60 }}>
-                <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
-                  <FiberManualRecordIcon style={{ color: '#FF6B6B' }} />
-                  <Typography variant='h4'>Missions</Typography>
-                </Stack>
-                <Typography variant='h4' sx={{ mt: 1,  }}>254</Typography>
-
-              </Stack>
-
-
-
-
-
-              <Stack style={{  marginTop: 90 }}>
-                <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
-                  <FiberManualRecordIcon style={{ color: '#FFAC20' }} />
-                  <Typography variant='h4'>General offering</Typography>
-                </Stack>
-                <Typography variant='h4' sx={{ mt: 1}}>3254</Typography>
-
-              </Stack>
-
-
-
-            </Stack>
-
-
-
-            <Stack >
-              <img src={donationImg} style={{ width: 250, height: 250 }} />
-            </Stack>
-
-          </Stack>
 
 
 
@@ -502,35 +506,31 @@ export default function Donations() {
 
 
 
-
-
-
-            
-                          {/* Itinerary */}
-                          <Paper sx={{ p: 3, borderRadius: 2 }}>
-                            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                              <Typography sx={{ fontWeight: 800 }}>Recent Donation</Typography>
-                              <Button size="small" sx={{ textTransform: "none" }}>
-                                Today ▾
-                              </Button>
-                            </Box>
-                            <List sx={{ mt: 1 }}>
-                              {itinerary.map((it) => (
-                                <ListItem key={it.id} disableGutters sx={{ py: 1, gap: 2 }}>
-                                  <img src={it.image} alt={it.title} />
-                                  <ListItemText
-                                    primary={<Typography sx={{ fontWeight: 800, fontSize: 17 }}>{it.title}</Typography>}
-                                    secondary={
-                                      <Typography variant="h5" color="text.secondary">
-                                        {`${it.time} • ${it.duration}`}
-                                      </Typography>
-                                    }
-                                  />
-                                </ListItem>
-                              ))}
-                            </List>
-                          </Paper>
-                        </Box>
+              {/* Itinerary */}
+              <Paper sx={{ p: 3, borderRadius: 2 }}>
+                <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <Typography sx={{ fontWeight: 800 }}>Recent Donation</Typography>
+                  <Button size="small" sx={{ textTransform: "none" }}>
+                    Today ▾
+                  </Button>
+                </Box>
+                <List sx={{ mt: 1 }}>
+                  {itinerary.map((it) => (
+                    <ListItem key={it.id} disableGutters sx={{ py: 1, gap: 2 }}>
+                      <img src={it.image} alt={it.title} />
+                      <ListItemText
+                        primary={<Typography sx={{ fontWeight: 800, fontSize: 17 }}>{it.title}</Typography>}
+                        secondary={
+                          <Typography variant="h5" color="text.secondary">
+                            {`${it.time} • ${it.duration}`}
+                          </Typography>
+                        }
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+              </Paper>
+            </Box>
 
 
 
@@ -564,13 +564,13 @@ export default function Donations() {
                 {[{
                   title: "Create Donation",
                   desc: "Plan your next live worship",
-                   gradient: "linear-gradient(to bottom, #7838F4, #2B04DB)",
-                 
+                  gradient: "linear-gradient(to bottom, #7838F4, #2B04DB)",
+
                   icon: image
                 }, {
                   title: "Donation Types",
                   desc: "Organize your next church event",
-                   gradient: "linear-gradient(to bottom, #FF6773, #FE8B6E)",
+                  gradient: "linear-gradient(to bottom, #FF6773, #FE8B6E)",
                   icon: <CalendarMonthIcon sx={{ width: 40, height: 40 }} />
                 }, {
                   title: "Donation Settings",
@@ -706,7 +706,7 @@ export default function Donations() {
               >
 
 
-                    <ListItem
+                <ListItem
                   component={ListItemButton}
                   //  divider
                   secondaryAction={
@@ -726,7 +726,7 @@ export default function Donations() {
                   </ListItemAvatar>
                   <ListItemText sx={{ ml: 2 }} primary={<Typography variant="h4" >6 New Donations</Typography>} secondary="View Donations" />
                 </ListItem>
-            
+
 
 
 

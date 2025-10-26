@@ -28,6 +28,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import QuizIcon from '@mui/icons-material/Quiz';
 import MessageIcon from '@mui/icons-material/Message';
 
+
 import Rect1 from "./Rect1.png";
 import Rect2 from "./Rect2.png";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
@@ -36,11 +37,15 @@ import MarkUnreadChatAltIcon from "@mui/icons-material/MarkUnreadChatAlt";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ListItemButton from '@mui/material/ListItemButton';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import PolicyIcon from '@mui/icons-material/Policy';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import LocalFloristIcon from '@mui/icons-material/LocalFlorist';
+
 
 import donationImg from "./donation.png"
 
-import TeamMemberModal from "./Modals/AddTeamModal";
-import DonationTypeModal from "./Modals/donationTypesModal";
+
 
 
 
@@ -65,21 +70,20 @@ const actionSX = {
 
 
 
-export default function TeamMembers() {
+export default function Merchandise() {
   const [width, setWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
   );
 
 
   const [itinerary] = useState([
-    { id: 1, title: "Chinedu Ogwu", time: "20 - building project", duration: "30 mins", image: Rect2 },
-    { id: 2, title: "Kelvin Amadi", time: "20 - building project", duration: "15 mins", image: Rect2 },
-    { id: 3, title: "Amaka Nwosu", time: "20 - building project", duration: "15 mins", image: Rect2 },
-    { id: 4, title: "James bond", time: "20 - building project", duration: "15 mins", image: Rect2 },
+    { id: 1, title: "8 Pending Orders", time: " Pending Orders", duration: "30 mins", image: Rect2 },
+    { id: 2, title: "12 Shippedorders", time: "shipped orders", duration: "15 mins", image: Rect1 },
+    { id: 3, title: "42 fulfilled orders", time: "fulfilled orders", duration: "15 mins", image: Rect2 },
+
   ]);
 
-  const [openModal, setOpenModal] = useState(false)
-  const [openModal2, setOpenModal2] = useState(false)
+
 
 
 
@@ -117,12 +121,10 @@ export default function TeamMembers() {
 
 
   // Mock Data
-  const totalTeamMembers = 12;
-  const activeRoles = 7;
-  const activeTeamMembers = 11;
-  const pendingInvites = 3;
-
-
+  const ordersFulfilled = 62;
+  const bestseller = 'Faith Hoodie';
+  const totalSales = '$350.20';
+  const pendingOrder = 9;
 
 
 
@@ -130,36 +132,45 @@ export default function TeamMembers() {
 
 
   const mockRows = [
-    { id: 1, name: 'John Doe', email: 'john@example.com', lastActive: '2 hours ago', role: 'Choir Leader' },
-    { id: 2, name: 'Jane Smith', email: 'jane@example.com', lastActive: '5 hours ago', role: 'Usher' },
-    { id: 3, name: 'Samuel Green', email: 'samuel@example.com', lastActive: '1 day ago', role: 'Youth Pastor' },
-    { id: 4, name: 'Esther Brown', email: 'esther@example.com', lastActive: '3 days ago', role: 'Media Team' },
-    { id: 5, name: 'David Miller', email: 'david@example.com', lastActive: '4 days ago', role: 'Technical Team' },
-    { id: 6, name: 'Grace Johnson', email: 'grace@example.com', lastActive: '1 week ago', role: 'Sunday School' },
-    { id: 7, name: 'Peter Obi', email: 'peter@example.com', lastActive: '2 weeks ago', role: 'Security' },
-    { id: 8, name: 'Mary Jane', email: 'mary@example.com', lastActive: '3 weeks ago', role: 'Finance' },
-    { id: 9, name: 'Tunde Bakare', email: 'tunde@example.com', lastActive: '1 month ago', role: 'Hospitality' },
-    { id: 10, name: 'Ruth Wise', email: 'ruth@example.com', lastActive: '2 months ago', role: 'Volunteer Coord.' },
+    { id: 1, name: 'Holy Shirt', order: 107, Status: 'stock in', Price: '$20' },
+    { id: 2, name: 'Holy Shirt', order: 40, Status: 'stock in', Price: '$10' },
+    { id: 3, name: 'Holy Shirt', order: 86, Status: 'stock out', Price: '$25' },
+    { id: 4, name: 'Holy Shirt', order: 52, Status: 'stock in', Price: '$9' },
+    { id: 5, name: 'Holy Shirt', order: 63, Status: 'stock in', Price: '$20' },
+    { id: 6, name: 'Holy Shirt', order: 78, Status: 'stock out', Price: '$10' },
+    { id: 7, name: 'Holy Shirt', order: 91, Status: 'stock out', Price: '$11' },
+    { id: 8, name: 'Holy Shirt', order: 35, Status: 'stock out', Price: '$20' },
+    { id: 9, name: 'Holy Shirt', order: 120, Status: 'stock out', Price: '$80' },
+    { id: 10, name: 'Holy Shirt', order: 200, Status: 'stock out', Price: '$200' },
   ];
 
   const columns = [
     {
       field: 'avatar',
-      headerName: 'User ID',
+      headerName: 'Prod Id',
       width: 100,
       sortable: false,
       renderCell: (params) => (
         <Avatar
           alt={params.row.name}
-          src={`https://i.pravatar.cc/150?u=${params.row.email}`}
+          src={`https://i.pravatar.cc/150?u=${params.row.Price}`}
           sx={{ width: 42, height: 42 }}
         />
       ),
     },
-    { field: 'name', headerName: 'Full Name', flex: 1, sortable: true },
-    { field: 'email', headerName: 'Email', flex: 1.3, sortable: true },
-    { field: 'lastActive', headerName: 'Last Active', flex: 0.9, sortable: true },
-    { field: 'role', headerName: 'Role', flex: 0.9, sortable: true },
+    { field: 'name', headerName: 'Product Name', flex: 1, sortable: true },
+    { field: 'order', headerName: 'Total Order', flex: 1.3, sortable: true },
+    {
+      field: "Status",
+      headerName: "Status",
+      flex: 1,
+      renderCell: (params) => (
+        <span style={{ color: params.value === "stock in" ? "green" : "red", fontWeight: 600 }}>
+          {params.value}
+        </span>
+      ),
+    },
+    { field: 'Price', headerName: 'Price', flex: 0.9, sortable: true },
   ];
 
 
@@ -175,7 +186,7 @@ export default function TeamMembers() {
         variant="h4"
         sx={{ color: "black", mb: 1.5, fontSize: 20 }}
       >
-        Invite and Manage your church admin team on Worsship.
+        Add, Manage and track sales of your church products
       </Typography>
 
       {/* Title Row */}
@@ -188,7 +199,7 @@ export default function TeamMembers() {
         gap={2}
       >
         <Typography variant="h3" sx={{ fontWeight: 800 }}>
-          Team Members
+          Merchandize store
         </Typography>
 
 
@@ -240,10 +251,10 @@ export default function TeamMembers() {
             </Avatar>
             <Box>
               <Typography variant="h4" color="text.secondary">
-                Total Team Members
+                Orders Fulfilled
               </Typography>
               <Typography sx={{ fontWeight: 800, mt: 0.5, fontSize: 24 }}>
-                {totalTeamMembers}
+                {ordersFulfilled}
               </Typography>
             </Box>
           </Paper>
@@ -279,10 +290,10 @@ export default function TeamMembers() {
             </Avatar>
             <Box>
               <Typography variant="h4" color="text.secondary">
-                Active Roles
+                Best Seller
               </Typography>
               <Typography sx={{ fontWeight: 800, mt: 0.5, fontSize: 24 }}>
-                {activeRoles}
+                {bestseller}
               </Typography>
             </Box>
           </Paper>
@@ -318,10 +329,10 @@ export default function TeamMembers() {
             </Avatar>
             <Box>
               <Typography variant="h4" color="text.secondary">
-                Active Team Members
+                Total Sales
               </Typography>
               <Typography sx={{ fontWeight: 800, mt: 0.5, fontSize: 24 }}>
-                {activeTeamMembers}
+                {totalSales}
               </Typography>
             </Box>
           </Paper>
@@ -348,10 +359,10 @@ export default function TeamMembers() {
           >
             <Box>
               <Typography variant="h4" sx={{ opacity: 0.95 }}>
-                Pending Invites
+                Pending Order
               </Typography>
               <Typography sx={{ fontWeight: 800, mt: 0.5, fontSize: 22 }}>
-                {pendingInvites}
+                {pendingOrder}
               </Typography>
             </Box>
             <Avatar
@@ -372,12 +383,7 @@ export default function TeamMembers() {
 
 
 
-      <div>
-        <TeamMemberModal open={openModal} onClose={() => setOpenModal(false)} />
 
-        <DonationTypeModal open={openModal2} onClose={() => setOpenModal2(false)} />
-
-      </div>
 
 
 
@@ -406,7 +412,7 @@ export default function TeamMembers() {
             {/* Team Members table */}
             <Paper sx={{ p: 3, borderRadius: 3 }}>
               <Typography sx={{ fontWeight: 800, mb: 2, fontSize: 17 }}>
-                Team Members
+                Best Selling Product
               </Typography>
               <Box
                 sx={{
@@ -482,7 +488,7 @@ export default function TeamMembers() {
                   <Stack style={{ marginTop: 20 }}>
                     <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
                       <FiberManualRecordIcon style={{ color: '#2B04DB' }} />
-                      <Typography variant='h4'>Building Projects</Typography>
+                      <Typography variant='h4'>New</Typography>
                     </Stack>
                     <Typography variant='h4' sx={{ mt: 1 }}>3000</Typography>
 
@@ -494,7 +500,7 @@ export default function TeamMembers() {
                   <Stack style={{ marginTop: 60 }}>
                     <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
                       <FiberManualRecordIcon style={{ color: '#FF6B6B' }} />
-                      <Typography variant='h4'>Missions</Typography>
+                      <Typography variant='h4'>Pending</Typography>
                     </Stack>
                     <Typography variant='h4' sx={{ mt: 1, }}>254</Typography>
 
@@ -507,7 +513,7 @@ export default function TeamMembers() {
                   <Stack style={{ marginTop: 90 }}>
                     <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
                       <FiberManualRecordIcon style={{ color: '#FFAC20' }} />
-                      <Typography variant='h4'>General offering</Typography>
+                      <Typography variant='h4'>Delivered</Typography>
                     </Stack>
                     <Typography variant='h4' sx={{ mt: 1 }}>3254</Typography>
 
@@ -596,19 +602,19 @@ export default function TeamMembers() {
 
               <Stack spacing={2}>
                 {[{
-                  title: "Add New",
-                  desc: "Add new members or roles",
+                  title: "Manage Product",
+                  desc: "Manage all your Merchandize",
                   gradient: "linear-gradient(to bottom, #7838F4, #2B04DB)",
 
                   icon: image
                 }, {
-                  title: "Edit Permissions",
-                  desc: "Edit Team member's Permissions",
+                  title: "Manage Orders",
+                  desc: "Manage all customer orders",
                   gradient: "linear-gradient(to bottom, #FF6773, #FE8B6E)",
                   icon: <CalendarMonthIcon sx={{ width: 40, height: 40 }} />
                 }, {
-                  title: "Team Settings",
-                  desc: "Bible Study materials",
+                  title: "Store Settings",
+                  desc: "storefront customization settings",
                   gradient: "linear-gradient(to bottom, #CC6002, #FFB532)",
                   icon: <MarkUnreadChatAltIcon sx={{ width: 40, height: 40 }} />
                 }].map((card, idx) => (
@@ -630,11 +636,11 @@ export default function TeamMembers() {
                       justifyContent="space-between"
                       alignItems="center"
                       spacing={2}
-                      onClick={
-                        card.title === "Add New" ? () => setOpenModal(true) :
-                          card.title === "Donation Types" ? () => setOpenModal2(true) :
-                            undefined
-                      }
+                    // onClick={
+                    //   card.title === "Add New" ? () => setOpenModal(true) :
+                    //     card.title === "Donation Types" ? () => setOpenModal2(true) :
+                    //       undefined
+                    // }
                     >
                       <Box>
                         <Typography variant="h4" color="#fff" fontWeight={700}>
@@ -715,74 +721,71 @@ export default function TeamMembers() {
                   {/* Notification Items */}
                   {[
                     {
-
-                      title: 'New Livestream',
-                      subtitle: 'Samuel starrted a new Livestream',
-                      date: 'sept 15, 10:00am'
-                    },
-
-                    {
-
-                      title: 'Merchandise Refund',
-                      subtitle: 'Grace Approved a store refund',
-                      date: 'sept 15, 10:00am'
+                      color: '#FE8B6E',
+                      bg: '#FFF1F1',
+                      icon: <ShoppingBagIcon sx={{ width: 40, height: 40 }} />,
+                      title: '15 new Orders',
+                      subtitle: 'View RSVPs'
                     },
                     {
-
-                      title: 'New Livestream',
-                      subtitle: 'Samuel starrted a new Livestream',
-                      date: 'sept 15, 10:00am'
+                      color: '#2B04DB',
+                      bg: '#F1F2FF',
+                      icon: <PolicyIcon sx={{ width: 40, height: 40 }} />,
+                      title: '2 new issues',
+                      subtitle: 'report order issues'
                     },
                     {
-
-                      title: 'New Livestream',
-                      subtitle: 'Samuel starrted a new Livestream',
-                      date: 'sept 15, 10:00am'
-                    },
-
-                    {
-                      title: 'New Livestream',
-                      subtitle: 'Samuel starrted a new Livestream',
-                      date: 'sept 15, 10:00am'
-                    },
-
-                    {
-
-                      title: 'New Livestream',
-                      subtitle: 'Samuel starrted a new Livestream',
-                      date: 'sept 15, 10:00am'
+                      color: '#CC6002',
+                      bg: '#FFF9EB',
+                      icon: <LocalShippingIcon sx={{ width: 40, height: 40 }} />,
+                      title: '4 new orders delivered',
+                      subtitle: 'View order details'
                     },
                     {
-                      title: 'New Livestream',
-                      subtitle: 'Samuel starrted a new Livestream',
-                      date: 'sept 15, 10:00am'
+                      color: '#5EC4B3',
+                      bg: '#F2FBF9',
+                      icon: <LocalFloristIcon sx={{ width: 40, height: 40 }} />,
+                      title: '20 new items added',
+                      subtitle: 'View new products'
                     },
+
+
                   ].map((item, index) => (
                     <ListItem
                       key={index}
                       component={ListItemButton}
                       secondaryAction={
                         <Stack sx={{ alignItems: 'flex-end' }}>
-                          <Typography>{item.date}</Typography>
+                          <ArrowForwardIosIcon sx={{ width: 24, height: 24, color: '#999' }} />
                         </Stack>
                       }
                     >
-
+                      <ListItemAvatar>
+                        <Stack
+                          sx={{
+                            gap: 0.5,
+                            color: item.color,
+                            height: 60,
+                            width: 60,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            borderRadius: '50%',
+                            background: item.bg
+                          }}
+                        >
+                          {item.icon}
+                        </Stack>
+                      </ListItemAvatar>
                       <ListItemText
                         sx={{ ml: 2 }}
                         primary={<Typography variant="h4">{item.title}</Typography>}
-                        secondary={
-                          <Typography variant="body1" sx={{ fontSize: 18 }}>
-                            {item.subtitle}
-                          </Typography>
-                        }
+                        secondary={item.subtitle}
                       />
                     </ListItem>
                   ))}
                 </List>
               </Paper>
             </Grid>
-
 
 
 

@@ -194,7 +194,7 @@ export default function AllStreams() {
 
   return (
     <Box sx={{ minHeight: "100vh", py: 6, display: "flex", justifyContent: "center" }}>
-      
+
       <Box sx={{ transform: `scale(${scale})`, transformOrigin: "top center", width: "100%" }}>
 
 
@@ -326,7 +326,7 @@ export default function AllStreams() {
                       </Typography>
                     </Box>
                     <Stack alignItems="center">
-                      <MoreHorizIcon sx={{ color: "#fff" }} />
+                      <MoreHorizIcon sx={{ color: "black" }} />
                       <Stack
                         sx={{
                           gap: 0.5,
@@ -347,7 +347,7 @@ export default function AllStreams() {
 
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <Paper sx={{ p: 2, display: "flex", alignItems: "center", gap: 3, borderRadius: 2 }}>
-                    <BarChartIcon sx={{ color: "#4318FF", background: "#F1F2FF", borderRadius: "50%", p: 1 }} />
+                    <BarChartIcon sx={{ color: "#4318FF", background: "#F1F2FF", borderRadius: "50%", p: 1, width: 50, height: 50 }} />
                     <Box>
                       <Typography variant="h4" color="text.secondary">
                         Donation reviewed
@@ -356,7 +356,7 @@ export default function AllStreams() {
                     </Box>
                   </Paper>
                   <Paper sx={{ p: 2, display: "flex", alignItems: "center", gap: 3, borderRadius: 2 }}>
-                    <BarChartIcon sx={{ color: "white", background: "#4318FF", borderRadius: "50%", p: 1 }} />
+                    <BarChartIcon sx={{ color: "white", background: "#4318FF", borderRadius: "50%", p: 1, width: 50, height: 50 }} />
                     <Box>
                       <Typography variant="h4" color="text.secondary">
                         Number of Donors

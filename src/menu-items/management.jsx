@@ -9,6 +9,20 @@ import SettingsIcon from '@mui/icons-material/Settings';
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const Managemnt = {
   id: 'Managemnt',
   title: 'Managemnt',
@@ -18,32 +32,54 @@ const Managemnt = {
       id: 'Team-Members',
       title: 'Team Members',
       type: 'item',
-      url: 'TeamMember',
+      url: '/dashboard/TeamMember',
       icon: Diversity3Icon
     },
     {
       id: 'Church-Settings',
       title: 'Church Settings',
       type: 'item',
-      url: 'ChurchSettings',
+      url: '/dashboard/ChurchSettings',
       icon: ChurchIcon
     },
     {
       id: 'Verification',
       title: 'Verification',
       type: 'item',
-      url: 'Verification',
+      url: '/dashboard/Verification',
       icon: ChurchIcon
-     },
-
-       {
-      id: 'Setting',
-      title: 'Setting',
-      type: 'item',
-      url: 'Settings',
-      icon: SettingsIcon
     },
+    {
+      id: 'Merchandise',
+      title: 'Merchandise',
+      type: 'item',
+      url: '/dashboard/Merchandise',
+      icon: SettingsIcon
+    }
   ]
 };
 
+
+
+
+
 export default Managemnt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

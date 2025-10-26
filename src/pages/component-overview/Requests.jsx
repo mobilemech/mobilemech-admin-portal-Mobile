@@ -245,14 +245,6 @@ export default function Request() {
   const handleNextDay = () => setSelectedDate(selectedDate.add(1, "day"));
   const handleToday = () => setSelectedDate(dayjs());
 
-  const [itinerary] = useState([
-    { id: 1, title: "Word Session", time: "02:00 PM", duration: "30 mins", image: Rect1 },
-    { id: 2, title: "Testimony", time: "02:30 PM", duration: "15 mins", image: Rect2 },
-    { id: 3, title: "Offering/Donations", time: "02:45 PM", duration: "15 mins", image: Rect1 },
-    { id: 4, title: "Testimony", time: "02:30 PM", duration: "15 mins", image: Rect2 }
-  ]);
-
-
 
 
 
@@ -553,186 +545,30 @@ export default function Request() {
           </Box>
         </Box>
 
-        {/* Right Side - 30% */}
-        {/* <Box sx={{ flex: { xs: "1 1 100%", md: "0 0 30%" } }}>
-          <Paper elevation={0} sx={{ p: 3, borderRadius: 3, bgcolor: "#F9FAFB" }}>
-            <Stack spacing={2}>
-
-           
-              <Grid item xs={12} md={6}>
-                <Paper sx={{ p: 3, borderRadius: 2, height: "100%", width: "100%" }}>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      flexWrap: "wrap",
-                    }}
-                  >
-                    <Typography sx={{ fontWeight: 800 }}>Overview</Typography>
-                    <Button size="small" sx={{ textTransform: "none" }}>
-                      View All
-                    </Button>
-                  </Box>
-
-                  <Box sx={{ mt: 2, display: "flex", flexDirection: "column", gap: 2 }}>
-              
-                    <Paper
-                      sx={{
-                        flex: 1,
-                        p: 2,
-                        borderRadius: 2,
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 3,
-                      }}
-                    >
-                      <NewLabelIcon
-                        sx={{
-                          color: "white",
-                          p: 1,
-                          backgroundColor: "#4318FF",
-                          width: 50,
-                          height: 50,
-                          borderRadius: "50%",
-                        }}
-                      />
-                      <Box>
-                        <Typography variant="h4" color="text.secondary">
-                          Total Events
-                        </Typography>
-                        <Typography sx={{ fontWeight: 500, fontSize: 20 }}>
-                          {donation}
-                        </Typography>
-                      </Box>
-                    </Paper>
-
-             
-                    <Paper
-                      sx={{
-                        flex: 1,
-                        p: 2,
-                        borderRadius: 2,
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 3,
-                      }}
-                    >
-                      <GroupIcon
-                        sx={{
-                          color: "white",
-                          p: 1,
-                          backgroundColor: "#4318FF",
-                          width: 40,
-                          height: 40,
-                          borderRadius: "50%",
-                        }}
-                      />
-                      <Box>
-                        <Typography variant="h4" color="text.secondary">
-                          Most RSVP
-                        </Typography>
-                        <Typography sx={{ fontWeight: 500, fontSize: 20 }}>Grace over Guilt</Typography>
-                      </Box>
-                    </Paper>
-
-                
-                    <Paper
-                      sx={{
-                        flex: 1,
-                        p: 2,
-                        borderRadius: 2,
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 3,
-                      }}
-                    >
-                      <BarChartIcon
-                        sx={{
-                          color: "#4318FF",
-                          p: 1,
-                          backgroundColor: "#f1e7e7ff",
-                          width: 40,
-                          height: 40,
-                          borderRadius: "50%",
-                        }}
-                      />
-                      <Box>
-                        <Typography variant="h4" color="text.secondary">
-                          Weekly Engagement
-                        </Typography>
-                        <Typography sx={{ fontWeight: 500, fontSize: 20 }}>+22%</Typography>
-                      </Box>
-                    </Paper>
-                  </Box>
-                </Paper>
-              </Grid>
-
-
-
-
-              <Grid item xs={12} md={6}>
-                <Paper sx={{ p: 3, borderRadius: 2, height: "100%", width: "100%" }}>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      flexWrap: "wrap",
-                    }}
-                  >
-                    <Typography sx={{ fontWeight: 800 }}>27th September</Typography>
-                    <Button size="small" sx={{ textTransform: "none" }}>Today ▾</Button>
-                  </Box>
-
-                  <List sx={{ mt: 1 }}>
-                    {itinerary.map((it) => (
-                      <ListItem
-                        key={it.id}
-                        disableGutters
-                        sx={{ py: 1, gap: 2, alignItems: "center" }}
-                      >
-                        <Box
-                          component="img"
-                          src={it.image}
-                          alt={it.title}
-                          sx={{
-                            width: 6,
-                            height: 56,
-                            borderRadius: 2,
-                            objectFit: "cover",
-                            flexShrink: 0,
-                          }}
-                        />
-                        <ListItemText
-                          primary={
-                            <Typography sx={{ fontWeight: 800, fontSize: 18 }}>{it.title}</Typography>
-                          }
-                          secondary={
-                            <Typography variant="h4" color="text.secondary">
-                              {`${it.time} • ${it.duration}`}
-                            </Typography>
-                          }
-                        />
-                      </ListItem>
-                    ))}
-                  </List>
-
-                  <Box textAlign="right">
-                    <Button size="small" sx={{ textTransform: "none" }}>
-                      View all lined up Activities →
-                    </Button>
-                  </Box>
-                </Paper>
-              </Grid>
-
-
-
-
-            </Stack>
-          </Paper>
-        </Box> */}
+      
       </Box>
     </Box>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

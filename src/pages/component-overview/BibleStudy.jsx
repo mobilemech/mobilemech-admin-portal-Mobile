@@ -335,9 +335,9 @@ export default function Events() {
       </Stack>
 
 
-      <NewStudyModal open={openNewStudyModal} onClose={() => setOpenNewStudyModal(false)}  />
+      <NewStudyModal open={openNewStudyModal} onClose={() => setOpenNewStudyModal(false)} />
 
-  
+
 
 
 
@@ -628,7 +628,7 @@ export default function Events() {
               gap: 2,
               width: "100%",
               flex: 1,
-              mt:3
+              mt: 3
             }}
           >
 
@@ -784,11 +784,11 @@ export default function Events() {
                         justifyContent="space-between"
                         alignItems="center"
                         spacing={2}
-                           onClick={
-                        card.title === "New Study" ? () => setOpenNewStudyModal(true) :
-                        //  card.title === "Donation Types" ? () => setOpenModal2(true) :
+                        onClick={
+                          card.title === "New Study" ? () => setOpenNewStudyModal(true) :
+                            //  card.title === "Donation Types" ? () => setOpenModal2(true) :
                             undefined
-                      }
+                        }
                       >
                         <Box>
                           <Typography variant="h4" color="#fff" fontWeight={700}>

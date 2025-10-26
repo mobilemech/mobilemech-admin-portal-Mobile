@@ -18,15 +18,13 @@ import {
   ToggleButtonGroup,
   ToggleButton,
   IconButton,
-
-
-
   Chip,
   CardMedia,
   Dialog,
   DialogTitle,
   DialogContent,
   DialogActions,
+  Switch,
 
 } from "@mui/material";
 import {
@@ -206,8 +204,9 @@ export default function ChurchSettings() {
           flexWrap: "wrap",
           "& .MuiTab-root": {
             textTransform: "none",
-            fontSize: { xs: "0.9rem", md: "1rem" },
+            fontSize: { xs: "0.9rem", md: "1.5rem" },
             fontWeight: 600,
+
             color: "#6B7280",
             minWidth: "auto",
             px: { xs: 1, md: 3 },
@@ -717,14 +716,27 @@ export default function ChurchSettings() {
             direction={{ xs: "column", md: "row" }}
             spacing={8}
             alignItems="flex-start"
-            sx={{ p: { xs: 0, md: 1 } }}
+            sx={{
+              p: { xs: 0, md: 1 },
+              width: "100%",
+            }}
           >
             {/* LEFT COLUMN — Service Times */}
-            <Box sx={{ flex: 1 }}>
+            <Box
+              sx={{
+                flex: 1,
+                width: { xs: "100%", md: "50%" }, // full width on mobile
+              }}
+            >
               {serviceTimes.map((time, index) => (
                 <Box key={index} sx={{ mb: 3 }}>
                   <Typography
-                    sx={{ fontWeight: 600, mb: 1, fontSize: 20, color: "#111827" }}
+                    sx={{
+                      fontWeight: 600,
+                      mb: 1,
+                      fontSize: 20,
+                      color: "#111827",
+                    }}
                   >
                     Service Time
                   </Typography>
@@ -750,6 +762,7 @@ export default function ChurchSettings() {
                       },
                     }}
                     sx={{
+                      width: "100%",
                       "& .MuiOutlinedInput-root": {
                         borderRadius: "12px",
                         "& fieldset": { borderColor: "#E5E7EB" },
@@ -770,7 +783,10 @@ export default function ChurchSettings() {
                   fontSize: 18,
                   color: "#4F46E5",
                   mt: 1,
-                  "&:hover": { bgcolor: "transparent", textDecoration: "underline" },
+                  "&:hover": {
+                    bgcolor: "transparent",
+                    textDecoration: "underline",
+                  },
                 }}
               >
                 Add New
@@ -778,11 +794,21 @@ export default function ChurchSettings() {
             </Box>
 
             {/* RIGHT COLUMN — Livestream URL */}
-            <Box sx={{ flex: 1 }}>
+            <Box
+              sx={{
+                flex: 1,
+                width: { xs: "100%", md: "50%" }, // full width on mobile
+              }}
+            >
               <Typography
-                sx={{ fontWeight: 600, mb: 1, fontSize: 20, color: "#111827" }}
+                sx={{
+                  fontWeight: 600,
+                  mb: 1,
+                  fontSize: 20,
+                  color: "#111827",
+                }}
               >
-                Livestream setup url
+                Livestream setup URL
               </Typography>
               <TextField
                 fullWidth
@@ -797,6 +823,7 @@ export default function ChurchSettings() {
                   },
                 }}
                 sx={{
+                  width: "100%",
                   "& .MuiOutlinedInput-root": {
                     borderRadius: "12px",
                     "& fieldset": { borderColor: "#E5E7EB" },
@@ -824,7 +851,7 @@ export default function ChurchSettings() {
                 py: 2,
                 borderColor: "#E5E7EB",
                 color: "#4F46E5",
-                bgcolor: "#9dc5ecff",
+                bgcolor: "#E0E7FF",
                 "&:hover": { bgcolor: "#F3F4F6" },
               }}
             >
@@ -847,6 +874,7 @@ export default function ChurchSettings() {
           </Stack>
         </Box>
       )}
+
 
 
 
@@ -1082,12 +1110,156 @@ export default function ChurchSettings() {
 
 
 
-
-
+      {/* Notifiation schedule */}
 
       {activeTab === 4 && (
-        <Typography color="text.secondary">Notification Settings content will go here</Typography>
+        <Box sx={{ width: "100%", mt: 2 }}>
+          <Typography
+            variant="h3"
+            sx={{ fontWeight: 700, mb: 3, color: "#111827" }}
+          >
+            Notification Settings
+          </Typography>
+
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={6}
+            alignItems="flex-start"
+            sx={{
+              p: { xs: 0, md: 1 },
+              width: "100%",
+            }}
+          >
+            {/* LEFT COLUMN — Email Notification Toggles */}
+            <Box
+              sx={{
+                flex: 1,
+                width: { xs: "100%", md: "50%" }, // full width on mobile
+              }}
+            >
+              <Typography sx={{ fontWeight: 600, mb: 2, fontSize: 20 }}>
+                Email Notification
+              </Typography>
+
+              {[
+                "New Donation",
+                "Event RSVP",
+                "Livestream comments",
+                "Requests",
+                "Merchandise",
+              ].map((label, index) => (
+                <Stack
+                  key={index}
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  sx={{
+                    borderBottom: "1px solid #E5E7EB",
+                    py: 1.5,
+                    "&:last-child": { borderBottom: "none" },
+                    width: "100%",
+                  }}
+                >
+                  <Typography sx={{ fontSize: 20, fontWeight: 500 }}>
+                    {label}
+                  </Typography>
+
+                  <Switch
+                    defaultChecked
+                    sx={{
+                      transform: { xs: "scale(1.4)", md: "scale(1.2)" }, // larger on mobile
+                      "& .MuiSwitch-switchBase.Mui-checked": {
+                        color: "#fff",
+                      },
+                      "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
+                        backgroundColor: "#4F46E5",
+                        opacity: 1,
+                      },
+                      "& .MuiSwitch-track": {
+                        borderRadius: "20px",
+                        backgroundColor: "#D1D5DB",
+                      },
+                    }}
+                  />
+                </Stack>
+              ))}
+            </Box>
+
+            {/* RIGHT COLUMN — SMS/Push Notification */}
+            <Box
+              sx={{
+                flex: 1,
+                width: { xs: "100%", md: "50%" }, // full width on mobile
+              }}
+            >
+              <Typography sx={{ fontWeight: 600, mb: 2, fontSize: 20 }}>
+                SMS/Push Notification
+              </Typography>
+              <TextField
+                select
+                fullWidth
+                value="Yes"
+                sx={{
+                  width: "100%",
+                  "& .MuiOutlinedInput-root": {
+                    height: 60,
+                    borderRadius: "10px",
+                    bgcolor: "#F9FAFB",
+                    "& fieldset": { borderColor: "#E5E7EB" },
+                    "&:hover fieldset": { borderColor: "#C7D2FE" },
+                    "&.Mui-focused fieldset": { borderColor: "#4F46E5" },
+                  },
+                }}
+              >
+                <MenuItem value="Yes">Yes</MenuItem>
+                <MenuItem value="No">No</MenuItem>
+              </TextField>
+            </Box>
+          </Stack>
+
+          <Divider sx={{ my: 4 }} />
+
+          {/* Action Buttons */}
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={2}
+            justifyContent="flex-end"
+          >
+            <Button
+              variant="outlined"
+              sx={{
+                textTransform: "none",
+                borderRadius: "30px",
+                px: 8,
+                py: 2,
+                fontSize: 17,
+                borderColor: "#E5E7EB",
+                color: "#4F46E5",
+                bgcolor: "#E0E7FF",
+                "&:hover": { bgcolor: "#F3F4F6" },
+              }}
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="contained"
+              sx={{
+                textTransform: "none",
+                borderRadius: "30px",
+                px: 8,
+                py: 2,
+                fontWeight: 600,
+                fontSize: 17,
+                bgcolor: "#4F46E5",
+                "&:hover": { bgcolor: "#4338CA" },
+              }}
+            >
+              Update settings
+            </Button>
+          </Stack>
+        </Box>
       )}
+
     </Box>
   );
 }
