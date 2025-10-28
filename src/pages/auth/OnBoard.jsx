@@ -63,7 +63,6 @@ const OnBoard = () => {
           backgroundImage: `url(${background})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-         // borderRadius: { md: "20px 0 0 20px", xs: 0 },
           overflow: "hidden",
           display: "flex",
           flexDirection: "column",
