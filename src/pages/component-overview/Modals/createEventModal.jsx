@@ -45,10 +45,23 @@ const CreateEventModal = ({ open, onClose, onNext }) => {
   const [micVolume, setMicVolume] = useState(50);
   const [description, setDescription] = useState("");
 
+
   const handleDeleteTag = (tagToDelete) => {
     setTags((prev) => prev.filter((tag) => tag !== tagToDelete));
   };
 
+
+
+
+
+
+
+
+
+
+
+
+  
   return (
     <Dialog
       open={open}

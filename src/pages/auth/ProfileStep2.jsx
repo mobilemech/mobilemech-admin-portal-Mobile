@@ -171,16 +171,16 @@ const ProfileStep2 = () => {
             <Stack spacing={2}>
               {[
                 {
-                  label: "Lead Pastor/Admin Full Name",
-                  placeholder: "Enter your Lead Pastor’s Full Name",
+                  label: "Admin Full Name",
+                  placeholder: "Enter your Lead Admin’s Full Name",
                 },
                 {
-                  label: "Email Address",
-                  placeholder: "Enter your Lead Pastor’s email address",
+                  label: "Admin’s Email Address",
+                  placeholder: "Enter your Admin’s email address",
                 },
                 {
-                  label: "Phone Number",
-                  placeholder: "Enter your Lead Pastor’s phone number",
+                  label: "Admin’s Phone Number",
+                  placeholder: "Enter your Admin’s phone number",
                 },
                 {
                   label: "Church Official Website",

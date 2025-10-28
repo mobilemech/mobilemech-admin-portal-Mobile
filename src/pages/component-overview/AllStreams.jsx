@@ -36,8 +36,8 @@ import MarkUnreadChatAltIcon from "@mui/icons-material/MarkUnreadChatAlt";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
-import Rect1 from "./Rect1.png";
-import Rect2 from "./Rect2.png";
+import Rect1 from "./images/Rect1.png";
+import Rect2 from "./images/Rect2.png";
 
 const source =
   "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&auto=format&fit=crop&q=60";

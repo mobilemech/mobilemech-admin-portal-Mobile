@@ -40,7 +40,7 @@ import {
 
 
 import dayjs from "dayjs";
-import debitCard from "./debitCard.png"
+import debitCard from "./images/debitCard.png"
 
 
 const PRIMARY_COLOR = '#2B04DB';

@@ -21,7 +21,7 @@ import {
     Switch
 } from '@mui/material';
 import { Close, CloudUpload } from '@mui/icons-material';
-import Polygon1 from "../Polygon1.png";
+import Polygon1 from "../images/Polygon1.png";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ChurchIcon from '@mui/icons-material/Church';
 import PersonIcon from '@mui/icons-material/Person';

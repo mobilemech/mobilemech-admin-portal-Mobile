@@ -27,12 +27,17 @@ const weeklyData2 = [11, 32, 45, 32, 34, 52, 41];
 
   const status = [
   {
-    value: 'August 1 - december 30',
-    label: 'August 1 - december 30'
+    value: 'This Week',
+    label: 'This Week'
   },
   {
-    value: 'january 1 - july 30',
+    value: 'This Month',
     label: 'This Month'
+  },
+
+    {
+    value: 'This Year',
+    label: 'This year'
   },
 
 ];
@@ -62,7 +67,7 @@ function Legend({ items, onToggle }) {
 export default function IncomeAreaChart({ view }) {
   const theme = useTheme();
 
-    const [value, setValue] = useState('August 1 - december 30');
+    const [value, setValue] = useState('This Week');
 
   const [visibility, setVisibility] = useState({
     'Live Views': true,
@@ -123,7 +128,7 @@ export default function IncomeAreaChart({ view }) {
                 >
                   {status.map((option) => (
                     <MenuItem key={option.value} value={option.value}>
-                      {option.label}
+                      {option.value}
                     </MenuItem>
                   ))}
                 </TextField>

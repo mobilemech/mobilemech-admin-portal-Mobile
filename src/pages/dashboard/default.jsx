@@ -1,8 +1,9 @@
 
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import StreamModal from './modals/StreamModal';
 import StartStreamModal from './modals/StartStreamModal';
 import Paper from '@mui/material/Paper';
+
 
 import {
   MonetizationOn,
@@ -38,7 +39,7 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
-import image from "./Avatar.png"
+import image from "./images/Avatar.png"
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import LiveHelpIcon from '@mui/icons-material/LiveHelp';
 
@@ -51,17 +52,16 @@ import TextField from '@mui/material/TextField'
 
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
-import group from "./Group.png"
-import Rect1 from "./Rect1.png"
-import Rect2 from "./Rect2.png"
-import Rect3 from "./Rect3.png"
+import group from "./images/Group.png"
+import Rect1 from "./images/Rect1.png"
+import Rect2 from "./images/Rect2.png"
+import Rect3 from "./images/Rect3.png"
 import EastIcon from '@mui/icons-material/East';
 
 
 
 
-import React, { useEffect } from 'react';
-import { display } from '@mui/system';
+
 
 // avatar style
 const avatarSX = {

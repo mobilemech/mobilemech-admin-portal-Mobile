@@ -22,7 +22,7 @@ import {
 } from "@mui/material";
 import { Close, CloudUpload } from "@mui/icons-material";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import Polygon1 from "../Polygon1.png";
+import Polygon1 from '../images/Polygon1.png'
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 // Modal style

@@ -32,6 +32,15 @@ const PRIMARY_GRADIENT = "linear-gradient(135deg, #7838F4 0%, #2B04DB 100%)";
 const ACTIVE_COLOR = "#2B04DB";
 const INACTIVE_COLOR = "#999";
 
+
+
+
+
+
+
+
+
+
 export default function DonationTypeModal({ open = false, onClose = () => {} }) {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));

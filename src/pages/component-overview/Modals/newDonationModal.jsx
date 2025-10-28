@@ -35,7 +35,7 @@ import {
     Close,
 } from '@mui/icons-material';
 
-import debitCard from "../debitCard.png"
+import debitCard from "../images/debitCard.png"
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 const PRIMARY_COLOR = '#2B04DB';

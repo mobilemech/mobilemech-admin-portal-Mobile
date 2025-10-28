@@ -25,7 +25,7 @@ import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import NewLabelIcon from '@mui/icons-material/NewLabel';
 import GroupIcon from '@mui/icons-material/Group';
-import image from "./Avatar.png"
+import image from "./images/Avatar.png"
 
 import NewStudyModal from "./Modals/NewStudyModal"
 

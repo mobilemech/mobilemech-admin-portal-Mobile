@@ -23,8 +23,8 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import NewLabelIcon from '@mui/icons-material/NewLabel';
 import GroupIcon from '@mui/icons-material/Group';
 
-import Rect1 from "./Rect1.png"
-import Rect2 from "./Rect2.png"
+import Rect1 from "./images/Rect1.png"
+import Rect2 from "./images/Rect2.png"
 
 import CreateEventModal from "./Modals/createEventModal"
 

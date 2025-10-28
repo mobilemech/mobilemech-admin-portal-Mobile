@@ -24,7 +24,7 @@ import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import NewLabelIcon from '@mui/icons-material/NewLabel';
 import GroupIcon from '@mui/icons-material/Group';
-import image from "./Avatar.png"
+import image from "./images/Avatar.png"
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import QuizIcon from '@mui/icons-material/Quiz';
 
@@ -34,8 +34,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 
-import Rect1 from "./Rect1.png"
-import Rect2 from "./Rect2.png"
+import Rect1 from "./images/Rect1.png"
+import Rect2 from "./images/Rect2.png"
 
 import MenuItem from '@mui/material/MenuItem';
 

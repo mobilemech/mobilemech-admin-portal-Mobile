@@ -26,8 +26,8 @@ import GroupIcon from '@mui/icons-material/Group';
 import MenuItem from '@mui/material/MenuItem';
 
 
-import Rect1 from "./Rect1.png"
-import Rect2 from "./Rect2.png"
+import Rect1 from "./images/Rect1.png"
+import Rect2 from "./images/Rect2.png"
 
 
 

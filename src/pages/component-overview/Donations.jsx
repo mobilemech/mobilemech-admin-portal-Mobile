@@ -22,7 +22,7 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import PieChartIcon from "@mui/icons-material/PieChart";
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
-import image from "./Avatar.png"
+import image from "./images/Avatar.png"
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import QuizIcon from '@mui/icons-material/Quiz';
 import MessageIcon from '@mui/icons-material/Message';
@@ -38,8 +38,8 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-import Rect1 from "./Rect1.png";
-import Rect2 from "./Rect2.png";
+import Rect1 from "./images/Rect1.png";
+import Rect2 from "./images/Rect2.png";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import MarkUnreadChatAltIcon from "@mui/icons-material/MarkUnreadChatAlt";
@@ -47,7 +47,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ListItemButton from '@mui/material/ListItemButton';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-import donationImg from "./donation.png"
+import donationImg from "./images/donation.png"
 
 import NewDonation from "./Modals/newDonationModal";
 import DonationTypeModal from "./Modals/donationTypesModal";
