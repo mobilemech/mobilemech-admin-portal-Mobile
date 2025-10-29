@@ -93,9 +93,20 @@ export default function TeamMembers() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const zoom = useMemo(() => {
-    return width <= 768 ? 0.55 : 0.5;
+  // const zoom = useMemo(() => {
+  //   return width <= 768 ? 0.55 : 0.5;
+  // }, [width]);
+
+
+  
+  
+    const zoom = useMemo(() => {
+    if (width <= 768) return 0.55;       // Mobile
+    if (width <= 1200) return 0.8;      // Tablets / small laptops
+    if (width <= 1600) return 0.5;     // Medium desktops
+    return 0.7;                         // Large desktops
   }, [width]);
+  
 
   useEffect(() => {
     const body = document.body;
