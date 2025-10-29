@@ -55,6 +55,7 @@ const OnBoard = () => {
         overflow: "hidden",
       }}
     >
+
       {/* LEFT SIDE */}
       <Box
         sx={{
@@ -252,35 +253,7 @@ const OnBoard = () => {
               );
             })}
 
-            {/* {selectedKey && (
-              <Box
-                sx={{
-                  textAlign: "center",
-                  mt: 3,
-                }}
-              >
-                <Button
-                  onClick={() => navigate("/Authentication")}
-                  sx={{
-                    bgcolor: "#2B04DB",
-                    color: "#fff",
-                    textTransform: "none",
-                    py: 1.2,
-                    px: 5,
-                    borderRadius: 30,
-                    fontWeight: 600,
-                    fontSize: 15,
-                    "&:hover": { bgcolor: "#4a25d6" },
-                  }}
-                >
-                  Proceed <ArrowForwardIcon sx={{ ml: 1, fontSize: 18 }} />
-                </Button>
-              </Box>
-            )} */}
-
-
-
-
+         
 
 
 {selectedKey && (
