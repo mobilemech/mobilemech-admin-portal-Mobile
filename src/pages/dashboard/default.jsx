@@ -134,14 +134,14 @@ export default function DashboardDefault() {
   // }, [width]);
 
 
-  
-    const zoom = useMemo(() => {
+
+  const zoom = useMemo(() => {
     if (width <= 768) return 0.55;       // Mobile
     if (width <= 1200) return 0.8;      // Tablets / small laptops
     if (width <= 1600) return 0.5;     // Medium desktops
     return 0.7;                         // Large desktops
   }, [width]);
-  
+
 
 
   useEffect(() => {
@@ -670,8 +670,8 @@ export default function DashboardDefault() {
             >
               <Stack direction="row" justifyContent="space-between" alignItems="center">
                 <Box>
-                  <Typography variant="h4" color="#fff" fontWeight={700}>{card.title}</Typography>
-                  <Typography variant="h5" color="#fefefeff" mt={0.3}>{card.desc}</Typography>
+                  <Typography variant="h3" color="#fff" fontWeight={700}>{card.title}</Typography>
+                  <Typography variant="h4" color="#fefefeff" mt={0.3}>{card.desc}</Typography>
                 </Box>
                 <Stack
                   alignItems="center"
@@ -780,8 +780,8 @@ export default function DashboardDefault() {
                   </ListItemAvatar>
                   <ListItemText
                     sx={{ ml: 2 }}
-                    primary={<Typography variant="h4">{item.title}</Typography>}
-                    secondary={item.subtitle}
+                    primary={<Typography variant="h3">{item.title}</Typography>}
+                    secondary={<Typography variant="h5">{item.subtitle}</Typography>}
                   />
                 </ListItem>
               ))}

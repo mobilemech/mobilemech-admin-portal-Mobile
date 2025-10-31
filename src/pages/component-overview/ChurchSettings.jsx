@@ -100,15 +100,15 @@ export default function ChurchSettings() {
   // const zoom = useMemo(() => (width <= 768 ? 0.55 : 0.5), [width]);
 
 
-  
-  
-    const zoom = useMemo(() => {
+
+
+  const zoom = useMemo(() => {
     if (width <= 768) return 0.55;       // Mobile
     if (width <= 1200) return 0.8;      // Tablets / small laptops
     if (width <= 1600) return 0.5;     // Medium desktops
     return 0.7;                         // Large desktops
   }, [width]);
-  
+
 
   useEffect(() => {
     const body = document.body;
@@ -195,10 +195,10 @@ export default function ChurchSettings() {
     <Box sx={{ px: { xs: 2, md: 4 }, py: 2, width: "100%" }}>
       {/* Header */}
       <Stack spacing={1} mb={3}>
-        <Typography variant="h4" sx={{ fontWeight: 500, color: "#6B7280" }}>
+        <Typography variant="h3" sx={{ fontWeight: 500, color: "#6B7280", }}>
           Manage your church information, branding, and preferences
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800 }}>
+        <Typography variant="h2" sx={{ fontWeight: 800 }}>
           Church Settings
         </Typography>
       </Stack>
@@ -304,8 +304,8 @@ export default function ChurchSettings() {
       {activeTab === 0 && (
         <Box sx={{ width: "100%" }}>
           <Typography
-            variant="h6"
-            sx={{ fontWeight: 700, mb: 3, color: "#111827" }}
+            variant="h3"
+            sx={{ fontWeight: 700, mb: 3, color: "#111827", fontSize: 18 }}
           >
             General Information
           </Typography>
@@ -332,7 +332,7 @@ export default function ChurchSettings() {
                 <TextField
                   placeholder="Enter your Church name"
                   fullWidth
-                  size="small"
+                //  size="small"
                 />
               </Box>
 

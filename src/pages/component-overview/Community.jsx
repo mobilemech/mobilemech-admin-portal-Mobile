@@ -115,13 +115,13 @@ export default function Community() {
   //   return width <= 768 ? 0.55 : 0.5;
   // }, [width]);
 
-    const zoom = useMemo(() => {
+  const zoom = useMemo(() => {
     if (width <= 768) return 0.55;       // Mobile
     if (width <= 1200) return 0.8;      // Tablets / small laptops
     if (width <= 1600) return 0.5;     // Medium desktops
     return 0.7;                         // Large desktops
   }, [width]);
-  
+
 
   // Apply zoom
   useEffect(() => {
@@ -766,7 +766,7 @@ export default function Community() {
             <Stack spacing={2}>
 
               <Paper sx={{ p: 3, borderRadius: 3 }}>
-                <Typography sx={{ fontWeight: 800, mb: 2 }}>
+                <Typography sx={{ fontWeight: 800, mb: 2, fontSize: 18 }}>
                   Quick Actions
                 </Typography>
 
@@ -808,10 +808,10 @@ export default function Community() {
                         }
                       >
                         <Box>
-                          <Typography variant="h4" color="#fff" fontWeight={700}>
+                          <Typography variant="h3" color="#fff" fontWeight={700}>
                             {card.title}
                           </Typography>
-                          <Typography variant="h5" color="#fefefeff" mt={0.5}>
+                          <Typography variant="h4" color="#fefefeff" mt={0.5}>
                             {card.desc}
                           </Typography>
                         </Box>
@@ -957,8 +957,8 @@ export default function Community() {
                         </ListItemAvatar>
                         <ListItemText
                           sx={{ ml: 2 }}
-                          primary={<Typography variant="h4">{item.title}</Typography>}
-                          secondary={item.subtitle}
+                          primary={<Typography variant="h3">{item.title}</Typography>}
+                          secondary={<Typography variant="h5">{item.subtitle}</Typography>}
                         />
                       </ListItem>
                     ))}

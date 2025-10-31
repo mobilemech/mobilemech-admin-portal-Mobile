@@ -54,14 +54,14 @@ export default function Request() {
   //   return width <= 768 ? 0.55 : 0.5;
   // }, [width]);
 
-  
-    const zoom = useMemo(() => {
+
+  const zoom = useMemo(() => {
     if (width <= 768) return 0.55;       // Mobile
     if (width <= 1200) return 0.8;      // Tablets / small laptops
     if (width <= 1600) return 0.5;     // Medium desktops
     return 0.7;                         // Large desktops
   }, [width]);
-  
+
 
   // Apply zoom
   useEffect(() => {
@@ -554,7 +554,7 @@ export default function Request() {
           </Box>
         </Box>
 
-      
+
       </Box>
     </Box>
   );

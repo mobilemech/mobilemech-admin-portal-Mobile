@@ -80,6 +80,8 @@ export default function Merchandise() {
     { id: 1, title: "8 Pending Orders", time: " Pending Orders", duration: "30 mins", image: Rect2 },
     { id: 2, title: "12 Shippedorders", time: "shipped orders", duration: "15 mins", image: Rect1 },
     { id: 3, title: "42 fulfilled orders", time: "fulfilled orders", duration: "15 mins", image: Rect2 },
+    { id: 4, title: "42 fulfilled orders", time: "fulfilled orders", duration: "15 mins", image: Rect1 },
+
 
   ]);
 
@@ -103,13 +105,13 @@ export default function Merchandise() {
 
 
 
-    const zoom = useMemo(() => {
+  const zoom = useMemo(() => {
     if (width <= 768) return 0.55;       // Mobile
     if (width <= 1200) return 0.8;      // Tablets / small laptops
     if (width <= 1600) return 0.5;     // Medium desktops
     return 0.7;                         // Large desktops
   }, [width]);
-  
+
 
   useEffect(() => {
     const body = document.body;
@@ -486,65 +488,71 @@ export default function Merchandise() {
 
 
 
-              <Stack style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', backgroundColor: 'white' }}>
+
+              {/* Itinerary */}
+              <Paper sx={{ p: 3, borderRadius: 2 }}>
+                <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <Typography sx={{ fontWeight: 800, fontSize: 17 }}>Sales Activity</Typography>
+                  <Button size="large" sx={{ textTransform: "none", fontSize: 17 }}>
+                    Today ▾
+                  </Button>
+                </Box>
+
+                <Stack style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', backgroundColor: 'white' }}>
 
 
 
 
 
-                <Stack style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
+                  <Stack style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
 
 
-                  <Stack style={{ marginTop: 20 }}>
-                    <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
-                      <FiberManualRecordIcon style={{ color: '#2B04DB' }} />
-                      <Typography variant='h4'>New</Typography>
+                    <Stack style={{ marginTop: 20 }}>
+                      <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
+                        <FiberManualRecordIcon style={{ color: '#2B04DB' }} />
+                        <Typography variant='h4'>New</Typography>
+                      </Stack>
+                      <Typography variant='h4' sx={{ mt: 1 }}>3000</Typography>
+
                     </Stack>
-                    <Typography variant='h4' sx={{ mt: 1 }}>3000</Typography>
+
+
+
+
+                    <Stack style={{ marginTop: 60 }}>
+                      <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
+                        <FiberManualRecordIcon style={{ color: '#FF6B6B' }} />
+                        <Typography variant='h4'>Pending</Typography>
+                      </Stack>
+                      <Typography variant='h4' sx={{ mt: 1, }}>254</Typography>
+
+                    </Stack>
+
+
+
+
+
+                    <Stack style={{ marginTop: 90 }}>
+                      <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
+                        <FiberManualRecordIcon style={{ color: '#FFAC20' }} />
+                        <Typography variant='h4'>Delivered</Typography>
+                      </Stack>
+                      <Typography variant='h4' sx={{ mt: 1 }}>3254</Typography>
+
+                    </Stack>
+
+
 
                   </Stack>
 
 
 
-
-                  <Stack style={{ marginTop: 60 }}>
-                    <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
-                      <FiberManualRecordIcon style={{ color: '#FF6B6B' }} />
-                      <Typography variant='h4'>Pending</Typography>
-                    </Stack>
-                    <Typography variant='h4' sx={{ mt: 1, }}>254</Typography>
-
+                  <Stack >
+                    <img src={donationImg} style={{ width: 250, height: 250 }} />
                   </Stack>
-
-
-
-
-
-                  <Stack style={{ marginTop: 90 }}>
-                    <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
-                      <FiberManualRecordIcon style={{ color: '#FFAC20' }} />
-                      <Typography variant='h4'>Delivered</Typography>
-                    </Stack>
-                    <Typography variant='h4' sx={{ mt: 1 }}>3254</Typography>
-
-                  </Stack>
-
-
 
                 </Stack>
-
-
-
-                <Stack >
-                  <img src={donationImg} style={{ width: 250, height: 250 }} />
-                </Stack>
-
-              </Stack>
-
-
-
-
-
+              </Paper>
 
 
 
@@ -559,8 +567,8 @@ export default function Merchandise() {
               {/* Itinerary */}
               <Paper sx={{ p: 3, borderRadius: 2 }}>
                 <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <Typography sx={{ fontWeight: 800 }}>Recent Donation</Typography>
-                  <Button size="small" sx={{ textTransform: "none" }}>
+                  <Typography sx={{ fontWeight: 800, fontSize: 18 }}>Recent Donation</Typography>
+                  <Button size="large" sx={{ textTransform: "none", fontSize: 17 }}>
                     Today ▾
                   </Button>
                 </Box>
@@ -569,9 +577,9 @@ export default function Merchandise() {
                     <ListItem key={it.id} disableGutters sx={{ py: 1, gap: 2 }}>
                       <img src={it.image} alt={it.title} />
                       <ListItemText
-                        primary={<Typography sx={{ fontWeight: 800, fontSize: 17 }}>{it.title}</Typography>}
+                        primary={<Typography variant="h3" sx={{ fontWeight: 800, fontSize: 18 }}>{it.title}</Typography>}
                         secondary={
-                          <Typography variant="h5" color="text.secondary">
+                          <Typography variant="h4" color="text.secondary">
                             {`${it.time} • ${it.duration}`}
                           </Typography>
                         }
@@ -580,6 +588,12 @@ export default function Merchandise() {
                   ))}
                 </List>
               </Paper>
+
+
+
+
+
+
             </Box>
 
 
@@ -596,7 +610,7 @@ export default function Merchandise() {
           <Stack spacing={3}>
             {/* Quick Actions */}
             <Paper sx={{ p: 3, borderRadius: 3 }}>
-              <Typography sx={{ fontWeight: 800, mb: 2 }}>
+              <Typography sx={{ fontWeight: 800, mb: 2, fontSize: 18 }}>
                 Quick Actions
               </Typography>
 
@@ -653,10 +667,10 @@ export default function Merchandise() {
                     // }
                     >
                       <Box>
-                        <Typography variant="h4" color="#fff" fontWeight={700}>
+                        <Typography variant="h3" color="#fff" fontWeight={700}>
                           {card.title}
                         </Typography>
-                        <Typography variant="h5" color="#fefefeff" mt={0.5}>
+                        <Typography variant="h4" color="#fefefeff" mt={0.5}>
                           {card.desc}
                         </Typography>
                       </Box>
@@ -788,8 +802,8 @@ export default function Merchandise() {
                       </ListItemAvatar>
                       <ListItemText
                         sx={{ ml: 2 }}
-                        primary={<Typography variant="h4">{item.title}</Typography>}
-                        secondary={item.subtitle}
+                        primary={<Typography variant="h3">{item.title}</Typography>}
+                        secondary={<Typography variant="h4" color="gray">{item.subtitle}</Typography>}
                       />
                     </ListItem>
                   ))}

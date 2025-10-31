@@ -296,7 +296,7 @@ const AuthScreen = () => {
                 <Grid  spacing={2.5}>
                   <Grid item xs={12} >
                     <Stack sx={{ gap: 1 }}>
-                      <InputLabel sx={{ fontSize: 10 }}>Email Address</InputLabel>
+                      <InputLabel sx={{ fontSize: 10 }}>Official Email Address</InputLabel>
                       <OutlinedInput
                         placeholder="Enter your email address"
                         sx={inputStyle}

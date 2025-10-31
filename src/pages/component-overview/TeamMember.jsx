@@ -98,15 +98,15 @@ export default function TeamMembers() {
   // }, [width]);
 
 
-  
-  
-    const zoom = useMemo(() => {
+
+
+  const zoom = useMemo(() => {
     if (width <= 768) return 0.55;       // Mobile
     if (width <= 1200) return 0.8;      // Tablets / small laptops
     if (width <= 1600) return 0.5;     // Medium desktops
     return 0.7;                         // Large desktops
   }, [width]);
-  
+
 
   useEffect(() => {
     const body = document.body;
@@ -472,134 +472,145 @@ export default function TeamMembers() {
 
 
 
+            {/* Welcome Members Card */}
+            <Paper
+              elevation={0}
+              sx={{
+                mt: 3,
+                p: 3,
+                borderRadius: 3,
+                display: "flex",
+                flexDirection: "column",
+                gap: 3,
+                border: "1px solid #E5E7EB",
+                bgcolor: "#fff",
+              }}
+            >
+              {/* Top row */}
+              <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="space-between"
+                flexWrap="wrap"
+                gap={2}
+              >
+                <Box>
+                  <Typography variant="h3" sx={{ fontWeight: 600 }}>
+                    Welcome <b>291 church Members</b> with
+                  </Typography>
+                  <Typography variant="h4" color="text.secondary">
+                    a personal message 😎
+                  </Typography>
+                </Box>
 
+                <Button
+                  variant="outlined"
+                  sx={{
+                    borderColor: "#4317FF",
+                    fontWeight: 900,
+                    fontSize: 18,
+                    color: "#4317FF",
+                    textTransform: "none",
+                    px: 5,
+                    py: 2,
+                    borderRadius: 5,
+                    "&:hover": {
+                      borderColor: "#2B04DB",
 
-
-            {/* Bottom Cards (Overview + Itinerary) */}
-            <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 2 }}>
-              {/* Overview */}
-
-
-
-              <Stack style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', backgroundColor: 'white' }}>
-
-
-
-
-
-                <Stack style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
-
-
-                  <Stack style={{ marginTop: 20 }}>
-                    <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
-                      <FiberManualRecordIcon style={{ color: '#2B04DB' }} />
-                      <Typography variant='h4'>Building Projects</Typography>
-                    </Stack>
-                    <Typography variant='h4' sx={{ mt: 1 }}>3000</Typography>
-
-                  </Stack>
-
-
-
-
-                  <Stack style={{ marginTop: 60 }}>
-                    <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
-                      <FiberManualRecordIcon style={{ color: '#FF6B6B' }} />
-                      <Typography variant='h4'>Missions</Typography>
-                    </Stack>
-                    <Typography variant='h4' sx={{ mt: 1, }}>254</Typography>
-
-                  </Stack>
-
-
-
-
-
-                  <Stack style={{ marginTop: 90 }}>
-                    <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
-                      <FiberManualRecordIcon style={{ color: '#FFAC20' }} />
-                      <Typography variant='h4'>General offering</Typography>
-                    </Stack>
-                    <Typography variant='h4' sx={{ mt: 1 }}>3254</Typography>
-
-                  </Stack>
-
-
-
-                </Stack>
-
-
-
-                <Stack >
-                  <img src={donationImg} style={{ width: 250, height: 250 }} />
-                </Stack>
-
+                    },
+                  }}
+                >
+                  Send message
+                </Button>
               </Stack>
 
+              {/* Avatars row */}
+              <Stack
+                direction="row"
+                alignItems="center"
+                spacing={3}
+                sx={{ mt: 1, flexWrap: "wrap" }}
+              >
+                {[
+                  {
+                    name: "Courtney Henry",
+                    img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmVhdXRpZnVsJTIwd29tYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=400",
+                  },
+                  {
+                    name: "Jenny Wilson",
+                    img: "https://images.unsplash.com/photo-1582502596148-e4bfcec6e8bb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YmVhdXRpZnVsJTIwbWFufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=400",
+                  },
+                  {
+                    name: "James bond",
+                    img: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=100&h=100&fit=crop",
+                  },
+                  {
+                    name: "Cameron Williamson",
+                    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
+                  },
+                  {
+                    name: "Courtney Henry",
+                    img: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&h=100&fit=crop",
+                  },
+                  {
+                    name: "Jenny Wilson",
+                    img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop",
+                  },
 
+                ].map((user, i) => (
+                  <Stack key={i} alignItems="center" spacing={1}>
+                    <Avatar
+                      src={user.img}
+                      alt={user.name}
+                      sx={{ width: 74, height: 74 }}
+                    />
+                    <Typography
+                      variant="h5"
+                      color="text.primary"
+                      sx={{ fontWeight: 500 }}
+                    >
+                      {user.name}
+                    </Typography>
+                  </Stack>
+                ))}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-              {/* Itinerary */}
-              <Paper sx={{ p: 3, borderRadius: 2 }}>
-                <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <Typography sx={{ fontWeight: 800 }}>Recent Donation</Typography>
-                  <Button size="small" sx={{ textTransform: "none" }}>
-                    Today ▾
-                  </Button>
-                </Box>
-                <List sx={{ mt: 1 }}>
-                  {itinerary.map((it) => (
-                    <ListItem key={it.id} disableGutters sx={{ py: 1, gap: 2 }}>
-                      <img src={it.image} alt={it.title} />
-                      <ListItemText
-                        primary={<Typography sx={{ fontWeight: 800, fontSize: 17 }}>{it.title}</Typography>}
-                        secondary={
-                          <Typography variant="h5" color="text.secondary">
-                            {`${it.time} • ${it.duration}`}
-                          </Typography>
-                        }
-                      />
-                    </ListItem>
-                  ))}
-                </List>
-              </Paper>
-            </Box>
-
-
-
-
+                {/* View all */}
+                <Stack alignItems="center" spacing={0.5} sx={{ ml: 5, cursor: "pointer" }}>
+                  <Avatar
+                    sx={{
+                      bgcolor: "#F3F4F6",
+                      color: "#111827",
+                      width: 74,
+                      height: 74,
+                    }}
+                  >
+                    <ArrowForwardIosIcon fontSize="small" />
+                  </Avatar>
+                  <Typography variant="h5" color="text.primary" fontWeight={500}>
+                    View all
+                  </Typography>
+                </Stack>
+              </Stack>
+            </Paper>
 
 
 
           </Stack>
         </Box>
 
+
+
+
+
+
         {/* Right Section */}
         <Box sx={{ flex: { xs: "1 1 100%", md: "0 0 30%" } }}>
           <Stack spacing={3}>
             {/* Quick Actions */}
             <Paper sx={{ p: 3, borderRadius: 3 }}>
-              <Typography sx={{ fontWeight: 800, mb: 2 }}>
+              <Typography sx={{ fontWeight: 800, mb: 2, fontSize: 18 }}>
                 Quick Actions
               </Typography>
-
-
-
-
-
-
 
 
 
@@ -648,10 +659,10 @@ export default function TeamMembers() {
                       }
                     >
                       <Box>
-                        <Typography variant="h4" color="#fff" fontWeight={700}>
+                        <Typography variant="h3" color="#fff" fontWeight={700}>
                           {card.title}
                         </Typography>
-                        <Typography variant="h5" color="#fefefeff" mt={0.5}>
+                        <Typography variant="h4" color="#fefefeff" mt={0.5}>
                           {card.desc}
                         </Typography>
                       </Box>
@@ -704,7 +715,7 @@ export default function TeamMembers() {
                   alignItems="center"
                   sx={{ px: 2, py: 1.5 }}
                 >
-                  <Typography variant="h3" color="black">Notification</Typography>
+                  <Typography variant="h3" color="black">Audit Trail</Typography>
                   <Typography variant="h4" color="#2B04DB" sx={{ cursor: "pointer" }}>
                     View All
                   </Typography>
@@ -781,9 +792,9 @@ export default function TeamMembers() {
 
                       <ListItemText
                         sx={{ ml: 2 }}
-                        primary={<Typography variant="h4">{item.title}</Typography>}
+                        primary={<Typography variant="h4" sx={{ color: 'black', fontWeight: 900 }}>{item.title}</Typography>}
                         secondary={
-                          <Typography variant="body1" sx={{ fontSize: 18 }}>
+                          <Typography variant="body1" sx={{ fontSize: 17 }}>
                             {item.subtitle}
                           </Typography>
                         }

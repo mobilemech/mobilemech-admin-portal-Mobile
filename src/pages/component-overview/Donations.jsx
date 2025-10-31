@@ -11,6 +11,7 @@ import {
   List,
   ListItem,
   ListItemText,
+  Menu, MenuItem
 } from "@mui/material";
 import {
   MonetizationOn,
@@ -47,6 +48,8 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ListItemButton from '@mui/material/ListItemButton';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
+
+
 import donationImg from "./images/donation.png"
 
 import NewDonation from "./Modals/newDonationModal";
@@ -80,16 +83,51 @@ export default function Donations() {
     typeof window !== "undefined" ? window.innerWidth : 1024
   );
 
-
-  const [itinerary] = useState([
-    { id: 1, title: "Chinedu Ogwu", time: "20 - building project", duration: "30 mins", image: Rect2 },
-    { id: 2, title: "Kelvin Amadi", time: "20 - building project", duration: "15 mins", image: Rect2 },
-    { id: 3, title: "Amaka Nwosu", time: "20 - building project", duration: "15 mins", image: Rect2 },
-    { id: 4, title: "James bond", time: "20 - building project", duration: "15 mins", image: Rect2 },
-  ]);
-
   const [openModal, setOpenModal] = useState(false)
   const [openModal2, setOpenModal2] = useState(false)
+  const [timeRange, setTimeRange] = useState("monthly");
+  const [anchorEl, setAnchorEl] = useState(null);
+
+
+
+  const [itinerary] = useState([
+    { id: 1, title: "Chinedu Ogwu", time: " building project", duration: "30 mins ", image: Rect2 },
+    { id: 2, title: "Kelvin Amadi", time: " building project", duration: "15 mins", image: Rect2 },
+    { id: 3, title: "Amaka Nwosu", time: " building project", duration: "15 mins", image: Rect2 },
+    { id: 4, title: "James bond", time: " building project", duration: "15 mins", image: Rect2 },
+  ]);
+
+
+  const donationData = {
+    weekly: [
+      { month: "Mon", amount: 1200 },
+      { month: "Tue", amount: 1800 },
+      { month: "Wed", amount: 1000 },
+      { month: "Thu", amount: 2500 },
+      { month: "Fri", amount: 2000 },
+      { month: "Sat", amount: 2700 },
+      { month: "Sun", amount: 1500 },
+    ],
+    monthly: [
+      { month: "Jan", amount: 4000 },
+      { month: "Feb", amount: 3200 },
+      { month: "Mar", amount: 4800 },
+      { month: "Apr", amount: 5200 },
+      { month: "May", amount: 6100 },
+      { month: "Jun", amount: 7500 },
+      { month: "Jul", amount: 6800 },
+      { month: "Aug", amount: 8000 },
+      { month: "Sep", amount: 7000 },
+      { month: "Oct", amount: 8200 },
+    ],
+    yearly: [
+      { month: "2020", amount: 35000 },
+      { month: "2021", amount: 45000 },
+      { month: "2022", amount: 56000 },
+      { month: "2023", amount: 62000 },
+      { month: "2024", amount: 75000 },
+    ],
+  };
 
 
 
@@ -109,13 +147,13 @@ export default function Donations() {
 
 
 
-    const zoom = useMemo(() => {
+  const zoom = useMemo(() => {
     if (width <= 768) return 0.55;       // Mobile
     if (width <= 1200) return 0.8;      // Tablets / small laptops
     if (width <= 1600) return 0.5;     // Medium desktops
     return 0.7;                         // Large desktops
   }, [width]);
-  
+
 
   useEffect(() => {
     const body = document.body;
@@ -142,18 +180,18 @@ export default function Donations() {
   const avgDonation = "$350.40";
   const topDonationLabel = "Building Project";
 
-  const donationData = [
-    { month: "Jan", amount: 4000 },
-    { month: "Feb", amount: 3200 },
-    { month: "Mar", amount: 4800 },
-    { month: "Apr", amount: 5200 },
-    { month: "May", amount: 6100 },
-    { month: "Jun", amount: 7500 },
-    { month: "Jul", amount: 6800 },
-    { month: "Aug", amount: 8000 },
-    { month: "Sep", amount: 7000 },
-    { month: "Oct", amount: 8200 },
-  ];
+  // const donationData = [
+  //   { month: "Jan", amount: 4000 },
+  //   { month: "Feb", amount: 3200 },
+  //   { month: "Mar", amount: 4800 },
+  //   { month: "Apr", amount: 5200 },
+  //   { month: "May", amount: 6100 },
+  //   { month: "Jun", amount: 7500 },
+  //   { month: "Jul", amount: 6800 },
+  //   { month: "Aug", amount: 8000 },
+  //   { month: "Sep", amount: 7000 },
+  //   { month: "Oct", amount: 8200 },
+  // ];
 
 
 
@@ -406,13 +444,68 @@ export default function Donations() {
         <Box sx={{ flex: { xs: "1 1 100%", md: "0 0 70%" } }}>
           <Stack spacing={3}>
             {/* Donation Analytics */}
+
             <Paper sx={{ p: 3, borderRadius: 3 }}>
-              <Typography sx={{ fontWeight: 800, mb: 2 }}>
-                Donation Analytics
-              </Typography>
+              <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
+                <Typography sx={{ fontWeight: 800, fontSize: 18 }}>Donation Analytics</Typography>
+
+                {/* 🔽 Dropdown Filter */}
+                <Button
+                  variant="outlined"
+                  size="small"
+                  sx={{
+                    textTransform: "none",
+                    borderRadius: 2,
+                    borderColor: "rgba(79,70,229,0.2)",
+                    color: "#4F46E5",
+                    fontWeight: 600,
+                    "&:hover": {
+                      borderColor: "rgba(79,70,229,0.5)",
+                      backgroundColor: "rgba(79,70,229,0.04)",
+                    },
+                  }}
+                  endIcon={<ArrowForwardIosIcon sx={{ transform: "rotate(90deg)", fontSize: 14 }} />}
+                  onClick={(e) => setAnchorEl(e.currentTarget)}
+                >
+                  {timeRange === "weekly" ? "Weekly" : timeRange === "monthly" ? "Monthly" : "Yearly"}
+                </Button>
+
+                <Stack sx={{ flexDirection: 'row', alignItems: 'center', gap: 2 }}>
+                  <FiberManualRecordIcon sx={{ color: '#2B04DB' }} />
+                  <Typography sx={{ fontWeight: 800, alignItems: 'center', fontSize: 18 }}>Donations</Typography>
+
+
+                </Stack>
+
+
+
+
+
+
+                <Menu
+                  anchorEl={anchorEl}
+                  open={Boolean(anchorEl)}
+                  onClose={() => setAnchorEl(null)}
+                  PaperProps={{ elevation: 2, sx: { borderRadius: 2 } }}
+                >
+                  {["weekly", "monthly", "yearly"].map((option) => (
+                    <MenuItem
+                      key={option}
+                      onClick={() => {
+                        setTimeRange(option);
+                        setAnchorEl(null);
+                      }}
+                      selected={timeRange === option}
+                    >
+                      {option.charAt(0).toUpperCase() + option.slice(1)}
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+
               <Box sx={{ width: "100%", height: 300 }}>
                 <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={donationData}>
+                  <AreaChart data={donationData[timeRange]}>
                     <defs>
                       <linearGradient id="colorDon" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="5%" stopColor="#4F46E5" stopOpacity={0.3} />
@@ -440,87 +533,101 @@ export default function Donations() {
 
 
 
+
+
+
+
+
+
+
             {/* Bottom Cards (Overview + Itinerary) */}
             <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 2 }}>
               {/* Overview */}
 
 
 
-              <Stack style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', backgroundColor: 'white' }}>
 
 
-
-
-
-                <Stack style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
-
-
-                  <Stack style={{ marginTop: 20 }}>
-                    <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
-                      <FiberManualRecordIcon style={{ color: '#2B04DB' }} />
-                      <Typography variant='h4'>Building Projects</Typography>
-                    </Stack>
-                    <Typography variant='h4' sx={{ mt: 1 }}>3000</Typography>
-
-                  </Stack>
-
-
-
-
-                  <Stack style={{ marginTop: 60 }}>
-                    <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
-                      <FiberManualRecordIcon style={{ color: '#FF6B6B' }} />
-                      <Typography variant='h4'>Missions</Typography>
-                    </Stack>
-                    <Typography variant='h4' sx={{ mt: 1, }}>254</Typography>
-
-                  </Stack>
-
-
-
-
-
-                  <Stack style={{ marginTop: 90 }}>
-                    <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
-                      <FiberManualRecordIcon style={{ color: '#FFAC20' }} />
-                      <Typography variant='h4'>General offering</Typography>
-                    </Stack>
-                    <Typography variant='h4' sx={{ mt: 1 }}>3254</Typography>
-
-                  </Stack>
-
-
-
-                </Stack>
-
-
-
-                <Stack >
-                  <img src={donationImg} style={{ width: 250, height: 250 }} />
-                </Stack>
-
-              </Stack>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              {/* Itinerary */}
               <Paper sx={{ p: 3, borderRadius: 2 }}>
                 <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <Typography sx={{ fontWeight: 800 }}>Recent Donation</Typography>
-                  <Button size="small" sx={{ textTransform: "none" }}>
+                  <Typography sx={{ fontWeight: 800, fontSize: 16 }}>Active Donation Type</Typography>
+                  <Button size="large" sx={{ textTransform: "none", fontSize: 17 }}>
+                    Today ▾
+                  </Button>
+                </Box>
+
+                <Stack style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', backgroundColor: 'white' }}>
+
+
+                  <Stack style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
+
+
+                    <Stack style={{ marginTop: 20 }}>
+                      <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
+                        <FiberManualRecordIcon style={{ color: '#2B04DB' }} />
+                        <Typography variant='h4'>Building Projects</Typography>
+                      </Stack>
+                      <Typography variant='h4' sx={{ mt: 1 }}>3000</Typography>
+
+                    </Stack>
+
+
+
+
+                    <Stack style={{ marginTop: 60 }}>
+                      <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
+                        <FiberManualRecordIcon style={{ color: '#FF6B6B' }} />
+                        <Typography variant='h4'>Missions</Typography>
+                      </Stack>
+                      <Typography variant='h4' sx={{ mt: 1, }}>254</Typography>
+
+                    </Stack>
+
+
+
+                    <Stack style={{ marginTop: 90 }}>
+                      <Stack style={{ flexDirection: 'row', gap: 4, alignItems: 'center' }}>
+                        <FiberManualRecordIcon style={{ color: '#FFAC20' }} />
+                        <Typography variant='h4'>General offering</Typography>
+                      </Stack>
+                      <Typography variant='h4' sx={{ mt: 1 }}>3254</Typography>
+
+                    </Stack>
+
+
+
+                  </Stack>
+
+
+
+                  <Stack >
+                    <img src={donationImg} style={{ width: 250, height: 250 }} />
+                  </Stack>
+
+                </Stack>
+              </Paper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              {/* Recent Donation */}
+              <Paper sx={{ p: 3, borderRadius: 2 }}>
+                <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <Typography sx={{ fontWeight: 800, fontSize: 16 }}>Recent Donation</Typography>
+                  <Button size="large" sx={{ textTransform: "none", fontSize: 17 }}>
                     Today ▾
                   </Button>
                 </Box>
@@ -532,7 +639,7 @@ export default function Donations() {
                         primary={<Typography sx={{ fontWeight: 800, fontSize: 17 }}>{it.title}</Typography>}
                         secondary={
                           <Typography variant="h5" color="text.secondary">
-                            {`${it.time} • ${it.duration}`}
+                            {`${it.time} • ${it.duration}`} ago
                           </Typography>
                         }
                       />
@@ -556,7 +663,7 @@ export default function Donations() {
           <Stack spacing={3}>
             {/* Quick Actions */}
             <Paper sx={{ p: 3, borderRadius: 3 }}>
-              <Typography sx={{ fontWeight: 800, mb: 2 }}>
+              <Typography sx={{ fontWeight: 800, mb: 2, fontSize: 18 }}>
                 Quick Actions
               </Typography>
 
@@ -613,10 +720,10 @@ export default function Donations() {
                       }
                     >
                       <Box>
-                        <Typography variant="h4" color="#fff" fontWeight={700}>
+                        <Typography variant="h3" color="#fff" fontWeight={700}>
                           {card.title}
                         </Typography>
-                        <Typography variant="h5" color="#fefefeff" mt={0.5}>
+                        <Typography variant="h4" color="#fefefeff" mt={0.5}>
                           {card.desc}
                         </Typography>
                       </Box>
@@ -665,39 +772,16 @@ export default function Donations() {
                 alignItems="center"
                 mb={2}
               >
-                <Typography sx={{ fontWeight: 800 }}>
+                <Typography sx={{ fontWeight: 800, fontSize: 18 }}>
                   Recent Activity
                 </Typography>
-                <Button size="small" sx={{ textTransform: "none" }}>
+                <Button size="large" sx={{ textTransform: "none", color: '#2B04DB', fontSize: 17 }}>
                   View All
                 </Button>
               </Stack>
 
 
-              {/* <List>
-                {recentActivity.map((act) => (
-                  <ListItem key={act.id} disableGutters sx={{ py: 1, gap: 2 }}>
-                    <Avatar
-                      sx={{
-                        bgcolor: "#EEF2FF",
-                        color: "#4F46E5",
-                        width: 36,
-                        height: 36,
-                      }}
-                    >
-                      <History />
-                    </Avatar>
-                    <ListItemText
-                      primary={<Typography sx={{ fontWeight: 700 }}>{act.action}</Typography>}
-                      secondary={
-                        <Typography variant="h5" color="text.secondary">
-                          {act.time}
-                        </Typography>
-                      }
-                    />
-                  </ListItem>
-                ))}
-              </List> */}
+
 
 
 

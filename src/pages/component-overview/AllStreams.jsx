@@ -150,11 +150,11 @@ export default function AllStreams() {
 
 
   const zoom = useMemo(() => {
-  if (width <= 768) return 0.55;       // Mobile
-  if (width <= 1200) return 0.8;      // Tablets / small laptops
-  if (width <= 1600) return 0.5;     // Medium desktops
-  return 0.7;                         // Large desktops
-}, [width]);
+    if (width <= 768) return 0.55;       // Mobile
+    if (width <= 1200) return 0.8;      // Tablets / small laptops
+    if (width <= 1600) return 0.5;     // Medium desktops
+    return 0.7;                         // Large desktops
+  }, [width]);
 
 
 
@@ -175,7 +175,7 @@ export default function AllStreams() {
 
 
 
-  
+
 
   const leftBubbleSx = (bg = "#F3F4F6") => ({
     position: "relative",
@@ -324,7 +324,7 @@ export default function AllStreams() {
             <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 2 }}>
               {/* Overview */}
               <Paper sx={{ p: 3, borderRadius: 2 }}>
-                <Typography sx={{ fontWeight: 800, mb: 2 }}>Overview</Typography>
+                <Typography sx={{ fontWeight: 800, mb: 2, fontSize: 17 }}>Overview</Typography>
                 <Paper
                   sx={{
                     p: 2,
@@ -387,8 +387,8 @@ export default function AllStreams() {
               {/* Itinerary */}
               <Paper sx={{ p: 3, borderRadius: 2 }}>
                 <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <Typography sx={{ fontWeight: 800 }}>Event Itinerary</Typography>
-                  <Button size="small" sx={{ textTransform: "none" }}>
+                  <Typography sx={{ fontWeight: 800, fontSize: 17 }}>Event Itinerary</Typography>
+                  <Button size="large" sx={{ textTransform: "none", color: '#2B04DB' }}>
                     Today ▾
                   </Button>
                 </Box>
@@ -397,10 +397,10 @@ export default function AllStreams() {
                     <ListItem key={it.id} disableGutters sx={{ py: 1, gap: 2 }}>
                       <img src={it.image} alt={it.title} />
                       <ListItemText
-                        primary={<Typography sx={{ fontWeight: 800, fontSize: 17 }}>{it.title}</Typography>}
+                        primary={<Typography sx={{ fontWeight: 800, fontSize: 18 }}>{it.title}</Typography>}
                         secondary={
                           <Typography variant="h5" color="text.secondary">
-                            {`${it.time} • ${it.duration}`}
+                            {`${it.time} • ${it.duration}`} ago
                           </Typography>
                         }
                       />
@@ -489,7 +489,7 @@ export default function AllStreams() {
 
             {/* Requests */}
             <Paper sx={{ p: 3, borderRadius: 2 }}>
-              <Typography sx={{ fontWeight: 800, mb: 1 }}>Requests</Typography>
+              <Typography sx={{ fontWeight: 800, mb: 1, fontSize: 18 }}>Requests</Typography>
               <List sx={{ p: 0 }}>
                 {requests.map((req) => (
                   <ListItem key={req.id} disableGutters>
@@ -506,6 +506,7 @@ export default function AllStreams() {
                           bgcolor: req.status === "new" ? "#FFF1F0" : "#EEF2FF",
                           color: req.status === "new" ? "#9B1C1C" : PRIMARY,
                           fontWeight: 600,
+                          fontSize: 18,
                           textTransform: "capitalize",
                         }}
                       />
