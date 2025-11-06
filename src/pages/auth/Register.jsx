@@ -12,20 +12,33 @@ import {
   InputLabel,
   OutlinedInput,
   useMediaQuery,
+  IconButton,
+  InputAdornment,
 } from "@mui/material";
-import AppleIcon from "@mui/icons-material/Apple";
-import background from "./images/background.png";
-import logo from "./images/logo1.png";
-import vector from "./images/Vector.png";
+
+import logo from "./images/back.png";
 import { useNavigate } from "react-router-dom";
+
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 const AuthScreen = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [checked, setChecked] = useState(false);
   const isMobile = useMediaQuery("(max-width:900px)");
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
 
-  const uniformWidth = 450; 
+
+
+
+
+
+
+
+
+  const uniformWidth = 450;
 
   return (
     <Box
@@ -41,9 +54,9 @@ const AuthScreen = () => {
       {/* LEFT SIDE */}
       <Box
         sx={{
-           flex: { xs: "0 0 auto", md: 1 },
+          flex: { xs: "0 0 auto", md: 1 },
           position: "relative",
-          backgroundImage: `url(${background})`,
+          //  backgroundImage: `url(${splashScreen})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "flex",
@@ -52,8 +65,8 @@ const AuthScreen = () => {
           alignItems: isMobile ? "center" : "flex-start",
           px: { xs: 3, md: 5 },
           py: { xs: 3, md: 5 },
-           height: isMobile ? "5vh" : "100vh", 
-              flexShrink: 0,
+          height: isMobile ? "10vh" : "100vh",
+          flexShrink: 0,
         }}
       >
         {/* Overlay */}
@@ -61,7 +74,7 @@ const AuthScreen = () => {
           sx={{
             position: "absolute",
             inset: 0,
-            backgroundColor: "rgba(45, 0, 150, 0.65)",
+            backgroundColor: '#f17a28',
             zIndex: 0,
           }}
         />
@@ -80,11 +93,9 @@ const AuthScreen = () => {
           <img
             src={logo}
             alt="Logo"
-            style={{ height: isMobile ? 22 : 28, marginRight: 8 }}
+            style={{ height: isMobile ? 40 : 50, marginRight: 8 }}
           />
-          <Typography sx={{ fontWeight: 600, fontSize: { xs: 16, md: 18 }, color: "#fff" }}>
-            Worsship
-          </Typography>
+
         </Box>
 
         {/* Text (desktop only) */}
@@ -94,10 +105,10 @@ const AuthScreen = () => {
               position: "relative",
               zIndex: 1,
               color: "white",
-             // mt: "auto",
+              // mt: "auto",
             }}
           >
-            
+
             <Typography sx={{ fontWeight: 700, fontSize: 18, mb: 1 }}>
               Experience Worship, Anytime, Anywhere
             </Typography>
@@ -119,11 +130,11 @@ const AuthScreen = () => {
           p: { xs: 3, md: 6 },
         }}
       >
-        <Box   sx={{
-    width: "100%",
-    maxWidth: { xs: "100%", md: uniformWidth, sm:uniformWidth }, 
-    mx: "auto", 
-  }}>
+        <Box sx={{
+          width: "100%",
+          maxWidth: { xs: "100%", md: uniformWidth, sm: uniformWidth },
+          mx: "auto",
+        }}>
           {/* Title */}
           <Typography
             sx={{
@@ -147,8 +158,8 @@ const AuthScreen = () => {
             }}
           >
             {isLogin
-              ? "Good to see you again. Let’s continue equipping your church to reach more souls, one service at a time."
-              : "To begin this Worsship journey, tell us what your platform is about."}
+              ? "Good to see you again! Log in to access your admin dashboard"
+              : "Your account will allow you to oversee data, users, and operations."}
           </Typography>
 
           {/* Toggle Buttons */}
@@ -160,7 +171,7 @@ const AuthScreen = () => {
               borderRadius: "10px",
               p: "2px",
               mb: 3,
-              width: "100%", 
+              width: "100%",
             }}
           >
             <Button
@@ -169,74 +180,151 @@ const AuthScreen = () => {
               sx={{
                 textTransform: "none",
                 borderRadius: "10px",
-                bgcolor: !isLogin ? "#2D00F7" : "transparent",
+                bgcolor: !isLogin ? "#f17a28" : "transparent",
                 color: !isLogin ? "#fff" : "#555",
                 fontWeight: 600,
                 fontSize: 14,
                 boxShadow: !isLogin ? "0 2px 6px rgba(0,0,0,0.15)" : "none",
-             //   "&:hover": { bgcolor: !isLogin ? "#2100b3" :  "#e9e6f9ff",color:'white'  },
+                "&:hover": { bgcolor: !isLogin ? "#f17a28" : "", color: 'black' },
+                "&:focus": { outline: "none" },
+                "&.Mui-focusVisible": { outline: "none", boxShadow: "none" },
               }}
             >
               Sign Up
             </Button>
+
+
+
+
+
             <Button
               fullWidth
               onClick={() => setIsLogin(true)}
               sx={{
                 textTransform: "none",
                 borderRadius: "10px",
-                bgcolor: isLogin ? "#2D00F7" : "transparent",
+                bgcolor: isLogin ? "#f17a28" : "transparent",
                 color: isLogin ? "#fff" : "#555",
                 fontWeight: 600,
                 fontSize: 14,
                 boxShadow: isLogin ? "0 2px 6px rgba(0,0,0,0.15)" : "none",
-              //  "&:hover": { bgcolor: isLogin ? "#2100b3" : "#e9e6f9ff", color:'white' },
+                "&:hover": { bgcolor: isLogin ? "#f17a28" : "", color: "black" },
+                "&:focus": { outline: "none" },
+                "&.Mui-focusVisible": { outline: "none", boxShadow: "none" },
               }}
             >
               Log In
             </Button>
+
           </Stack>
 
           {/* Forms */}
           <Stack spacing={2} sx={{ width: "100%" }}>
             {!isLogin ? (
               <form>
-                <Grid  spacing={2.5} sx={{mt:1}}  >
-                  {/* Church Name */}
-                  <Grid item xs={12}>
-                    <Stack sx={{ gap: 1 }}>
-                      <InputLabel sx={{ fontSize: 10 }}>Your Church Name</InputLabel>
-                      <OutlinedInput
-                        placeholder="Enter your Church name"
-                        sx={inputStyle}
-                        fullWidth
-                      />
-                    </Stack>
-                  </Grid>
+                <Grid spacing={2.5} sx={{ mt: 1 }}  >
+
 
                   {/* Email */}
-                  <Grid item xs={12} sx={{mt:1}}>
+                  <Grid item xs={12} sx={{ mt: 1 }}>
                     <Stack sx={{ gap: 1 }}>
-                      <InputLabel sx={{ fontSize: 10 }}>Official Email Address</InputLabel>
+                      <InputLabel sx={{ fontSize: 10 }}>Email Address</InputLabel>
                       <OutlinedInput
-                        placeholder="Enter your church’s email address"
+                        placeholder="Enter your email address"
                         sx={inputStyle}
                         fullWidth
                       />
                     </Stack>
                   </Grid>
 
-                  {/* Phone */}
-                  <Grid item xs={12} sx={{mt:1}} >
-                    <Stack sx={{ gap: 1 }}>
-                      <InputLabel sx={{ fontSize: 10 }}>Official Phone number</InputLabel>
-                      <OutlinedInput
-                        placeholder="Enter your official number"
-                        sx={inputStyle}
-                        fullWidth
-                      />
-                    </Stack>
-                  </Grid>
+
+
+
+
+                  <InputLabel sx={{ fontSize: 10, mt: 2 }}>Password</InputLabel>
+                  <OutlinedInput
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter password"
+                    fullWidth
+                    sx={{
+                      height: 45,
+                      mb: 3,
+                      borderRadius: 2,
+
+                      "& .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#ccc",
+                      },
+                      "&:hover .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#f17a28",
+                      },
+                      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#f17a28",
+                      },
+                      "&.Mui-focused": {
+                        boxShadow: "none",
+                      },
+                    }}
+
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton onClick={() => setShowPassword(!showPassword)}>
+                          {showPassword ? <VisibilityOff sx={{ fontSize: 18 }} /> : <Visibility sx={{ fontSize: 18 }} />}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                  />
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  {/* Confirm Password */}
+                  <InputLabel sx={{ fontSize: 10 }}>Confirm Password</InputLabel>
+                  <OutlinedInput
+                    type={showConfirm ? "text" : "password"}
+                    placeholder="Confirm password"
+                    fullWidth
+                    sx={{
+                      height: 45,
+                      mb: 3,
+                      borderRadius: 2,
+
+                      "& .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#ccc",
+                      },
+                      "&:hover .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#f17a28",
+                      },
+                      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#f17a28",
+                      },
+                      "&.Mui-focused": {
+                        boxShadow: "none",
+                      },
+                    }}
+
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton onClick={() => setShowConfirm(!showConfirm)}>
+                          {showConfirm ? <VisibilityOff sx={{ fontSize: 18 }} /> : <Visibility sx={{ fontSize: 18 }} />}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                  />
+
+
+
+
+
+
 
                   {/* Terms */}
                   <Grid item xs={12} >
@@ -246,57 +334,48 @@ const AuthScreen = () => {
                           size="small"
                           checked={checked}
                           onChange={(e) => setChecked(e.target.checked)}
+                          sx={{
+                            color: '#f17a28',
+                            '&.Mui-checked': {
+                              color: 'orange',
+                            },
+                          }}
                         />
                       }
                       label={
-                        <Typography sx={{ fontSize: 10, color:'black' }}>
+                        <Typography sx={{ fontSize: 10, color: 'black' }}>
                           I agree to terms & conditions
                         </Typography>
                       }
                     />
                   </Grid>
 
-               
+
                 </Grid>
 
-                   {/* Create Account */}
-                <Grid item xs={12} sx={{mt:isMobile ? 2 : 5}}>
-                    <Button
-                      fullWidth
-                      size="large"
-                      variant="contained"
-                      sx={buttonStyle}
-                    onClick={()=>navigate('/Authentication/CreatePassword')} 
-                    >
-                      Create Account
-                    </Button>
+                {/* Create Account */}
+                <Grid item xs={12} sx={{ mt: isMobile ? 2 : 5 }}>
+                  <Button
+                    fullWidth
+                    size="large"
+                    variant="contained"
+                    sx={buttonStyle}
+                    onClick={() => navigate('/Authentication/VerifyCode')}
+                  >
+                    Create Account
+                  </Button>
 
-                    <Divider sx={{ my: 1, color: "#aaa", fontSize: 13 }}>Or</Divider>
 
-                    {/* Social Buttons */}
-                    <Stack
-                      direction="row"
-                      spacing={2}
-                      justifyContent="center"
-                      alignItems="center"
-                    >
-                      <Button size="small" variant="outlined" sx={socialBtnStyle}>
-                        <img src={vector} style={{ width: 12, height: 12 }} alt="google" />{" "}
-                        Continue with Google
-                      </Button>
 
-                      <Button size="small" variant="outlined" sx={socialBtnStyle}>
-                        <AppleIcon sx={{ width: 15, height: 15 }} /> Continue with Apple
-                      </Button>
-                    </Stack>
-                  </Grid>
+
+                </Grid>
               </form>
             ) : (
               <>
-                <Grid  spacing={2.5}>
+                <Grid spacing={2.5}>
                   <Grid item xs={12} >
                     <Stack sx={{ gap: 1 }}>
-                      <InputLabel sx={{ fontSize: 10 }}>Official Email Address</InputLabel>
+                      <InputLabel sx={{ fontSize: 10 }}>Email Address</InputLabel>
                       <OutlinedInput
                         placeholder="Enter your email address"
                         sx={inputStyle}
@@ -305,36 +384,37 @@ const AuthScreen = () => {
                     </Stack>
                   </Grid>
 
-                  <Grid item xs={12} sx={{mt:1}} >
-                    <Stack sx={{ gap: 1 }}>
-                      <InputLabel sx={{ fontSize: 10 }}>Password</InputLabel>
-                      <OutlinedInput
-                        placeholder="Enter your password"
-                        sx={inputStyle}
-                        fullWidth
-                      />
-                    </Stack>
-                  </Grid>
+                  <Grid item xs={12} sx={{ mt: 1 }} >
+                    <InputLabel sx={{ fontSize: 10, mt: 2 }}>Password</InputLabel>
+                    <OutlinedInput
+                      type={showPassword2 ? "text" : "password"}
+                      placeholder="Enter password"
+                      fullWidth
+                      sx={{
+                        height: 45,
+                        mb: 3,
+                        borderRadius: 2,
 
-          
+                        "& .MuiOutlinedInput-notchedOutline": {
+                          borderColor: "#ccc",
+                        },
+                        "&:hover .MuiOutlinedInput-notchedOutline": {
+                          borderColor: "#f17a28",
+                        },
+                        "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                          borderColor: "#f17a28",
+                        },
+                        "&.Mui-focused": {
+                          boxShadow: "none",
+                        },
+                      }}
 
-               
-                </Grid>
-                        <Grid item xs={12}>
-                    <Box display="flex" justifyContent="space-between" alignItems="center">
-                          <Grid item xs={12} >
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          size="small"
-                          checked={checked}
-                          onChange={(e) => setChecked(e.target.checked)}
-                        />
-                      }
-                      label={
-                        <Typography sx={{ fontSize: 10, color:'black' }}>
-                          Remember Me
-                        </Typography>
+                      endAdornment={
+                        <InputAdornment position="end">
+                          <IconButton onClick={() => setShowPassword2(!showPassword2)}>
+                            {showPassword2 ? <VisibilityOff sx={{ fontSize: 18 }} /> : <Visibility sx={{ fontSize: 18 }} />}
+                          </IconButton>
+                        </InputAdornment>
                       }
                     />
                   </Grid>
@@ -342,35 +422,64 @@ const AuthScreen = () => {
 
 
 
+                </Grid>
+                <Grid item xs={12}>
+                  <Box display="flex" justifyContent="space-between" alignItems="center">
+                    <Grid item xs={12} >
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            size="small"
+                            checked={checked}
+                            onChange={(e) => setChecked(e.target.checked)}
+                            sx={{
+                              color: '#f17a28',
+                              '&.Mui-checked': {
+                                color: 'orange',
+                              },
+                            }}
+                          />
+                        }
+                        label={
+                          <Typography sx={{ fontSize: 10, color: 'black' }}>
+                            Remember Me
+                          </Typography>
+                        }
+                      />
+                    </Grid>
 
 
 
 
-                      <Typography
-                        sx={{
-                          fontSize: 10,
-                          color: "#2D00F7",
-                          cursor: "pointer",
-                        }}
-                       onClick={()=>navigate('/Authentication/ResetPassword')}
-                      >
-                        Forgot Password?
-                      </Typography>
-                    </Box>
-                  </Grid>
-                  
 
-                   <Grid item xs={12}>
-                    <Button
-                       onClick={()=>navigate('/Dashboard/Home')}
-                      fullWidth
-                      size="large"
-                      variant="contained"
-                      sx={buttonStyle}
+
+
+
+                    <Typography
+                      sx={{
+                        fontSize: 10,
+                        color: "#f17a28",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => navigate('/Authentication/ResetPassword')}
                     >
-                      Log In
-                    </Button>
-                  </Grid>
+                      Forgot Password?
+                    </Typography>
+                  </Box>
+                </Grid>
+
+
+                <Grid item xs={12}>
+                  <Button
+                    onClick={() => navigate('/Dashboard/Home')}
+                    fullWidth
+                    size="large"
+                    variant="contained"
+                    sx={buttonStyle}
+                  >
+                    Log In
+                  </Button>
+                </Grid>
               </>
             )}
           </Stack>
@@ -380,45 +489,43 @@ const AuthScreen = () => {
   );
 };
 
-// ✅ Styles
+// Styles
 
 
 
 
 const inputStyle = {
   height: 42,
-  width: { xs: "100%", sm: 430, md: 450 }, 
-  boxSizing: "border-box",                 
+  width: { xs: "100%", sm: 430, md: 450 },
   borderRadius: "10px",
-  backgroundColor: "#F9FAFB",
-  "& input::placeholder": {
-    color: "#9e9e9e",
-    fontSize: "10px",
-    fontWeight: 400,
-  },
+
+
   "& .MuiOutlinedInput-notchedOutline": {
-    borderColor: "#E0E0E0",
+    borderColor: "#ccc",
+  },
+  "&:hover .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#f17a28",
+  },
+  "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#f17a28",
+  },
+
+
+  "&.Mui-focused": {
+    boxShadow: "none",
   },
 };
 
+
 const buttonStyle = {
-  bgcolor: "#2B04DB",
+  bgcolor: "#f17a28",
   color: "#fff",
   textTransform: "none",
   py: 1.2,
   borderRadius: 20,
   fontWeight: 600,
   fontSize: 15,
-  "&:hover": { bgcolor: "#4a25d6" },
-};
-
-const socialBtnStyle = {
-  borderRadius: "30px",
-  gap: 1,
-  fontSize: 8,
-  borderColor: "gray",
-  color: "gray",
-  px: 2,
+  "&:hover": { bgcolor: "#f28b46ff" },
 };
 
 export default AuthScreen;
