@@ -25,35 +25,35 @@ import SettingsIcon from '@mui/icons-material/Settings';
 
 const Managemnt = {
   id: 'Managemnt',
-  title: 'Managemnt',
+ // title: 'Managemnt',
   type: 'group',
   children: [
     {
-      id: 'Team-Members',
-      title: 'Team Members',
+      id: 'Activities',
+      title: 'Activities',
       type: 'item',
-      url: '/dashboard/TeamMember',
+      url: '/dashboard/Activities',
       icon: Diversity3Icon
     },
     {
-      id: 'Church-Settings',
-      title: 'Church Settings',
+      id: 'Analytics',
+      title: 'Analytics',
       type: 'item',
-      url: '/dashboard/ChurchSettings',
+      url: '/dashboard/Analytics',
       icon: ChurchIcon
     },
     {
-      id: 'Verification',
-      title: 'Verification',
+      id: 'Settings',
+      title: 'Settings',
       type: 'item',
-      url: '/dashboard/Verification',
+      url: '/dashboard/Settings',
       icon: ChurchIcon
     },
     {
-      id: 'Merchandise',
-      title: 'Merchandise',
+      id: 'Logout',
+      title: 'Log Out',
       type: 'item',
-      url: '/dashboard/Merchandise',
+      url: '/dashboard/Logout',
       icon: SettingsIcon
     }
   ]

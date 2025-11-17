@@ -8,17 +8,17 @@ import DashboardLayout from 'layout/Dashboard';
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard/default')));
 
 // render - color
-const ChurchSettings = Loadable(lazy(() => import('pages/component-overview/ChurchSettings')));
-const TeamMember = Loadable(lazy(() => import('pages/component-overview/TeamMember')));
-const Verification = Loadable(lazy(() => import('pages/component-overview/Verification')));
-const AllStreams = Loadable(lazy(() => import('pages/component-overview/AllStreams')));
-const Events = Loadable(lazy(() => import('pages/component-overview/Events')));
-const Donations = Loadable(lazy(() => import('pages/component-overview/Donations')));
-const Merchandise = Loadable(lazy(() => import('pages/component-overview/Merchandise')));
+const Settings = Loadable(lazy(() => import('pages/component-overview/Settings')));
+const Analytics = Loadable(lazy(() => import('pages/component-overview/Analytics')));
+const Activities = Loadable(lazy(() => import('pages/component-overview/Activities')));
+const Mechanic = Loadable(lazy(() => import('pages/component-overview/Mechanic')));
+const CarOwner = Loadable(lazy(() => import('pages/component-overview/CarOwner')));
+const Services = Loadable(lazy(() => import('pages/component-overview/Services')));
+const Logout = Loadable(lazy(() => import('pages/component-overview/Logout')));
 
-const BibleStudy = Loadable(lazy(() => import('pages/component-overview/BibleStudy')));
-const Community = Loadable(lazy(() => import('pages/component-overview/Community')));
-const Requests = Loadable(lazy(() => import('pages/component-overview/Requests')));
+const Admins = Loadable(lazy(() => import('pages/component-overview/Admins')));
+const Finance = Loadable(lazy(() => import('pages/component-overview/Finance')));
+const Messages = Loadable(lazy(() => import('pages/component-overview/Messages')));
 
 
 // render - sample page
@@ -48,35 +48,35 @@ const MainRoutes = {
       ]
     },
     {
-      path: 'TeamMember',
-      element: <TeamMember />
+      path: 'Analytics',
+      element: <Analytics />
     },
     {
-      path: 'ChurchSettings',
-      element: <ChurchSettings />
+      path: 'Settings',
+      element: <Settings />
     },
     {
-      path: 'Verification',
-      element: <Verification />
+      path: 'Activities',
+      element: <Activities />
     },
 
 
 
      {
-      path: 'Merchandise',
-      element: <Merchandise />
+      path: 'Logout',
+      element: <Logout />
     },
  
 
     {
-      path: 'AllStreams',
-      element: <AllStreams />
+      path: 'Mechanic',
+      element: <Mechanic />
     },
 
     
     {
-      path: 'Events',
-      element: <Events />
+      path: 'CarOwner',
+      element: <CarOwner />
     },
 
 
@@ -84,28 +84,28 @@ const MainRoutes = {
     
     
     {
-      path: 'Donations',
-      element: <Donations />
+      path: 'Services',
+      element: <Services />
     },
 
 
 
      {
-      path: 'BibleStudy',
-      element: <BibleStudy />
+      path: 'Admins',
+      element: <Admins />
     },
 
 
      {
-      path: 'Community',
-      element: <Community />
+      path: 'Finance',
+      element: <Finance />
     },
 
 
 
       {
-      path: 'Requests',
-      element: <Requests />
+      path: 'Messages',
+      element: <Messages />
     },
 
 

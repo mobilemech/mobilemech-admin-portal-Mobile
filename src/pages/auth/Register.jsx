@@ -110,10 +110,10 @@ const AuthScreen = () => {
           >
 
             <Typography sx={{ fontWeight: 700, fontSize: 18, mb: 1 }}>
-              Experience Worship, Anytime, Anywhere
+              MobileFix
             </Typography>
             <Typography sx={{ fontSize: 14, opacity: 0.9, mb: 3 }}>
-              Join the conversation, and grow in faith.
+              Your Road Partner in every mile.
             </Typography>
           </Box>
         )}

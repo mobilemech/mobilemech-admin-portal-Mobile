@@ -19,30 +19,34 @@ import { borderRadius, padding } from '@mui/system';
 
 export default function NavCard() {
   return (
-    <MainCard sx={{  m:3, mt:10, height:'150px', width:'300px', borderRadius:'30px',  background: 'linear-gradient(to  bottom, #7838F4, #2B04DB)',  }}>
+
+    <div>
+
+    </div>
+    // <MainCard sx={{  m:3, mt:10, height:'150px', width:'300px', borderRadius:'30px',  background: 'linear-gradient(to  bottom, #7838F4, #2B04DB)',  }}>
       
 
 
-          <Box
-            sx={{
+    //       <Box
+    //         sx={{
               
-              justifyContent: 'center',
-              alignItems: 'center',
-              textAlign:'center',
-              marginTop:'20px'
+    //           justifyContent: 'center',
+    //           alignItems: 'center',
+    //           textAlign:'center',
+    //           marginTop:'20px'
            
             
-            }}
-          >
-           <Typography variant="h5" align='center'  color="white">
-            Upgrade to PRO to get <br/> access to all features!
-          </Typography>
+    //         }}
+    //       >
+    //        <Typography variant="h5" align='center'  color="white">
+    //         Upgrade to PRO to get <br/> access to all features!
+    //       </Typography>
 
-          </Box>
+    //       </Box>
 
           
 
       
-    </MainCard>
+    // </MainCard>
   );
 }

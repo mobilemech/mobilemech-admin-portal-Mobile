@@ -13,45 +13,45 @@ const support = {
   type: 'group',
   children: [
     {
-      id: 'All-Streams',
-      title: 'All Streams',
+      id: 'Mechanic',
+      title: 'Mechanic',
       type: 'item',
-      url: '/dashboard/AllStreams',
+      url: '/dashboard/Mechanic',
       icon: LocalPharmacyIcon
     },
     {
-      id: 'Events',
-      title: 'Events',
+      id: 'Car Owner',
+      title: 'Car Owner',
       type: 'item',
-      url: '/dashboard/Events',
+      url: '/dashboard/CarOwner',
       icon: CalendarMonthIcon
     },
     {
-      id: 'Donations',
-      title: 'Donations',
+      id: 'Services',
+      title: 'Services',
       type: 'item',
-      url: '/dashboard/Donations',
+      url: '/dashboard/Services',
       icon: VolunteerActivismIcon
     },
     {
-      id: 'Bible Study',
-      title: 'Bible Study',
+      id: 'Admins',
+      title: 'Admins',
       type: 'item',
-      url: '/dashboard/BibleStudy',
+      url: '/dashboard/Admins',
       icon: MenuBookIcon
     },
     {
-      id: 'Community',
-      title: 'Community',
+      id: 'Messages',
+      title: 'Messages',
       type: 'item',
-      url: '/dashboard/Community',
+      url: '/dashboard/Messages',
       icon: AttractionsIcon
     },
     {
-      id: 'Requests',
-      title: 'Requests',
+      id: 'Finance',
+      title: 'Finance',
       type: 'item',
-      url: '/dashboard/Requests',
+      url: '/dashboard/Finance',
       icon: CommentIcon
     }
   ]

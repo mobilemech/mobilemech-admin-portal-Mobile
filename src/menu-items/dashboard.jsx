@@ -9,7 +9,7 @@ const icons = {
 
 const dashboard = {
   id: 'group-dashboard',
-  title: 'Main',
+ // title: 'Main',
   type: 'group',
   children: [
     {
@@ -20,6 +20,9 @@ const dashboard = {
       icon: icons.DashboardOutlined,
       breadcrumbs: false
     },
+
+
+    
 
 
 
