@@ -39,9 +39,7 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 export default function DashboardDefault() {
 
 
-  const [value, setValue] = useState('This Month');
-  const [openModal, setOpenModal] = useState(false);
-  const [startStreamOpen, setStartStreamOpen] = useState(false)
+
 
   const [width, setWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
