@@ -64,7 +64,18 @@ export default function MobileSection() {
          // color="blue"
         //  variant="light"
         >
-          <img src={image} style={{width:40, height:40}}/>
+ <img
+  src="https://media.istockphoto.com/id/598221526/photo/portrait-of-laughing-young-man-looking-at-camera-in-park.webp?a=1&b=1&s=612x612&w=0&k=20&c=dWOXaVAs8Qa-5m-T_jLe1B4XIBmJh3wFphSJcS_JnsU="
+  alt="avatar"
+  style={{
+    width: 40,
+    height: 40,
+    borderRadius: '50%', 
+    objectFit: 'cover'
+  }}
+/>
+
+
           {/* <MoreOutlined /> */}
         </IconButton>
       </Box>

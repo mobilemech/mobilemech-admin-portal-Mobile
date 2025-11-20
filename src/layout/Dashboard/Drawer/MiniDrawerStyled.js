@@ -1,3 +1,4 @@
+
 // material-ui
 import { styled } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
@@ -7,8 +8,9 @@ import { DRAWER_WIDTH } from 'config';
 
 const openedMixin = (theme) => ({
   width: DRAWER_WIDTH,
-  borderRight: '1px solid',
-  borderRightColor: theme.palette.divider,
+  borderRight: 'none',
+  backgroundColor: '#f17a28', 
+  color: 'white',
 
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
@@ -16,8 +18,7 @@ const openedMixin = (theme) => ({
   }),
 
   overflowX: 'hidden',
-  boxShadow: 'none',
-  ...theme.applyStyles('dark', { boxShadow: theme.customShadows.z1 })
+  boxShadow: 'none'
 });
 
 const closedMixin = (theme) => ({
@@ -27,28 +28,41 @@ const closedMixin = (theme) => ({
   }),
 
   overflowX: 'hidden',
-  width: theme.spacing(7.5),
+  width: theme.spacing(12), 
   borderRight: 'none',
+  backgroundColor: '#f17a28',
+  color: 'white',
   boxShadow: theme.customShadows.z1
 });
 
 // ==============================|| DRAWER - MINI STYLED ||============================== //
 
-const MiniDrawerStyled = styled(Drawer, { shouldForwardProp: (prop) => prop !== 'open' })(({ theme }) => ({
-  width: DRAWER_WIDTH,
-  flexShrink: 0,
-  whiteSpace: 'nowrap',
-  boxSizing: 'border-box',
-  variants: [
-    {
-      props: ({ open }) => open,
-      style: { ...openedMixin(theme), '& .MuiDrawer-paper': openedMixin(theme) }
-    },
-    {
-      props: ({ open }) => !open,
-      style: { ...closedMixin(theme), '& .MuiDrawer-paper': closedMixin(theme) }
-    }
-  ]
-}));
+const MiniDrawerStyled = styled(Drawer, { shouldForwardProp: (prop) => prop !== 'open' })(
+  ({ theme }) => ({
+    width: DRAWER_WIDTH,
+    flexShrink: 0,
+    whiteSpace: 'nowrap',
+    boxSizing: 'border-box',
+
+    variants: [
+      {
+        props: ({ open }) => open,
+        style: {
+          ...openedMixin(theme),
+          '& .MuiDrawer-paper': openedMixin(theme)    
+        }
+      },
+      {
+        props: ({ open }) => !open,
+        style: {
+          ...closedMixin(theme),
+          '& .MuiDrawer-paper': closedMixin(theme)     
+        }
+      }
+    ]
+  })
+);
 
 export default MiniDrawerStyled;
+
+

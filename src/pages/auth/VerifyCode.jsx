@@ -281,7 +281,7 @@ const VerifyCode = () => {
                   justifyContent: "center",
                 }}
               >
-                <img src={confirmedImg} style={{ position: 'absolute', top: 20, width: 100, height: 100 }} alt='worsship' />
+                <img src={confirmedImg} style={{ position: 'absolute', top: 20, width: 100, height: 100 }} alt='mobile mechanic' />
               </Box>
 
               <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>

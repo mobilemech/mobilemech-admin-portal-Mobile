@@ -1,6 +1,6 @@
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import image from "./Avatar.png"
+import image from "./mm2.png"
 import image2 from "./logos.png"
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -12,7 +12,8 @@ export default function LogoIcon() {
 
   return (
     <Stack>
-   <img src={image} alt='image'/> 
+   <img src={image} alt='image' style={{width:50, height:50}}/> 
+ 
       </Stack>
   );
 }

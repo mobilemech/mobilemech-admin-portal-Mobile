@@ -1,3 +1,4 @@
+
 import PropTypes from 'prop-types';
 import { Link, useLocation, matchPath } from 'react-router-dom';
 
@@ -13,171 +14,104 @@ import Box from '@mui/material/Box';
 
 // project imports
 import IconButton from 'components/@extended/IconButton';
-
 import { handlerDrawerOpen, useGetMenuMaster } from 'api/menu';
 
-// ==============================|| NAVIGATION - LIST ITEM ||============================== //
+const ORANGE = '#f17a28';
 
 export default function NavItem({ item, level, isParents = false, setSelectedID }) {
   const { menuMaster } = useGetMenuMaster();
   const drawerOpen = menuMaster.isDashboardDrawerOpened;
-
   const downLG = useMediaQuery((theme) => theme.breakpoints.down('lg'));
-
-  let itemTarget = '_self';
-  if (item.target) {
-    itemTarget = '_blank';
-  }
 
   const itemHandler = () => {
     if (downLG) handlerDrawerOpen(false);
-
-    if (isParents && setSelectedID) {
-      setSelectedID(item.id);
-    }
+    if (isParents && setSelectedID) setSelectedID(item.id);
   };
 
   const Icon = item.icon;
-  const itemIcon = item.icon ? (
+  const itemIcon = Icon ? (
     <Icon
       style={{
-        fontSize: drawerOpen ? '1.7rem' : '1.9rem', 
+        fontSize: drawerOpen ? '1.7rem' : '1.9rem',
         ...(isParents && { fontSize: 20, stroke: '1.5' })
       }}
     />
-  ) : (
-    false
-  );
+  ) : false;
 
   const { pathname } = useLocation();
-  const isSelected = !!matchPath({ path: item?.link ? item.link : item.url, end: false, }, pathname);
-
-  const textColor = 'text.primary';
-  const iconSelectedColor = 'primary.main';
+  const isSelected = !!matchPath({ path: item?.link ? item.link : item.url, end: false }, pathname);
 
   return (
-    <>
-      <Box sx={{ position: 'relative',  }}>
-        <ListItemButton
-          component={Link}
-          to={item.url}
-          target={itemTarget}
-          disabled={item.disabled}
-          selected={isSelected}
-          sx={(theme) => ({
-            zIndex: 1201,
-            pl: drawerOpen ? `${level * 28}px` : 1.5,
-            py: !drawerOpen && level === 1 ? 1.25 : 1.7,
-            ...(drawerOpen && {
-              '&:hover': {  bgcolor: '#AAA7FF', color:'white'  },
-              '&.Mui-selected': {
-                bgcolor: '#2B04DB',
-                ...theme.applyStyles('white', { bgcolor: '#2B04DB' }),
-                borderRight: '2px solid',
-                width:'250px',
-                marginLeft:'20px',
-                padding:'15px',
-                borderRadius:'12px',
-                borderColor: '#2B04DB',
-                color: 'white',
-                '&:hover': {  color: 'white', bgcolor: '#2B04DB',  }
-              }
-            }),
-            ...(!drawerOpen && {
-              '&:hover': { bgcolor: '#2B04DB' },
-              '&.Mui-selected': { '&:hover': { bgcolor: '#2B04DB' }, bgcolor: '#2B04DB' }
-            })
-          })}
-          onClick={() => itemHandler()}
-        >
-          {itemIcon && (
-            <ListItemIcon
-              sx={(theme) => ({
-                minWidth: 45,
-                color: isSelected ? 'white' : 'gray',
-                ...(!drawerOpen && {
-                  borderRadius: 1.5,
-                  width: 45,
-                  height: 45,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  '&:hover': { bgcolor: 'white', ...theme.applyStyles('white', { bgcolor: 'white' }) }
-                }),
-                ...(!drawerOpen &&
-                  isSelected && {
-                    bgcolor: 'white',
-                    ...theme.applyStyles('white', { bgcolor: 'white' }),
-                    '&:hover': { bgcolor: 'white', ...theme.applyStyles('white', { bgcolor: '#2B04DB' }) }
-                  })
-              })}
-            >
-              {itemIcon}
-            </ListItemIcon>
-          )}
-          {(drawerOpen || (!drawerOpen && level !== 1)) && 
-        
-                        
-          
-          (
-            <ListItemText
-              primary={
-                <Typography variant="h4" sx={{ color: isSelected ? 'white' : 'gray',  }}>
-                  {item.title}
-                </Typography>
-              }
-            />
-          ) }
-          {(drawerOpen || (!drawerOpen && level !== 1)) && item.chip && (
-            <Chip
-              color={item.chip.color}
-              variant={item.chip.variant}
-              size={item.chip.size}
-              label={item.chip.label}
-              avatar={item.chip.avatar && <Avatar>{item.chip.avatar}</Avatar>}
-            />
-          )}
-        </ListItemButton>
-        {(drawerOpen || (!drawerOpen && level !== 1)) &&
-          item?.actions &&
-          item?.actions.map((action, index) => {
-            const ActionIcon = action.icon;
-            const callAction = action?.function;
-            return (
-              <IconButton
-                key={index}
-                {...(action.type === 'function' && {
-                  onClick: (event) => {
-                    event.stopPropagation();
-                    callAction();
-                  }
-                })}
-                {...(action.type === 'link' && {
-                  component: Link,
-                  to: action.url,
-                  target: action.target ? '_blank' : '_self'
-                })}
-                color="secondary"
-                variant="outlined"
+    <Box sx={{ position: 'relative' }}>
+      <ListItemButton
+        component={Link}
+        to={item.url}
+        target={item.target ? '_blank' : '_self'}
+        disabled={item.disabled}
+        selected={isSelected}
+        onClick={itemHandler}
+        sx={{
+          pl: drawerOpen ? `${level * 28}px` : downLG ? 2 : 1.5, // responsive padding-left
+          py: downLG ? 1.5 : !drawerOpen && level === 1 ? 1.25 : 1.7, // responsive padding-y
+          color: 'white',
+          transition: 'all 180ms ease',
+
+          // hover: white bg, orange text/icon
+          '&:hover': {
+            bgcolor: 'white',
+            color: ORANGE,
+            '& .MuiListItemIcon-root': { color: ORANGE },
+            '& .MuiTypography-root': { color: ORANGE }
+          },
+
+          // selected: white bg, orange icon & text
+          '&.Mui-selected': {
+            bgcolor: 'white',
+            color: ORANGE,
+            '& .MuiListItemIcon-root': { color: ORANGE },
+            '& .MuiTypography-root': { color: ORANGE }
+          }
+        }}
+      >
+        {itemIcon && (
+          <ListItemIcon
+            sx={{
+              minWidth: 45,
+              color: 'white', // default icon color
+              transition: 'color 160ms ease'
+            }}
+          >
+            {itemIcon}
+          </ListItemIcon>
+        )}
+
+        {(drawerOpen || (!drawerOpen && level !== 1)) && (
+          <ListItemText
+            primary={
+              <Typography
+                variant="h4"
                 sx={{
-                  position: 'absolute',
-                  top: 12,
-                  right: 20,
-                  zIndex: 1202,
-                  width: 20,
-                  height: 20,
-                  mr: -1,
-                  ml: 1,
-                  color: 'secondary.dark',
-                  borderColor: isSelected ? 'primary.light' : 'secondary.light',
-                  '&:hover': { borderColor: isSelected ? 'white' : 'white' }
+                  color: isSelected ? ORANGE : 'white',
+                  transition: 'color 160ms ease'
                 }}
               >
-                <ActionIcon style={{ fontSize: '0.625rem' }} />
-              </IconButton>
-            );
-          })}
-      </Box>
-    </>
+                {item.title}
+              </Typography>
+            }
+          />
+        )}
+
+        {(drawerOpen || (!drawerOpen && level !== 1)) && item.chip && (
+          <Chip
+            color={item.chip.color}
+            variant={item.chip.variant}
+            size={item.chip.size}
+            label={item.chip.label}
+            avatar={item.chip.avatar && <Avatar>{item.chip.avatar}</Avatar>}
+          />
+        )}
+      </ListItemButton>
+    </Box>
   );
 }
 
@@ -187,37 +121,6 @@ NavItem.propTypes = {
   isParents: PropTypes.bool,
   setSelectedID: PropTypes.oneOfType([PropTypes.any, PropTypes.func])
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

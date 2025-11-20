@@ -90,7 +90,7 @@ export default function Profile() {
         onClick={handleToggle}
       >
         <Stack direction="row" sx={{ gap: 1.25, alignItems: 'center', p: 0.5 }}>
-          <Avatar alt="profile user" src={image} size="md" />
+          <Avatar alt="profile user" src='https://media.istockphoto.com/id/598221526/photo/portrait-of-laughing-young-man-looking-at-camera-in-park.webp?a=1&b=1&s=612x612&w=0&k=20&c=dWOXaVAs8Qa-5m-T_jLe1B4XIBmJh3wFphSJcS_JnsU=' size="md" />
           <Typography variant="subtitle1" sx={{ textTransform: 'capitalize' }}>
             <KeyboardArrowDownIcon/>
           </Typography>
@@ -123,10 +123,10 @@ export default function Profile() {
                     <Grid container justifyContent="space-between" alignItems="center">
                       <Grid>
                         <Stack direction="row" sx={{ gap: 1.25, alignItems: 'center' }}>
-                          <Avatar alt="profile user" src={image} sx={{ width: 32, height: 32 }} />
+                          <Avatar alt="profile user" src='https://images.unsplash.com/photo-1613940102159-1e7a40f2b60e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGhhbmRzb21lJTIwYm95fGVufDB8fDB8fHww' sx={{ width: 32, height: 32 }} />
                           <Stack>
-                            <Typography variant="h6">Pastor Grace</Typography>
-                            <Typography variant="body2" color="text.secondary">
+                            <Typography variant="h3">Victor</Typography>
+                            <Typography variant="h5" color="text.secondary">
                               Admin
                             </Typography>
                           </Stack>

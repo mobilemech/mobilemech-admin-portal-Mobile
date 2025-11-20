@@ -66,24 +66,37 @@ export default function Notification() {
 
   return (
     <Box sx={{ flexShrink: 0, ml: 0.75 }}>
-      <IconButton
-        color="secondary"
-        variant="light"
-        sx={(theme) => ({
-          color: 'text.primary',
-          bgcolor: open ? 'grey.100' : 'transparent',
-          ...theme.applyStyles('dark', { bgcolor: open ? 'background.default' : 'transparent' })
-        })}
-        aria-label="open profile"
-        ref={anchorRef}
-        aria-controls={open ? 'profile-grow' : undefined}
-        aria-haspopup="true"
-        onClick={handleToggle}
-      >
-        <Badge badgeContent={read} color="primary">
-          <BellOutlined />
-        </Badge>
-      </IconButton>
+  <IconButton
+  color="secondary"
+  variant="light"
+  sx={(theme) => ({
+    color: 'text.primary',
+    bgcolor: open ? 'grey.100' : 'transparent',
+    ...theme.applyStyles('dark', { bgcolor: open ? 'background.default' : 'transparent' }),
+    '& .MuiSvgIcon-root': { fontSize: '1.7rem' } 
+  })}
+  aria-label="open profile"
+  ref={anchorRef}
+  aria-controls={open ? 'profile-grow' : undefined}
+  aria-haspopup="true"
+  onClick={handleToggle}
+>
+  <Badge
+    badgeContent={read}
+    sx={{
+      '& .MuiBadge-badge': {
+        backgroundColor: '#f17a28', 
+        color: 'white',             
+        fontSize: '0.75rem',
+        minWidth: 18,
+        height: 18
+      }
+    }}
+  >
+    <BellOutlined />
+  </Badge>
+</IconButton>
+
       <Popper
         placement={downMD ? 'bottom' : 'bottom-end'}
         open={open}

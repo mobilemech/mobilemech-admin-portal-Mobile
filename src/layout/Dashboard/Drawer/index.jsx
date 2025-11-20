@@ -35,26 +35,27 @@ export default function MainDrawer({ window }) {
           {drawerContent}
         </MiniDrawerStyled>
       ) : (
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={drawerOpen}
-          onClose={() => handlerDrawerOpen(!drawerOpen)}
-          ModalProps={{ keepMounted: true }}
-          sx={{
-            display: { xs: drawerOpen ? 'block' : 'none', lg: 'none' },
-            '& .MuiDrawer-paper': {
-              boxSizing: 'border-box',
-              width: DRAWER_WIDTH,
-              borderRight: '1px solid',
-              borderRightColor: 'divider',
-              boxShadow: 'inherit'
-            }
-          }}
-        >
-          {drawerHeader}
-          {drawerContent}
-        </Drawer>
+   <Drawer
+  container={container}
+  variant="temporary"
+  open={drawerOpen}
+  onClose={() => handlerDrawerOpen(!drawerOpen)}
+  ModalProps={{ keepMounted: true }}
+  sx={{
+    display: { xs: drawerOpen ? 'block' : 'none', lg: 'none' },
+    '& .MuiDrawer-paper': {
+      width: DRAWER_WIDTH,
+      bgcolor: '#f17a28', // match desktop drawer background
+      borderRight: '1px solid',
+      borderRightColor: 'divider',
+      boxShadow: 'inherit'
+    }
+  }}
+>
+  {drawerHeader}
+  {drawerContent}
+</Drawer>
+
       )}
     </Box>
   );
