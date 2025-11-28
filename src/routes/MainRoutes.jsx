@@ -14,6 +14,7 @@ const Activities = Loadable(lazy(() => import('pages/component-overview/Activiti
 const Mechanic = Loadable(lazy(() => import('pages/component-overview/Mechanic')));
 const CarOwner = Loadable(lazy(() => import('pages/component-overview/CarOwner')));
 const Services = Loadable(lazy(() => import('pages/component-overview/Services')));
+const Complaints = Loadable(lazy(() => import('pages/component-overview/Complaints')));
 const Logout = Loadable(lazy(() => import('pages/component-overview/Logout')));
 
 const Admins = Loadable(lazy(() => import('pages/component-overview/Admins')));
@@ -87,6 +88,14 @@ const MainRoutes = {
       path: 'Services',
       element: <Services />
     },
+
+
+       
+    {
+      path: 'Complaints',
+      element: <Complaints />
+    },
+
 
 
 

@@ -1,11 +1,12 @@
 // assets
 
-import Diversity3Icon from '@mui/icons-material/Diversity3';
-import ChurchIcon from '@mui/icons-material/Church';
 
 import SettingsIcon from '@mui/icons-material/Settings';
+import Diversity2Icon from '@mui/icons-material/Diversity2';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
 
 
+import LogoutIcon from '@mui/icons-material/Logout';
 
 
 
@@ -33,28 +34,28 @@ const Managemnt = {
       title: 'Activities',
       type: 'item',
       url: '/dashboard/Activities',
-      icon: Diversity3Icon
+      icon: Diversity2Icon
     },
     {
       id: 'Analytics',
       title: 'Analytics',
       type: 'item',
       url: '/dashboard/Analytics',
-      icon: ChurchIcon
+      icon: AnalyticsIcon
     },
     {
       id: 'Settings',
       title: 'Settings',
       type: 'item',
       url: '/dashboard/Settings',
-      icon: ChurchIcon
+      icon: SettingsIcon
     },
     {
       id: 'Logout',
       title: 'Log Out',
       type: 'item',
       url: '/dashboard/Logout',
-      icon: SettingsIcon
+      icon: LogoutIcon
     }
   ]
 };

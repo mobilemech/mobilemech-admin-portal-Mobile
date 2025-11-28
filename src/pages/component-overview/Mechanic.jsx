@@ -33,6 +33,8 @@ import {
   ChevronRight,
 } from "@mui/icons-material";
 
+import MechanicProfileModal from "./Modals/MechanicProfileModal";
+
 
 
 const createMechanic = (id) => {
@@ -96,6 +98,23 @@ export default function Mechanic() {
   const [width, setWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
   );
+
+
+  const [selectedMechanic, setSelectedMechanic] = useState(null);
+   const [openModal, setOpenModal] = useState(false);
+
+const handleView = (mechanic) => {
+  setSelectedMechanic(mechanic);
+  setOpenModal(true);
+};
+
+
+
+
+
+
+
+
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -284,6 +303,34 @@ export default function Mechanic() {
 
 
 
+
+
+  
+      <MechanicProfileModal
+  open={openModal}
+  onClose={() => setOpenModal(false)}
+  mechanic={selectedMechanic}
+/>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </Grid>
 
       {/* TABLE */}
@@ -337,7 +384,7 @@ export default function Mechanic() {
                   <TableCell align="center">
                     <Tooltip title="View">
                       <IconButton size="small">
-                        <Visibility fontSize="small" />
+                        <Visibility fontSize="small" onClick={() => handleView(m)} />
                       </IconButton>
                     </Tooltip>
                     <Tooltip title="Edit">
@@ -394,6 +441,24 @@ export default function Mechanic() {
           </Box>
         </Box>
       </Paper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
     </Box>
   );
 }

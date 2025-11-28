@@ -1,11 +1,11 @@
 
-
-import LocalPharmacyIcon from '@mui/icons-material/LocalPharmacy';
-import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
-import AttractionsIcon from '@mui/icons-material/Attractions';
-import CommentIcon from '@mui/icons-material/Comment';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import ConstructionIcon from '@mui/icons-material/Construction';
+import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
+import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import MessageIcon from '@mui/icons-material/Message';
+import PaymentsIcon from '@mui/icons-material/Payments';
 
 const support = {
  // id: 'support',
@@ -17,42 +17,49 @@ const support = {
       title: 'Mechanic',
       type: 'item',
       url: '/dashboard/Mechanic',
-      icon: LocalPharmacyIcon
+      icon: ConstructionIcon
     },
     {
       id: 'Car Owner',
       title: 'Car Owner',
       type: 'item',
       url: '/dashboard/CarOwner',
-      icon: CalendarMonthIcon
+      icon: LocalShippingIcon
     },
     {
       id: 'Services',
       title: 'Services',
       type: 'item',
       url: '/dashboard/Services',
-      icon: VolunteerActivismIcon
+      icon: MiscellaneousServicesIcon
+    },
+       {
+      id: 'Complaints and Resolutions',
+      title: 'Complaints and Resolutions',
+      type: 'item',
+      url: '/dashboard/Complaints',
+      icon: RecordVoiceOverIcon
     },
     {
       id: 'Admins',
       title: 'Admins',
       type: 'item',
       url: '/dashboard/Admins',
-      icon: MenuBookIcon
+      icon: PeopleAltIcon
     },
     {
       id: 'Messages',
       title: 'Messages',
       type: 'item',
       url: '/dashboard/Messages',
-      icon: AttractionsIcon
+      icon: MessageIcon
     },
     {
       id: 'Finance',
       title: 'Finance',
       type: 'item',
       url: '/dashboard/Finance',
-      icon: CommentIcon
+      icon: PaymentsIcon
     }
   ]
 };
