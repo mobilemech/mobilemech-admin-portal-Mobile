@@ -160,14 +160,11 @@ export default function MechanicProfileModal({ open, onClose, mechanic }) {
                                 </Grid>
 
                                 <Grid item xs={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mt: 2 }}>
-                                    <Typography variant="h4" fontWeight={700}>Role : </Typography>
-                                    <Typography variant="h4">Mechanic</Typography>
+                                    <Typography variant="h4" fontWeight={700}>Date Joined : </Typography>
+                                    <Typography variant="h4">{mechanic.dateJoined}</Typography>
                                 </Grid>
 
-                                <Grid item xs={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mt: 2 }}>
-                                    <Typography variant="h4" fontWeight={700}>Registered Date : </Typography>
-                                    <Typography variant="h5">Feb 14, 2024</Typography>
-                                </Grid>
+                             
 
 
 

@@ -215,7 +215,7 @@ export default function DashboardDefault() {
             </Avatar>
             <Box>
               <Typography variant="h4" color="text.secondary">
-                Total Admin
+                Total Users
               </Typography>
               <Typography sx={{ fontWeight: 800, mt: 0.5, fontSize: 24 }}>1,430</Typography>
             </Box>
@@ -245,7 +245,7 @@ export default function DashboardDefault() {
             </Avatar>
             <Box>
               <Typography variant="h4" color="text.secondary">
-                Active Mechanics
+                All Mechanics
               </Typography>
               <Typography sx={{ fontWeight: 800, mt: 0.5, fontSize: 24 }}>187</Typography>
             </Box>
@@ -275,7 +275,7 @@ export default function DashboardDefault() {
             </Avatar>
             <Box>
               <Typography variant="h4" color="text.secondary">
-                Active Car Owners
+                All Car Owners
               </Typography>
               <Typography sx={{ fontWeight: 800, mt: 0.5, fontSize: 24 }}>1,430</Typography>
             </Box>

@@ -1,5 +1,4 @@
 
-// Mechanic.jsx
 import React, { useEffect, useMemo, useState } from "react";
 import {
   Box,
@@ -78,13 +77,21 @@ const createMechanic = (id) => {
   const phone = `0902${Math.floor(100000 + (id * 37) % 900000)}`;
   const status = id % 5 === 0 ? "Inactive" : "Active";
 
+  // Generate a different "date joined" for each user
+  const baseDate = new Date(2023, 0, 1); // Jan 1, 2023
+  const dateJoined = new Date(
+    baseDate.getTime() + id * 86400000 * 7 // each id = +7 days
+  )
+    .toISOString()
+    .split("T")[0]; // format: YYYY-MM-DD
+
   return {
     id,
     name,
     email,
     phone,
     status,
-    role: "Car Owner",
+    dateJoined, // ← NEW FIELD
     avatar: avatars[id % avatars.length],
   };
 };
@@ -343,7 +350,7 @@ const handleView = (mechanic) => {
                 <TableCell sx={{ fontWeight: 700, fontSize: 16 }}>EMAIL</TableCell>
                 <TableCell sx={{ fontWeight: 700, fontSize: 16 }}>PHONE</TableCell>
                 <TableCell sx={{ fontWeight: 700, fontSize: 16 }}>STATUS</TableCell>
-                <TableCell sx={{ fontWeight: 700, fontSize: 16 }}>ROLE</TableCell>
+                <TableCell sx={{ fontWeight: 700, fontSize: 16 }}>DATE JOINED</TableCell>
                 <TableCell align="center" sx={{ fontWeight: 700, fontSize: 16 }}>
                   ACTION
                 </TableCell>
@@ -379,7 +386,7 @@ const handleView = (mechanic) => {
                     )}
                   </TableCell>
 
-                  <TableCell sx={{ fontSize: 18 }}>{m.role}</TableCell>
+                  <TableCell sx={{ fontSize: 18 }}>{m.dateJoined}</TableCell>
 
                   <TableCell align="center">
                     <Tooltip title="View">
