@@ -55,6 +55,8 @@ import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import PaidIcon from '@mui/icons-material/Paid';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
 
 
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, AreaChart, Area } from "recharts";
@@ -809,7 +811,7 @@ export default function Finance() {
                 </Typography>
                 <Button
                   size="large"
-                  sx={{ textTransform: "none", color: "#2B04DB", fontSize: 17 }}
+                  sx={{ textTransform: "none", color: "#DB6F24", fontSize: 20 }}
                 >
                   View All
                 </Button>
@@ -848,25 +850,25 @@ export default function Finance() {
                     <Stack
                       sx={{
                         gap: 0.5,
-                        color: "#2B04DB",
+                        color: "#DB6F24",
                         height: 65,
                         width: 65,
                         alignItems: "center",
                         justifyContent: "center",
                         borderRadius: "50%",
-                        background: "#F1F2FF",
+                        background: "#FBD6BC",
                       }}
                     >
-                      <VolunteerActivismIcon sx={{ width: 40, height: 40 }} />
+                      <ConstructionIcon sx={{ width: 40, height: 40 }} />
                     </Stack>
                   </ListItemAvatar>
                   <ListItemText
                     sx={{ ml: 2 }}
                     primary={
-                      <Typography variant="h4">6 New Donations</Typography>
+                      <Typography variant="h3">Service-Based Earnings</Typography>
                     }
                     secondary={
-                      <Typography variant="h5">View Donations</Typography>
+                      <Typography variant="h5" color="secondary">Diagnostics category generated ₦52,000 in revenue this week.</Typography>
                     }
                   />
                 </ListItem>
@@ -887,26 +889,26 @@ export default function Finance() {
                   <ListItemAvatar>
                     <Stack
                       sx={{
-                        gap: 0.5,
-                        color: "#2B04DB",
+                           gap: 0.5,
+                        color: "#DB6F24",
                         height: 65,
                         width: 65,
                         alignItems: "center",
                         justifyContent: "center",
                         borderRadius: "50%",
-                        background: "#F1F2FF",
+                        background: "#FBD6BC",
                       }}
                     >
-                      <VolunteerActivismIcon sx={{ width: 40, height: 40 }} />
+                      <AttachMoneyIcon sx={{ width: 40, height: 40 }} />
                     </Stack>
                   </ListItemAvatar>
                   <ListItemText
                     sx={{ ml: 2 }}
                     primary={
-                      <Typography variant="h4">6 New Donations</Typography>
+                      <Typography variant="h3">Successful Payments</Typography>
                     }
                     secondary={
-                      <Typography variant="h5">View Donations</Typography>
+                      <Typography variant="h5" color="secondary">₦18,000 payment received from Tolu Martins for Brake Pad Replacement.</Typography>
                     }
                   />
                 </ListItem>
@@ -927,26 +929,26 @@ export default function Finance() {
                   <ListItemAvatar>
                     <Stack
                       sx={{
-                        gap: 0.5,
-                        color: "#CC6002",
+                         gap: 0.5,
+                        color: "#DB6F24",
                         height: 65,
                         width: 65,
                         alignItems: "center",
                         justifyContent: "center",
                         borderRadius: "50%",
-                        background: "#FFF9EB",
+                        background: "#FBD6BC",
                       }}
                     >
-                      <MessageIcon sx={{ width: 40, height: 40 }} />
+                      <AttachMoneyIcon sx={{ width: 40, height: 40 }} />
                     </Stack>
                   </ListItemAvatar>
                   <ListItemText
                     sx={{ ml: 2 }}
-                    primary={
-                      <Typography variant="h4">Donation Target hit!</Typography>
+                        primary={
+                      <Typography variant="h3">Successful Payments</Typography>
                     }
                     secondary={
-                      <Typography variant="h5">View Request</Typography>
+                      <Typography variant="h5" color="secondary">₦18,000 payment received from Tolu Martins for Brake Pad Replacement.</Typography>
                     }
                   />
                 </ListItem>
@@ -967,26 +969,26 @@ export default function Finance() {
                   <ListItemAvatar>
                     <Stack
                       sx={{
-                        gap: 0.5,
-                        color: "#CC6002",
+                             gap: 0.5,
+                        color: "#DB6F24",
                         height: 65,
                         width: 65,
                         alignItems: "center",
                         justifyContent: "center",
                         borderRadius: "50%",
-                        background: "#FFF9EB",
+                        background: "#FBD6BC",
                       }}
                     >
-                      <MessageIcon sx={{ width: 40, height: 40 }} />
+                      <CheckCircleIcon  sx={{ width: 40, height: 40 }} />
                     </Stack>
                   </ListItemAvatar>
                   <ListItemText
                     sx={{ ml: 2 }}
-                    primary={
-                      <Typography variant="h4">Donation Target hit!</Typography>
+                        primary={
+                      <Typography variant="h3">Payout Request</Typography>
                     }
                     secondary={
-                      <Typography variant="h5">View Schedule</Typography>
+                      <Typography variant="h5" color="secondary">Pending payout request of ₦15,000 from C. Bello awaiting approval..</Typography>
                     }
                   />
                 </ListItem>
