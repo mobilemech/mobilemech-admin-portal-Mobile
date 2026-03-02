@@ -639,7 +639,7 @@ export default function Settings() {
             <Box
               sx={{
                 flex: 1,
-                width: { xs: "100%", md: "50%" }, // full width on mobile
+                width: { xs: "100%", md: "50%" }, // going full width on mobile
               }}
             >
               <Typography sx={{ fontWeight: 600, mb: 2, fontSize: 30, mt: 3 }}>
